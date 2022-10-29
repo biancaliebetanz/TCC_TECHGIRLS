@@ -121,7 +121,10 @@ export default function Pedido(){
             
           <LinhaFinalizacao alterar1='alterar1' alterar2='alterar2' alterar3='alterar3'/>
 
-
+            <div className='titulo'>
+                <p>Selecione  o endereço em que deseja  receber seu pacote </p>
+                <hr></hr>
+            </div>
           <div>
                 <div>
                 {enderecos.map(item =>
@@ -171,7 +174,8 @@ export default function Pedido(){
             <div className='formulario-cartao'>
             <CaixaPagamento></CaixaPagamento>
 
-                <div>
+                <div className='compra'>
+                    <img src='./../../../images/cartao.png'></img>
                     <p className='pagamento'>Pagamento</p>
                 </div>
             <div className='fileira1'>
@@ -232,7 +236,7 @@ export default function Pedido(){
             
             </div>
             
-                    <button onClick={SalvarPedido}>Entrega</button>
+                    <button className='salvar' onClick={SalvarPedido}>Finalizar</button>
                     <Rodape></Rodape>
         </main>
     )

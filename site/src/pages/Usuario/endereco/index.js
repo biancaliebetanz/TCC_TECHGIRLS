@@ -11,6 +11,7 @@ import Caixa from '../../../components/boxInfos/boxInfos';
 import CadastroEndereco from '../../../components/CadEndereco';
 import MenuUsuario from '../../../components/menuUsuario/menuUsuario';
 import Rodape from '../../../components/rodape';
+import Legendas from '../../../components/cabLegenda';
 
 export default function Index(){
 
@@ -34,7 +35,8 @@ export default function Index(){
         <main className='SeusEnderecos'>
             <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
-            <Tema cor='cor-endereco' nome='Endereço'/>    
+                        <Legendas nome="Endereços"></Legendas>
+
             <Caixa ajuste='ajuste-caixa-endereco'></Caixa>
             <MenuUsuario></MenuUsuario>
             <section>

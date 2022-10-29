@@ -5,13 +5,14 @@ import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalho
 import Caixa from '../../../components/boxInfos/boxInfos.js';
 import MenuUsuario from '../../../components/menuUsuario/menuUsuario';
 import Rodape from '../../../components/rodape';
+import Legendas from '../../../components/cabLegenda';
 
 export default function Index(){
     return(
         <main className='meusPedidos'>
         <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
-            <Tema cor='cor-pedido' nome='Meus Pedidos'></Tema>     
+                                    <Legendas nome="Seus Pedidos"></Legendas>
 
             <Caixa ></Caixa>
             <MenuUsuario ></MenuUsuario>
