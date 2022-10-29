@@ -1,16 +1,12 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { API_URL } from '../../API/config';
+import { deletarTema } from '../../API/tema/temaAPI';
 import './tema.scss'
 
 export default function Tema(props){
 
-    function exibir(imagem){
-        if(!imagem){
-            return '';
-        }
-        else{
-            return `${API_URL}/${imagem}`;
-        }
-    }
+
     
     return(
         <div className='tema'>
@@ -18,13 +14,13 @@ export default function Tema(props){
                 <h4 className={props.cor}> {props.nome} </h4>
 
                 <div>
-                    <button> editar </button>
-                    <button> remover </button>
+                    <button onClick={props.editar}> editar </button>
+                    <button onClick={props.deletar}> remover </button>
                 </div>
 
             </div>
 
-            <img className='img' src={exibir(props.imagem)} alt='' />
+            <img className='img' src={props.imagem} alt='' />
         </div>
     )
 }

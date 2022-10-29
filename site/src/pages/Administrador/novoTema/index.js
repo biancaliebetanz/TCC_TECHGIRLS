@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API_URL } from "../../../API/config.js";
 import { alterarTema, buscarTemaId, CadastrarImgTema, inserirTema } from "../../../API/tema/temaAPI.js";
@@ -7,6 +7,8 @@ import MenuAdmin from "../../../components/pagAdm/pagAdm.js";
 import "./index.scss";
 
 export default function Index() {
+
+    const navigate = useNavigate();
 
     const [nome, setNome] = useState('');
     const [imagem, setImagem] = useState();
@@ -36,6 +38,9 @@ export default function Index() {
         if(id){
         const x = await alterarTema(id, nome, cor)
         toast('Tema Alterado')
+        setTimeout(() => {
+            navigate('/admin/temas');
+        }, 1500);
         }
         else {
         console.log(nome)
@@ -44,6 +49,9 @@ export default function Index() {
         const y = await CadastrarImgTema(x.id, imagem)
         console.log(x)
         toast('Tema inserido')
+        setTimeout(() => {
+            navigate('/admin/temas');
+        }, 1500);
         }
         }
         catch(err){

@@ -1,11 +1,13 @@
 import './index.scss';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { UsuarioCadastro } from '../../../API/Usuario';
 import { toast } from 'react-toastify';
 import { InserirUsuarioLogin } from '../../../API/logAdm';
 
 export default function Index() {
+
+    const navigate = useNavigate();
 
     const [nome, setNome] = useState('');
     const [telefone, setTelefone] = useState('');
@@ -18,15 +20,42 @@ export default function Index() {
 
     async function cadastrarUsuario() {
         try{
+            if(!nome){
+                throw new Error('Nome não inserido!')
+            }
+            if(!telefone){
+                throw new Error('Telefone não inserido!')
+            }
+            if(!datadenasc){
+                throw new Error('Nascimento não inserido!')
+            }
+            if(!rg){
+                throw new Error('RG não inserido!')
+            }
+            if(!cpf){
+                throw new Error('CPF não inserido!')
+            }
+            if(!email){
+                throw new Error('Email não inserido!')
+            }
+            if(!senha){
+                throw new Error('Senha não inserida!')
+            }
+            if(!confSenha){
+                throw new Error('Confirme sua senha')
+            }
             const a = await UsuarioCadastro(nome, telefone, cpf, rg, datadenasc);
             console.log(a);
             if (senha == confSenha) {
             const b = await InserirUsuarioLogin(a.id, email, senha);
-            toast('Usuário cadastrado')
+            toast('Usuário cadastrado! Bem vindo, ' + nome)
             }
+            setTimeout(() => {
+                navigate('/login/usuario');
+            }, 1500);
         }
         catch(err){
-            toast.error({ Erro: err.message})
+            toast.error('ERRO: ' + err.message);
         }
        
     }
