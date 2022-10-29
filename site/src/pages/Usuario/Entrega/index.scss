@@ -16,7 +16,22 @@
     color: #8d8c8c;
 }
 
+.titulo{
+    color: #FF2C83;
+    p{  
+        position: relative;
+        left: 5em;
+        top: 2em;
+    }
+    hr{
+        width: 35%;
+        border: 1px solid #FF2C83; 
+        position: relative;
+        left: 5em;
+        top: 2.8em;
 
+    }
+}
 
 //Resumo do Pedido
 .cab-res-ped{
@@ -124,21 +139,33 @@
 }
 .formulario-cartao{
     position: relative;
-    left: 9em;
+    left: 6em;
     bottom: 7em;
 
-    .pagamento{
-        position: relative;
-        bottom: 1em;
+    .compra{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        img{
+            position: relative;
+            top: 2em;
+            left: 2em;
+        }
+        .pagamento{
+            position: relative;
+            top: 2.5em;
+            left: 3em;
+        }
+        
     }
-    
     .fileira1{
         display: flex;
         flex-direction: row;
         margin-top: 1em;
         position: relative;
-        bottom: 15em;
-        
+        top: 3em;        
+        left: 2em;
 
         .div1{
             input{
@@ -174,6 +201,19 @@ p{
     font-size: 13px;
     margin-bottom: 0.5em;
 }
+}
+.salvar{
+    position: relative;
+    left: 75%;
+    bottom: 6em;
+
+   padding: 1em 6em;
+
+background: #521FAF;
+color: #fff;
+border: none;
+border-radius: 5px;
+
 }
 }
 
