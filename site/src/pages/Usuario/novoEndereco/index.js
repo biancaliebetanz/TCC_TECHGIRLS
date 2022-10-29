@@ -3,7 +3,6 @@ import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalho
 import CadastroEndereco from "../../../components/CadEndereco/index.js";
 import MenuUsuario from "../../../components/menuUsuario/menuUsuario.js";
 import Rodape from "../../../components/rodape/index.js";
-import Tema from "../../../components/tema/tema.js";
 import './index.scss'
 
 export default function Index(){
@@ -11,7 +10,6 @@ export default function Index(){
         <main className="novoEndereco">
              <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
-            <Tema cor='cor-novo-endereco' nome='Novo Endereço'></Tema>     
 
             <Caixa ></Caixa>
             <MenuUsuario ></MenuUsuario>

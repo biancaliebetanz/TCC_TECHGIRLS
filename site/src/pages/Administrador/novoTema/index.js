@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { FALSE } from "sass";
 import { API_URL } from "../../../API/config.js";
 import { alterarTema, buscarTemaId, CadastrarImgTema, inserirTema } from "../../../API/tema/temaAPI.js";
 import MenuAdmin from "../../../components/pagAdm/pagAdm.js";
