@@ -1,0 +1,29 @@
+.tema {
+    height: 40vh;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    
+h4{
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Lexend-Regular';
+    text-transform: uppercase;
+    
+}
+
+.esp {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.img {
+    width: 50%;
+    height: 100%;
+}
+
+}

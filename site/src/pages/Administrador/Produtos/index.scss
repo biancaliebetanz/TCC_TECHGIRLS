@@ -1,0 +1,55 @@
+*{
+    .Novo-Produto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../../../../public/images/planodefundo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    .cardProdutos{
+        background-color:#ffffff;
+
+    }
+
+    .produtosmapeamento {
+        display: flex;
+        align-self: center;
+        flex-direction: row;
+        justify-content: left;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        padding: 2em 1em;
+    }
+
+    .centralizar {
+        display: flex;
+        align-items: left;
+    }
+
+    .espacamento {
+        display: flex;
+        width: 100%;
+        padding: 2em;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .edit {
+        background-color: #521FAF;
+        font-family: "Lexend-Regular";
+        color: #ffffff;
+        font-size: 12px;
+        text-decoration: none;
+        text-align: left;
+        padding: 0.5em 1em;
+    }
+}

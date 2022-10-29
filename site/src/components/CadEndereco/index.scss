@@ -1,0 +1,107 @@
+.comp-endereco{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 2em;
+    bottom: 12em;
+
+    
+    
+p{
+    color: #6e6e6e;
+    margin-bottom: 0.5em;
+
+}
+
+.endereco{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    position: relative;
+    bottom: 3.5em;
+
+    img{
+        width: 28px;
+        height: 28px;
+    }
+    p{
+        font-size: 1.4em;
+        margin-left: 0.5em;
+        margin-top: 0.5em;
+    }
+}
+.endereco1{
+    display: flex;
+    flex-direction: row;
+}
+.div2{
+   p{
+    margin-left: 2.5em;
+   }
+   input{
+    margin-left: 3em;
+    width: 25em;
+   }
+}
+
+.div3{
+    
+    input{
+     width: 33em;
+    }
+ }
+
+ .div4{
+    p{
+        margin-left: 2.5em;
+    }
+    
+    input{
+     width: 6em;
+     margin-left: 3em;
+
+    }
+ }
+
+ 
+
+ .div6{
+    p{
+        margin-left: 2.5em;
+    }
+    
+    input{
+     width: 12em;
+     margin-left: 3em;
+
+    }
+ }
+
+input{
+    border: 1px solid #FF2C83;
+    margin-bottom: 1em;
+    height: 1.7em;
+}
+
+
+ .btn{
+    display: flex;
+    justify-content: end;
+ }
+button{
+    width: 140px;
+    height: 30px;
+
+    position: relative;
+    top: 10em;
+    left: 20em;
+
+
+
+background: #521FAF;
+color: #fff;
+border-radius: 10px;
+border: none;
+}
+}

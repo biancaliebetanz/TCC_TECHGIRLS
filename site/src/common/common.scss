@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'Lexend-Black';
+    src: url(../../public/fonts/Lexend-Black.ttf);
+}
+
+@font-face {
+    font-family: 'Lexend-Bold';
+    src: url(../../public/fonts/Lexend-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Lexend-Regular';
+    src: url(../../public/fonts/Lexend-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Lexend-Light';
+    src: url(../../public/fonts/Lexend-Light.ttf);
+}
+
+.fundo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 65em;
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    }
+
+h1 {
+    font-family: 'Lexend-Bold';
+}
+
+p {
+    font-family: 'Lexend-Regular';
+}
+
+label {
+    font-family: 'Lexend-Bold';
+    font-weight: 100;
+}
+
+input {
+    font-family: 'Lexend-Light';
+    font-weight: 200;
+}
+
+h2 {
+    font-family: 'Lexend-Bold';
+    font-weight: 100;
+}
+
+h3 {
+    font-family: 'Lexend-Bold';
+    font-weight: 100;
+}
+
+button {
+    font-family: 'Lexend-Bold';
+}
+
+
+a {
+    font-family: 'Lexend-Regular';
+}
+
+h4 {
+    font-family: 'Lexend-Regular';
+}

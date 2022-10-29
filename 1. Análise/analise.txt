@@ -1,0 +1,58 @@
+// PRODUTO
+
+// TEMA
+
+// CATEGORIA
+
+// LOGIN
+
+2. Inserir usuario login (post) 'login/usuario'
+    req{
+        "id"
+        "email"
+        "senha"
+    }
+    resp {
+        status: 204
+    }
+
+
+//  USUARIO
+
+1. Inserir Usuário (post) '/usuario'
+    req {
+        "nome"
+        "email"
+        "telefone"
+        "cpf"
+        "rg"
+    }
+    resp {
+        "id"
+        "nome"
+        "email"
+        "telefone"
+        "cpf"
+        "rg"
+    }
+
+    // PEDIDO
+
+    INSERIR PEDIDO
+{
+  "endereco": 1,
+  "tipoFrete": "Normal",
+  "cartao":{
+    "usuario": 1,
+    "nomeCartao": "cefjvw",
+    "numero": "000 000 000 000",
+    "validade": "2023-09-12",
+    "codigo": "404",
+    "cpf": "000.000.000-00",
+    "parcelas": 2
+  },
+  "produto": [{
+    "id": 2,
+    "qtd": 1
+  }]
+}

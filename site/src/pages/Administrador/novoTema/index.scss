@@ -1,0 +1,73 @@
+.novoTema{height: 90vh;
+    
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../../../../public/images/planodefundo.png");
+    background-position: -55px -200px;
+    align-items: center;
+    justify-content: center;
+
+    .nome {
+        padding: 0.5em;
+    }
+
+ .reg-temas{
+    display: flex;
+    flex-direction: column;
+
+    background-color: #fff;
+    background-size: 25em;
+    width: 65em;
+    height: 90vh;
+    
+
+    h2{
+        text-align: center;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    div{
+        margin-top: 3em;
+        margin-left: 6em;
+
+    }
+    .div1{
+        input{
+            height: 1.8em;
+            width: 38%;
+            background-color: #cfcccc;
+            border: none;
+        }
+    }
+    p{
+        margin-bottom: 0.8em;
+    }
+  .botao{
+        display: flex;
+        justify-content: center;
+       
+    button{
+        margin-top: 2em;
+        padding: 7px 60px;
+        border: none;
+        background-color: #FF2C83;
+        color: #fff;
+        border-radius: 2px;
+        
+       }
+  }
+
+}
+
+.imagemtema {
+    height: 12em;
+    width: 8em;
+}
+
+#imagem {
+    visibility: hidden;
+}
+
+}

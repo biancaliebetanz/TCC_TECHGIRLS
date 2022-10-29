@@ -1,0 +1,27 @@
+.itemfundo {
+    
+    font-family: 'Lexend-Light';
+    border-radius: 5px;
+    border: 1px solid #FF2C83;
+    color: #000;
+    background-color: white;
+    margin: 0.7em 0.5em;
+    
+    .deletebutton{
+        position: relative;
+        bottom: 10px;
+        right: -5px;
+        padding: 1px 4px;
+        background-color: #FF2C83;
+        color: #fff;
+        border: none;
+        border-radius: 100%;
+    }
+
+    .deletebutton:hover {
+        cursor: pointer;
+        background-color: rgb(216, 113, 130);
+    }
+
+}
+

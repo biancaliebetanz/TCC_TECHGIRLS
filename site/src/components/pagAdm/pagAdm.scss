@@ -1,0 +1,19 @@
+.menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1.2em;
+        background-image: linear-gradient(to bottom, #3F93AF, #BA3272);
+        height: 90vh;
+        width: 11em;
+        text-align: center;
+
+    .opcao{
+        text-decoration: none;
+        font-size: 1.2em;
+        color: #ffffff;
+        margin-left: 12px;
+    }
+
+    
+}

@@ -1,0 +1,73 @@
+
+    .temas {
+        display: flex ;
+        justify-content: center ;
+        height: 90vh;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        background-image: url("../../../../public/images/planodefundo.png");
+        background-position: -55px -200px;
+        align-items: center;
+        justify-content: center;
+    
+    .titulo {
+        font-family: 'Lexend-Bold';
+        font-size: 20px;
+    }
+
+    .tema-container {
+        background-color: #fff;
+        background-size: 25em;
+        width: 65em;
+        height: 90vh;
+
+    } 
+
+    
+    h2 {
+        display: flex;
+        font-size: 2em;
+        justify-content: center;
+        padding-top: 1em;
+    }
+
+    .butao {
+        color: #fff;
+        background-color: #FF2C83;
+        border: 0;
+        width: 8em;
+        height: 2em;
+        font-family: 'Lexend-Regular';
+        margin-left: 4em;
+        cursor: pointer;
+        font-size: 12px;
+        text-decoration: none;
+        text-align: left;
+        padding: 0.5em 1em;
+    }
+
+    .tema {
+        text-align: center;
+        background-color: #FF4B00;
+        border-radius: 1.5em;
+        height: 25vh;
+        width: 25vw;
+        margin: 2em 3em;
+        overflow: visible;
+    }
+
+    .cont-tema {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 80%;
+        overflow-y: scroll;
+    }
+
+}
+
+
+ 
+

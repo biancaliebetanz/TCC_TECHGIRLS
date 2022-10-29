@@ -1,0 +1,223 @@
+.main {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .landing-conteudo {
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        width: 100%;
+        margin-top: 15vh;
+    }
+
+.banner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    bottom: 1em;
+}
+
+.faixa{
+    padding: 1.5em;
+    display: flex;
+    justify-content: space-around;
+    background-color: #FBF8F8;
+    align-items: center;
+
+    position: relative;
+    bottom: 2em;
+}
+.linha-vertical{
+    width: 40px;
+    height: 0px;
+    background-color: #000;
+
+    transform: rotate(88.6deg);
+}
+.icons-1{
+    width: 85px;
+    height: 55px;
+}
+.icons-3{
+    height: 3em;
+}
+.main p{
+    width: 220px;
+    font-size: 14px;
+    text-align: center;
+}
+.buscados{
+    display: flex;
+    height: 99vh;
+    flex-direction: column;
+    width: 100%;
+    background-image: url("../../../../public/images/nuvemdegrade.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}
+
+.setas{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 1em 4em;
+    justify-content: space-between;
+}
+.seta{
+    height: 3em;
+    width: 3em;
+}
+
+.sessaoTemas{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background-color: #420555;
+    padding-bottom: 10em;
+
+}
+.encontre{
+    text-align: center;
+    color: #FBF8F8;
+    margin-top: 4em;
+
+}
+
+.main h2{
+    padding-top: 5em;
+    text-align: center;
+    color: #fff;
+}
+.sessao{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    margin-top: 5em;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    
+}
+.Tema1{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+    font-size: 20px;
+    border-radius: 0px 0px 20px 20px;
+    background-color: #FF4B00;
+    color: #fff;
+
+    position: relative;
+    bottom: 1px;
+    text-decoration: none;
+
+}
+.Tema2{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+    font-size: 20px;
+
+    border-radius: 0px 0px 20px 20px;
+    background-color: #00B9AE;
+    color: #fff;
+    text-decoration: none;
+
+}
+.Tema3{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+    font-size: 20px;
+
+    border-radius: 0px 0px 20px 20px;
+    background-color: #FF2C83;
+    color: #fff;
+    text-decoration: none;
+
+}
+.Tema4{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1.5em;
+        padding-top: 1em;
+        font-size: 20px;
+
+        border-radius: 0px 0px 20px 20px;
+        background-color: #FFC501;
+        color: #fff;
+        text-decoration: none;
+
+}
+.Tema5{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+    font-size: 20px;
+
+    border-radius: 0px 0px 20px 20px;
+    background-color: #4EB9DB;
+    color: #fff;
+    text-decoration: none;
+
+
+}
+.Tema6{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+    font-size: 20px;
+
+    border-radius: 0px 0px 20px 20px;
+    background-color: #521FAF;
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.Bem-vindo{
+    height: 100vh;
+    overflow: hidden;
+}
+.h3{
+    background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+    width: 12.5em;
+    line-height: 43px;
+    text-align: center;
+
+    position: relative;
+    top:  -22em;
+    left: 26em;
+}
+.texto{
+    font-size: 23px;
+    width: 20em;
+    line-height: 45px;
+    text-align: center;
+
+
+    position: relative;
+    left: 33em;
+    top: -25em;
+}
+.galaxia{
+    margin: 0px;
+    height: 100%;
+}
+
+}

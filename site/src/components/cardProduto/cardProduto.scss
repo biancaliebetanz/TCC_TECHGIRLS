@@ -1,0 +1,19 @@
+.cardprd {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0.5em;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 16em;
+    width: 12em;
+    font-family: 'Lexend-Light';
+    font-size: 20px;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+
+    .imagemcardzinho {
+        width: 7em;
+        height: 8.5em;
+    }
+}

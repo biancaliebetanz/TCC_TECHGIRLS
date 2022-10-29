@@ -1,0 +1,54 @@
+.boxtema {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.2em 1.5em;
+    border: 1px solid #521faf;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 1em;
+
+    .fav {
+        width: 2em;
+        height: 2em;
+        z-index: 2;
+        position: relative;
+        left: 50%;
+        float: right;
+    }
+
+    .fav:hover {
+        cursor: pointer;
+    }
+
+
+    .img {
+        margin: 0.5em 0em;
+        width: 9em;
+        height: 11em;
+    }
+
+    .nome {
+        font-family: 'Lexend-Regular';
+        font-size: 16px;
+        text-transform: capitalize;
+        margin: 0.5em 0em;
+    }
+
+    .botao {
+        margin: 0.5em 0em;
+        padding: 0.5em 1.2em;
+        font-size: 14px;
+        background-color: #521faf;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: 'Lexend-Regular';
+        border: none;
+        border-radius: 15px;
+    }
+
+    .botao:hover {
+        cursor: pointer;
+        background-color: #5d28c0;
+    }
+}

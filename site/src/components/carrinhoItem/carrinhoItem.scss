@@ -1,0 +1,43 @@
+.produto-carrinho-pedido{
+
+    color:  rgb(73, 73, 73);
+    background-color: rgb(241, 241, 241);
+    
+    .row {
+        width: 30%;
+        text-align:start !important;
+    }
+
+    .divrow {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .imagemdeletar {
+        width: 2em;
+        height: 3em;
+    }
+
+    .imagemdeletar:hover {
+        cursor: pointer;
+    }
+
+    .img-carrinho-prod{
+        width: 5em;
+        height: 5em;
+    }
+    
+    .infos-prod-carrinho{
+        margin: 1em;
+        font-family: 'Lexend-Regular';
+        font-size: 12px;
+    }
+    
+    .infos-prod-carrinho h3 {
+        font-size: 14px;
+        font-family: 'Lexend-Regular';
+        font-weight: bold;
+        color: rgb(36, 36, 36);
+    }
+
+}
