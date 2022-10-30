@@ -26,3 +26,16 @@ export async function buscarPorId(id){
     return resp.data;
 }
 
+export async function Favoritar(usuario, produto) {
+    const r = await api.post('/usuario/favorito', {
+        usuario: usuario,
+        produto: produto,
+
+    })
+    return r.data;
+}
+
+export async function listarFavoritos(){
+    const r = await api.get('/usuario/favorito');
+    return r.data;
+}

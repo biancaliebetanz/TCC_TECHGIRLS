@@ -3,17 +3,19 @@ import { useEffect, useState } from 'react';
 import { buscarProdutosPorNome} from '../../API/CadProduto.js';
 import BoxProdutos2 from './../boxProdutos/boxProdutos2.js';
 import './cabecalhoPrinc.scss';
-import CarrinhoItem from "../carrinhoItem/carrinhoItem.js";
 import { buscarPorId } from "../../API/Usuario.js";
-import BoxProduto from "../boxProdutos/boxProduto.js";
+import Storage from 'local-storage'
+import { useNavigate } from "react-router-dom";
 
 export default function CabecalhoPrincipal(props){
+    const navigate= useNavigate();
+
     const [produtos, setProdutos] = useState([]);
     const [itens, setItens] = useState([]);
     const [busca, setBusca] = useState('');
     const [exibirCarrinho, setexibirCarrinho] = useState(false);
     
-
+   
 
     function exibiritems(){
         if(exibirCarrinho == false){
@@ -58,7 +60,10 @@ export default function CabecalhoPrincipal(props){
 
     useEffect(() => {
         CarregarCarrinho();
+
     }, [])
+
+    
 
     return(
             <div className="espaco">

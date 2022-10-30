@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL } from '../../API/config';
 import './cardProduto.scss'
 
 export default function CardProduto(props){
     const navigate = useNavigate();
-    
+
+
     function exibir(imagem){
         if(!imagem){
             return '';
@@ -25,10 +26,10 @@ export default function CardProduto(props){
     return(
         <div className="cardprd" onClick={() => abrirDetalhes(props.item.id)}>
 
-            <button className='favoritar'> <img src="" alt="" /> </button> 
-            <img src={exibir(props.item.imagem)} className="imagemcardzinho" alt=""/>
+            <button  className='favoritar'> <img src="" alt="" /> </button> 
+            <img  src={exibir(props.item.imagem)} className="imagemcardzinho" alt=""/>
             <h6> {props.item.nome} </h6>
-            <h6> {formatarPreco(props.item.preco)} </h6>
+            <h6> {formatarPreco(props.item  .preco)} </h6>
         
         </div>
     )

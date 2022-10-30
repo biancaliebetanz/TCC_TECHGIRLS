@@ -1,20 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Storage from 'local-storage'
 import "../../../common/common.scss"
 import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalhoPrinc.js";
 import CardProduto from "../../../components/cardProduto/cardProduto.js";
 import BoxProdutoTema from "../../../components/boxProduto/boxProdutoTema.js";
 import "./index.scss"
-import { buscarPorId, ListarProdutosInicio } from "../../../API/Usuario";
+import { buscarPorId,  ListarProdutosInicio } from "../../../API/Usuario";
 import { useEffect, useState } from "react";
 import Rodape from "../../../components/rodape";
 
 
 export default function Index(){
-
+    const {id} = useParams;
     const [produtos, setProdutos] = useState([]);
     const [itens, setItens] = useState([]);
     const [mostrarCarrinho, setMostrarCarrinho] = useState(false)
+
+    const[usuario, setUsuario] = useState('');
+    const[produto, setProduto] = useState([]);
+
+  
+
+
 
     async function listar(){
         const r = await ListarProdutosInicio();
@@ -140,9 +147,10 @@ export default function Index(){
 
                     <p className="texto">A ideia de criar uma loja virtual voltada para a cultura pop veio de um grupo de amigas nerds. Nosso objetivo é trazer produtos com qualidade, buscando valorizar as obras que os estampam.</p>
                 </div>
+                <Rodape></Rodape>
+
             </section>
            
-                <Rodape></Rodape>
 
             
         </main>

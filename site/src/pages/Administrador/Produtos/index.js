@@ -8,6 +8,7 @@ import { buscarCategoria, buscarPorTema, deletarProduto, ProdutosListados } from
 import { toast } from "react-toastify";
 import { API_URL } from "../../../API/config";
 
+
 export default function Index(){
 
     const navigate = useNavigate();

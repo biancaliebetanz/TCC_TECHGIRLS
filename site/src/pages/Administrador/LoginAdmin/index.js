@@ -4,9 +4,10 @@ import { Link } from "react-router-dom"
 import "../../../common/common.scss"
 import "./index.scss"
 import Inputs from "../../../components/inputs/Inputs.js"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import LoadingBar from 'react-top-loading-bar'
 import { toast } from 'react-toastify'
+import Storage from 'local-storage'
 
 export default function Index(){
     const [email, setEmail] = useState('');
@@ -24,6 +25,8 @@ export default function Index(){
 
            try{
             const r= await LoginAdm(email, senha);
+            Storage('usuario-logado', r)
+            
 
            setTimeout(() => {
             navigate('/PedidosRecentes');
@@ -40,6 +43,14 @@ export default function Index(){
     }
 
 }
+
+useEffect(() => {
+    if(Storage('usuario-logado')){
+        navigate('/PedidosRecentes')
+    }
+    
+}, [])
+
     return(
         <main className="loginadmin">
             <LoadingBar color='linear-gradient(270deg, #FF2B5E 35.42%, #521FAF 50.83%, #2BFFBF 64.58%)' ref={ref}/>

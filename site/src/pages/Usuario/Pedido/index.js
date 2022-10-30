@@ -77,7 +77,7 @@ export default function Index(){
                         
                         
                     </table>
-                    <div>
+                    <div className="valoresFinais">
                         <p>{qtdItens()} produtos</p>
                         <h1>Total : R${calcularValorTotal()}</h1>
                     </div>

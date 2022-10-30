@@ -64,7 +64,7 @@ export default function CarrinhoItem({item:{ produto:{info, destaque}, qtd }, re
             </td>
 
             <td>
-                <img onClick={removerProduto} className='imagemdeletar' src="../public/images/lixeira.png" alt="" />
+                <img onClick={removerProduto} className='imagemdeletar' src="./../../../images/lixeira.png" alt="" />
                 
             </td>
         </tr>

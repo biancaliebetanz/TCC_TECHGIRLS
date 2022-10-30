@@ -1,4 +1,17 @@
+import Storage from 'local-storage'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+
 export default function Inputs(props){
+    const navigate = useNavigate();
+    
+    
+    useEffect(() => {
+        if(!Storage('usuario-logado')){
+            navigate('/login/admin')
+        }
+        
+    }, [])
     return(
         <div>
             <div className={props.classe}>

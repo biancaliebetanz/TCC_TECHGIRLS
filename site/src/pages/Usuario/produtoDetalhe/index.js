@@ -8,6 +8,7 @@ import { buscarPorId } from '../../../API/Usuario';
 import Storage from 'local-storage';
 import { API_URL } from '../../../API/config';
 import { toast } from 'react-toastify';
+import Legendas from '../../../components/cabLegenda';
 
 export default function Index(){
     const[produto, setProduto]= useState({cores:[], tamanho:[], imagens:[] , destaque:{}, info:{} });
@@ -24,6 +25,8 @@ export default function Index(){
 
         buscarDestaque();
     }
+
+    
 
     //function ExibirImagemPrincipal(){
      //   if(produto.imagens.length > 0){
@@ -74,8 +77,7 @@ export default function Index(){
         <main className="main">
             <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
-            <Tema cor='cor-pedido-detalhe' nome={produto.info.NomeTema}></Tema>  
-               
+            <Legendas nome={produto.info.NomeTema}></Legendas>  
             <div className='alinhamento-pag'>
                 <article className='detalhes'>
                  <div className='info esp'>
