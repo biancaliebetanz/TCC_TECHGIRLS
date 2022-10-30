@@ -47,3 +47,8 @@ export async function alterarTema(id, nome, cor){
 
     return r.data;
 }
+
+export async function deletarTema(id){
+    const r = await api.delete(`/api/tema/${id}`);
+    return r.data;
+}

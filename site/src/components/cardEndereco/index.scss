@@ -1,7 +1,13 @@
 .Endereco {
-    border: 1px solid #000;
+    border: 3px solid transparent;
+    border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
+    border-image-slice: 1;
+    padding: 25px;
+    width: fit-content;
+    height: fit-content;
 
-    .deletar:hover {
-        cursor: pointer
-    }
+}
+
+.Endereco:hover {
+    cursor: pointer;
 }

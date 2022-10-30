@@ -9,6 +9,8 @@ import bannerController from './controller/admin/bannerController.js'
 import produtoUsuarioController from './controller/usuario/produtoController.js'
 import enderecoController from './controller/usuario/enderecoController.js'
 import temaUsuario from './controller/usuario/temaController.js'
+import pedidoController from './controller/usuario/pedidoController.js'
+import cartaoController from './controller/usuario/cartaoController.js'
 
 import multer from "multer";
 import cors from "cors"
@@ -27,6 +29,8 @@ server.use(usuarioController);
 server.use(produtoUsuarioController);
 server.use(enderecoController);
 server.use(temaUsuario);
+server.use(pedidoController);
+server.use(cartaoController);
 
 server.use('/storage/produto', express.static('storage/produto'));
 

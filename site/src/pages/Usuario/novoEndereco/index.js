@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+import { deletarEnderecos } from "../../../API/usuario/enderecoApi.js";
 import Caixa from "../../../components/boxInfos/boxInfos.js";
 import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalhoPrinc.js";
 import Legendas from "../../../components/cabLegenda/index.js";
@@ -7,6 +9,12 @@ import Rodape from "../../../components/rodape/index.js";
 import './index.scss'
 
 export default function Index(){
+
+    async function deletar(){
+        const r = await deletarEnderecos(Storage('cliente-logado').data.id);
+        toast('Endereço deletado')
+    }
+
     return(
         <main className="novoEndereco">
              <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 

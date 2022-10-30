@@ -42,7 +42,7 @@ export default function Index(){
     async function DeletarProdutos(id) {
         try { 
             await deletarProduto(id);
-            toast.dark('Deletado com sucesso');
+            toast('Deletado com sucesso');
             await ListarProdutos();
         }
         catch(err) {

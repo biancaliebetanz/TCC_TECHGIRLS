@@ -44,8 +44,7 @@ export default function Index(){
                 {enderecos.map(item =>
                     <CardEndereco item={item}/>
                     )}
-
-                    
+                
                     
                 </div>
 

@@ -63,8 +63,9 @@ export default function Index(){
                 <Route path='/catalogo' element={<Catalogo/>} />
                 <Route path='/novoEndereco' element={<NovoEndereco/>} />
                 <Route path='/entrega' element={<Entrega/>} />
-                <Route path='/temas' element={<AdminTemas/>} />
-                <Route path='/novoTema' element={<NovoTema/>} />
+                <Route path='/admin/temas' element={<AdminTemas/>} />
+                <Route path='/admin/tema' element={<NovoTema/>} />
+                <Route path='/admin/tema/:id' element={<NovoTema/>} />
                 <Route path='/usuario/tema/:id' element={<UsuarioTemas/>} />
                 
                 

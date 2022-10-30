@@ -29,7 +29,7 @@ export default function MenuAdmin(props){
                 <Link className="opcao">Avaliações</Link>
                 </div>
                 <div>
-                <Link to='/temas' className="opcao">Temas</Link>
+                <Link to='/admin/temas' className="opcao">Temas</Link>
                 </div>
                 <div onClick={SairClick}>
                 <p>Sair</p>

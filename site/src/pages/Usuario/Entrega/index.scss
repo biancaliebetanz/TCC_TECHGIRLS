@@ -1,6 +1,31 @@
 .mainentrega {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    justify-content: center;
+
+    .pag-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .alinhando-column {
+        display: flex;
+        flex-direction: column;
+        padding: 2em 0em;
+        justify-content: center;
+        width: 60%;
+    }
+
+    .alinhamento-resumo {
+        display: flex;
+        flex-direction: column;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2em;
+    }
+
 .alterar1{
     margin-right: 18em;
     margin-left: 8em;
@@ -18,18 +43,16 @@
 
 .titulo{
     color: #FF2C83;
+    margin: 1em 0em;
     p{  
-        position: relative;
-        left: 5em;
-        top: 2em;
+        font-family: 'Lexend-Regular';
+        color: #FF2C83;
+        font-size: 16px;
     }
     hr{
-        width: 35%;
+        width: 90%;
+        margin: 0.2em 0em;
         border: 1px solid #FF2C83; 
-        position: relative;
-        left: 5em;
-        top: 2.8em;
-
     }
 }
 
@@ -54,14 +77,11 @@
 }
 
 .box-resumo{
-   margin-left: 70%;
-   margin-top: 2.5em;
     width: 350px;
     height: 350px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-        box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
-        overflow: auto;
+    box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
+    overflow: auto;
         
 }
 
@@ -76,9 +96,6 @@
         font-size: 14px;
         color: #464646;
     }
-
-   
-
     
 }
 
@@ -116,16 +133,8 @@
     padding: 1em;
     width: 352px;
     height: 10vh;
-
-    position: -webkit-sticky; 
-    position: sticky;
-    top: 0;
-    margin-left: 70%;
     box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
-
-
 }
-
 
 .p-total{
     margin-left: 12em;
@@ -138,34 +147,25 @@
     margin-left: 3em;
 }
 .formulario-cartao{
-    position: relative;
-    left: 6em;
-    bottom: 7em;
+    border: 3px solid transparent;
+    border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
+    border-image-slice: 1;
+    padding: 25px;
+    width: 90%;
+    height: fit-content;
+    margin: 3em 0em;
 
     .compra{
         display: flex;
         flex-direction: row;
         align-items: center;
 
-        img{
-            position: relative;
-            top: 2em;
-            left: 2em;
-        }
-        .pagamento{
-            position: relative;
-            top: 2.5em;
-            left: 3em;
-        }
         
     }
     .fileira1{
         display: flex;
         flex-direction: row;
         margin-top: 1em;
-        position: relative;
-        top: 3em;        
-        left: 2em;
 
         .div1{
             input{
@@ -203,17 +203,21 @@ p{
 }
 }
 .salvar{
-    position: relative;
-    left: 75%;
-    bottom: 6em;
-
-   padding: 1em 6em;
-
-background: #521FAF;
-color: #fff;
-border: none;
-border-radius: 5px;
+    padding: 1em 6em;
+    justify-self: end;
+    background: #521FAF;
+    color: #fff;
+    border: none;
+    margin-top: 4em;
+    border-radius: 5px;
 
 }
+
+.box-endereco {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5em 0em;
+}
+
 }
 
