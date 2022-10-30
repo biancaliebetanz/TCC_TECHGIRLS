@@ -2,7 +2,7 @@ import { con } from "../connection.js";
 
 export async function listarEndereco(id){
     const comando = `
-    select id_usuario 			as id,
+    select id_usuario_endereco 	as id,
 			ds_cep	  			as cep,
 			nm_referencia 	    as referencia,
             ds_endereco			as endereco,

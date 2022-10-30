@@ -1,15 +1,12 @@
-import { deletarEnderecos } from '../../API/usuario/enderecoApi'
-import Storage from 'local-storage'
 import './index.scss'
-import { toast } from 'react-toastify';
 
-export default function CardEndereco({item: { id,referencia, bairro, cidade, estado, uf ,  numero, endereco}, selecionar, selecionado }) {
+export default function CardEndereco({item: { id, referencia, bairro, cidade, estado, uf ,  numero, endereco}, selecionar, selecionado }) {
 
 
     return (
-        <div className='Endereco' onClick={() => selecionar(id)} style={{ textTransform: selecionado ? 'capitalize' : 'uppercase'}}>
+        <div className='Endereco' onClick={() => selecionar(id)} style={{ backgroundColor: selecionado ? '#521FAF' : '#ffff' , color: selecionado ? '#ffff' : '#521FAF'}}>
             <img src='' alt='' />
-                <p className='tipo'> referencia: {referencia} </p>
+                <h6 className='tipo'> {referencia} </h6>
             <div>
                 <p> {endereco}, {numero} </p>
                 <p> {bairro}, {cidade}   </p>

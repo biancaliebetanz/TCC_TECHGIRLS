@@ -42,6 +42,7 @@
 {
   "endereco": 1,
   "tipoFrete": "Normal",
+  "subtotal": 250.00,
   "cartao":{
     "usuario": 1,
     "nomeCartao": "cefjvw",

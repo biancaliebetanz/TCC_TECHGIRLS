@@ -34,6 +34,7 @@ export default function Pedido(){
     const [tipo, setTipo] = useState('');
     const [parcelas, setParcelas] = useState('');
     const [enderecos, setEnderecos] = useState([]);
+    const [valorTotal, setValorTotal] = useState(0.0);
 
     async function carregarEnderecos(){
         const r= await ListarEnderecos(Storage('cliente-logado').data.id);
@@ -45,7 +46,7 @@ export default function Pedido(){
 }
    
    function calcularValorTotal(){
-    let t = 0;
+    let t = 0.0;
     for(let item of itens){
       t = t +  item.produto.info.preco * item.qtd;
     }
@@ -71,10 +72,13 @@ export default function Pedido(){
     async function SalvarPedido() {
         try {
            setProduto(Storage('carrinho'));
+           setValorTotal(calcularValorTotal());
+           console.log(valorTotal)
            setPedido(  
            {
                endereco: idEndereco,
                tipoFrete: frete,
+               subtotal: valorTotal,
                cartao:{
                  usuario: 1,
                  nomeCartao: nome,
@@ -95,10 +99,6 @@ export default function Pedido(){
         }
 
     }
-
-    useEffect(() =>{
-        carregarEnderecos();
-    }, [enderecos])
 
     useEffect(() => {
         CarregarProdutos();
@@ -217,7 +217,7 @@ export default function Pedido(){
                                 
                     </div>
                     <div className='total'>
-                                TOTAL<p className='p-total'>R${calcularValorTotal()}</p>
+                                TOTAL<p className='p-total'>R$ {calcularValorTotal()} </p>
                     </div>
 
                     <button className='salvar' onClick={SalvarPedido}>Finalizar</button> 

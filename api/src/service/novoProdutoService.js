@@ -18,6 +18,7 @@ export function criarNovoPedido(usuario, info, idcartao) {
         endereco: info.endereco,
         cartao:   idcartao.id,
         tipoFrete: info.tipoFrete,
+        subtotal: info.subtotal,
         situacao: 'Aguardando Pagamento',
         data: agora,
         frete: valorFrete

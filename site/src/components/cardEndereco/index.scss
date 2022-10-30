@@ -3,11 +3,20 @@
     border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
     border-image-slice: 1;
     padding: 25px;
+    margin-right: 0.5em;
     width: fit-content;
     height: fit-content;
+    color: #252525;
+    font-family: 'Lexend-Light';
+    font-size: 12px;
+    text-transform: capitalize;
 
-}
+    h6 {
+        font-size: 14px;
+        text-transform: uppercase;
+    }
 
 .Endereco:hover {
     cursor: pointer;
+}
 }
