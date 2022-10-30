@@ -1,11 +1,7 @@
 import { Router } from "express"; 
 import { buscarProduto } from "../../repository/produtoRepository.js";
-import { alterarDadosCartao, alterarEndereco, 
-    AlterarInfosUsuarios, AlterarSenha, Avaliacao, 
-    deletarCartao, Favoritos, inserirEndereco,  
-    inserirNovoCartao, inserirPedidoItem, inserirUsuario, listarAvaliacoes, 
-    listarEnderecos, listarFavoritos, ListarPedidos, listarTodosCartoes,
-     Pedidos, removerProdutoFavoritos } from "../../repository/usuarioRepository.js";
+import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  Favoritos, inserirEndereco,  inserirUsuario, 
+    listarAvaliacoes, listarEnderecos, listarFavoritos, removerProdutoFavoritos } from "../../repository/usuarioRepository.js";
 import { criarNovoPedido } from "../../service/novoProdutoService.js";
 
 const server = Router(); 
@@ -105,82 +101,6 @@ server.put('/endereco/:id', async (req, resp) => {
     }
 })
 
-
-            server.post('/cartao', async (req, resp) => {
-                try {
-                  
-                    const cartao= req.body;
-                    
-                    const novoCartao= await inserirNovoCartao(cartao);
-                    if(!novoCartao.numero) {
-                        throw new Error('Id não registrado');
-                        };
-                        if(!novoCartao.validade) {
-                            throw new Error('Nome não registrado');
-                        };
-                        if(!novoCartao.codigo) {
-                            throw new Error('Tema não registrado');
-                        };
-                        if(!novoCartao.cpf) {
-                            throw new Error('Categoria não registrada');
-                        };
-
-    
-                
-                        resp.send(novoCartao);
-    
-                } catch (err) {
-                    resp.status(404).send({
-                        erro: err.message
-                    })
-                }
-    
-    })
-
-server.get('/cartao', async (req, resp) => {
-    try {
-        const resposta = await listarTodosCartoes();
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(404).send({
-            erro: err.message
-        })
-    }
-})
-    
-server.put('/cartao/:id', async (req, resp) => {
-    try {
-        const {id} = req.params;
-        const cartao = req.body;
-
-        const resposta = await alterarDadosCartao(id, cartao);
-
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(404).send({
-            err: err.message
-        })
-    }
-})
-
-server.delete('/cartao/:id', async (req, resp) => {
-    try {
-        const {id} = req.params;
-
-        const resposta = await deletarCartao(id);
-        if(resposta != 1)
-            throw new Error('Cartão não pode ser removido');
-            resp.status(204).send();
-
-    } catch (error) {
-        resp.status(400).send ({
-            erro: err.message
-        })
-    }
-})
-
 server.post('/usuario/avaliacao', async (req, resp) => {
     try {
         const novaAvaliacao = req.body;
@@ -262,35 +182,6 @@ server.get('/usuario/favorito', async (req, resp) => {
         })
     }
 })
-
-server.post('/api/pedido/:usuario/' , async (req , resp) =>{
-    try {
-        const { usuario } = req.params;
-        const info = req.body;
-        console.log(info)
-
-        const IdPagamentoCriado = await inserirNovoCartao(usuario, info.cartao)
-
-        const NovoPedido = criarNovoPedido(usuario, info, IdPagamentoCriado);
-        console.log(NovoPedido)
-
-        const IdPedidoCriado = await Pedidos(NovoPedido);
-        console.log(IdPedidoCriado)
-        for(let item of info.produto){
-            const prod= await buscarProduto(item.id);
-            const idPedidoItemCriado = await inserirPedidoItem(IdPedidoCriado, prod.id, item.qtd, prod.preco);
-        }
-
-        resp.status(204).send();
-    } catch (err) {
-        console.log(err)
-        resp.status(400).send({
-            erro: err.menssage
-        })
-    }
-
-})
-
 server.put('/usuario/senha/:id', async (req, resp) => {
     try {
         const {id} = req.params;

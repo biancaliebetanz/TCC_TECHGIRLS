@@ -109,52 +109,7 @@ export async function alterarEndereco(id, endereco) {
 
 
 
-export async function listarTodosCartoes(){
-    const resposta = `
-    SELECT
-    ID_CARTAO           id,
-    ID_USUARIO_LOGIN    usuario,
-    DS_NUMERO           numero,
-    DT_VALIDADE         validade,
-    DS_CODIGO           codigo,
-    DS_CPF              cpf
-    FROM TB_CARTAO`;
-   
-    const [linhas] = await con.query(resposta);
-    return linhas;
-}
 
-export async function alterarDadosCartao(id, cartao){
-    const resp= `
-    UPDATE TB_CARTAO
-    SET
-        ID_USUARIO_LOGIN   = ?,
-        DS_NUMERO          = ?,
-        DT_VALIDADE        = ?,
-        DS_CODIGO          = ?,
-        DS_CPF             = ?
-    WHERE ID_CARTAO = ?`
-
-    const [resposta] = await con.query(resp , [
-        cartao.usuario,
-        cartao.numero,
-        cartao.validade,
-        cartao.codigo,
-        cartao.cpf,
-        id
-    ])
-    cartao.id = id;
-    return cartao;
-}
-
-export async function deletarCartao (id){
-    const comando = `
-    DELETE FROM TB_CARTAO
-    WHERE ID_CARTAO = ? `;
-
-    const [resposta] = await con.query(comando, [id]);
-    return resposta.affectedRows;
-}
 
 export async function Avaliacao(avaliacao){
     const comando= `
@@ -254,53 +209,3 @@ export async function ListarPedidos(){
     const [linhas] = await con.query(resposta);
     return linhas
 }
-
-    export async function Pedidos(pedido){
-        const comando = `
-        INSERT INTO TB_PEDIDO(ID_USUARIO, ID_USUARIO_ENDERECO, ID_CARTAO, TP_FRETE, DS_SITUACAO, DT_PEDIDO, VL_FRETE)
-        VALUES(?, ?, ?, ?, ?, ?, ?)
-        `;
-        const [info] = await con.query(comando, [
-                                    pedido.usuario,
-                                    pedido.endereco,
-                                    pedido.cartao,
-                                    pedido.tipoFrete,
-                                    pedido.situacao,
-                                    pedido.data,
-                                    pedido.frete
-        ])
-        return info.insertId;
-    }
-    
-    export async function inserirNovoCartao(idUsuario, cartao) {
-        const comando = `
-        INSERT INTO TB_CARTAO (ID_USUARIO_LOGIN, NM_NOME_CARTAO, DS_NUMERO, DT_VALIDADE, DS_CODIGO, DS_CPF, NR_PARCELAS)
-        VALUES( ?, ?, ?, ?, ?, ?, ?)`;
-        const [resposta] = await con.query(comando , [
-            idUsuario,
-            cartao.nomeCartao,
-            cartao.numero,
-            cartao.validade,
-            cartao.codigo,
-            cartao.cpf,
-            cartao.parcelas
-        ])
-    
-        cartao.id = resposta.insertId;
-        return cartao;
-    }
-    
-    export async function inserirPedidoItem(idPedido, idProduto, qtd, preco) {
-        const comando = `
-            INSERT INTO tb_pedido_item (
-                id_pedido,
-                id_produto,
-                qtd_itens,
-                vl_produto
-            )
-            VALUES (?, ?, ?, ?)
-        `
-    
-        const [info] = await con.query(comando, [idPedido, idProduto, qtd, preco]);
-        return  info.affectedRows;
-    }
