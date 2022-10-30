@@ -8,6 +8,7 @@ import "./index.scss"
 import { buscarPorId,  ListarProdutosInicio } from "../../../API/Usuario";
 import { useEffect, useState } from "react";
 import Rodape from "../../../components/rodape";
+import ProdutoTema from "../../../components/boxProduto/boxProdutoTema.js";
 
 
 export default function Index(){
@@ -81,7 +82,7 @@ export default function Index(){
 
                     
                     {produtos.map(item => 
-                        <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
+                        <ProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
                         )}
 
                         <img className="seta" src="../../../images/Vector2.png"></img>

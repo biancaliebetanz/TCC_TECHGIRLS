@@ -19,7 +19,9 @@ export default function ProdutoTema(props){
 
     async function AdicionarFav() {
         try {
-            const r = await Favoritar(usuario.id, produto.id);
+            const id= Storage('cliente-logado').data.id;
+            const r = await Favoritar(id, usuario.id, produto.id);
+            console.log(r)
             toast('Favoritado');
 
         }
