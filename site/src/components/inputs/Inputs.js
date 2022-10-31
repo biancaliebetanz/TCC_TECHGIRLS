@@ -6,12 +6,7 @@ export default function Inputs(props){
     const navigate = useNavigate();
     
     
-    useEffect(() => {
-        if(!Storage('usuario-logado')){
-            navigate('/login/admin')
-        }
-        
-    }, [])
+   
     return(
         <div>
             <div className={props.classe}>

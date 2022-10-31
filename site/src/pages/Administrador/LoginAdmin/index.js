@@ -17,6 +17,16 @@ export default function Index(){
     const navigate = useNavigate();
     const ref= useRef();
 
+    
+
+    useEffect(() => {
+        if(Storage('admin-logado')){
+            navigate('/PedidosRecentes')
+        }
+        
+    }, [])
+    
+
 
 
         async function Acessar(){
@@ -25,7 +35,7 @@ export default function Index(){
 
            try{
             const r= await LoginAdm(email, senha);
-            Storage('usuario-logado', r)
+            Storage('admin-logado', r);
             
 
            setTimeout(() => {
@@ -44,12 +54,6 @@ export default function Index(){
 
 }
 
-useEffect(() => {
-    if(Storage('usuario-logado')){
-        navigate('/PedidosRecentes')
-    }
-    
-}, [])
 
     return(
         <main className="loginadmin">

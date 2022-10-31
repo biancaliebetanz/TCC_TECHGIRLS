@@ -8,21 +8,11 @@ import "./index.scss"
 import { buscarPorId,  ListarProdutosInicio } from "../../../API/Usuario";
 import { useEffect, useState } from "react";
 import Rodape from "../../../components/rodape";
-import ProdutoTema from "../../../components/boxProduto/boxProdutoTema.js";
 
 
 export default function Index(){
-    const {id} = useParams;
     const [produtos, setProdutos] = useState([]);
     const [itens, setItens] = useState([]);
-    const [mostrarCarrinho, setMostrarCarrinho] = useState(false)
-
-    const[usuario, setUsuario] = useState('');
-    const[produto, setProduto] = useState([]);
-
-  
-
-
 
     async function listar(){
         const r = await ListarProdutosInicio();
@@ -82,7 +72,7 @@ export default function Index(){
 
                     
                     {produtos.map(item => 
-                        <ProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
+                        <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
                         )}
 
                         <img className="seta" src="../../../images/Vector2.png"></img>

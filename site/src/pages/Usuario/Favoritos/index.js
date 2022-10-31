@@ -6,10 +6,6 @@ import { useEffect, useState } from "react";
 import { listarFavoritos } from "../../../API/Usuario.js";
 
 
-    
-
-
-
 export default function Index(){
     const{produtos, setProdutos} = useState([]);
 

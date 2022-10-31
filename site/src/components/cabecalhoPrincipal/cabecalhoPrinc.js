@@ -15,6 +15,14 @@ export default function CabecalhoPrincipal(props){
     const [busca, setBusca] = useState('');
     const [exibirCarrinho, setexibirCarrinho] = useState(false);
     
+    function logado(){
+        if(Storage('cliente-logado')){
+            navigate('/dadosPessoais')
+        }
+        else if(!Storage('cliente-logado')){
+            navigate('/login/usuario')
+        }
+    }
    
 
     function exibiritems(){
@@ -80,7 +88,7 @@ export default function CabecalhoPrincipal(props){
 
                     <div className="espbotoes">
                     <Link to='/Favoritos'><img className='icons1' src={props.fav}/></Link>
-                    <Link to='/login/usuario'>        <img className='icons1' src={props.user}/></Link>
+                          <img onClick={logado} className='icons1' src={props.user}/>
 
                     <img className='icons1' src={props.sacola} onClick={exibiritems} />
 

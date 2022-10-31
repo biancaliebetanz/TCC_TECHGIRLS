@@ -4,9 +4,10 @@ import Storage from 'local-storage'
 import { useNavigate } from "react-router-dom";
 
 export default function MenuAdmin(props){
-    const navigate= useNavigate();
+    const navigate = useNavigate();
+    
     function SairClick(){
-        Storage.remove('usuario-logado');
+        Storage.remove('admin-logado');
         navigate('/login/admin')
     }
 

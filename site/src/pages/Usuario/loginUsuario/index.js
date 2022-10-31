@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginUsuario } from "../../../API/logAdm";
@@ -12,6 +12,13 @@ export default function Index() {
     const [senha, setSenha] = useState('');
 
     const navigate = useNavigate();
+
+
+    useEffect(() => {
+        if(Storage('cliente-logado')){
+            navigate('/')
+        }
+    }, [])
 
     async function login(){
         try{

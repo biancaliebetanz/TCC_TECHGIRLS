@@ -8,7 +8,7 @@ import Storage from 'local-storage'
 import { toast } from 'react-toastify'
 
 
-export default function ProdutoTema(props){
+export default function BoxProdutoTema(props){
     const {id} = useParams();
     
     const navigate = useNavigate();

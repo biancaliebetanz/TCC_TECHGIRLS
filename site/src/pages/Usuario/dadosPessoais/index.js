@@ -5,8 +5,18 @@ import Caixa from '../../../components/boxInfos/boxInfos.js';
 import MenuUsuario from '../../../components/menuUsuario/menuUsuario';
 import Legendas from '../../../components/cabLegenda';
 import Rodape from '../../../components/rodape';
+import { useNavigate } from 'react-router-dom';
+import Storage from  'local-storage';
+import { useEffect} from 'react';
 
 export default function Index(){
+    const navigate= useNavigate();
+    
+    useEffect(() => {
+        if(!Storage('cliente-logado')){
+            navigate('/')
+        }
+    }, [])
     
     return(
         <main className='DadosPessoais'>
@@ -32,6 +42,7 @@ export default function Index(){
             <div>
                 <p>Data de nascimento</p>
             </div>
+
             <Rodape></Rodape>
 
         </main>

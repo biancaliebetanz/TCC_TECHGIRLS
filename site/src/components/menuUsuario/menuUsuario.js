@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import './menuUsuario.scss'
-
+import { useNavigate } from "react-router-dom";
+import Storage from 'local-storage'
+import { useEffect, useState } from "react";
+import { UsuarioCadastro } from "../../API/Usuario";
 export default function MenuUsuario(){
+    const navigate= useNavigate();
+
+
+    function SairCliente(){
+        Storage.remove('cliente-logado');
+        navigate('/')
+    }
+
+
+  
     return(
         <div className="menu-user">
              <div>
@@ -11,7 +24,10 @@ export default function MenuUsuario(){
                 <Link className="Link">Dados Pessoais</Link>
                 <Link className="Link">Endereços</Link>
                 <Link className="Link">Meus Pedidos</Link>
-                <Link className="Link">Sair</Link>
+                <div>
+                <p onClick={SairCliente} className="Link">Sair</p>
+                </div>
+                
                 
                     
                
