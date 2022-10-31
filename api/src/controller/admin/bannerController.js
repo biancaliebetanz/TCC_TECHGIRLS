@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AlterarBanner, alterarImagemBanner, deletarBanner, InserirBanner, listarTodosBanner } from '../../repository/bannerRepository.js';
+import { AlterarBanner, alterarImagemBanner, deletarBanner, InserirBanner, listarTodosBanner } from '../../repository/admin/bannerRepository.js';
 import multer from 'multer';
 
 const server = Router();

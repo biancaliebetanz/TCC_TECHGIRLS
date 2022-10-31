@@ -1,4 +1,4 @@
-import {buscarIdTema, DeletarTema, EditarTema, inserirImagemTema, inserirTema, listarTemas} from '../../repository/tema.js' 
+import {buscarIdTema, DeletarTema, EditarTema, inserirImagemTema, inserirTema, listarTemas} from '../../repository/admin/tema.js' 
 import { Router } from "express";
 import multer from 'multer';
 const server = Router();

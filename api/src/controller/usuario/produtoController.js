@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { buscarCorProduto, buscarDestaque, 
-    buscarImagemProduto, buscarProduto, buscarTamanhoProduto } from "../../repository/produtoRepository.js";
+    buscarImagemProduto, buscarProduto, buscarTamanhoProduto } from "../../repository/admin/produtoRepository.js";
 import { listarPorTema, ListarProdutosInicio } from "../../repository/usuario/produtoRepository.js";
 
 const server = Router();

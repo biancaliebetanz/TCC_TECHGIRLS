@@ -35,7 +35,7 @@ export async function Favoritar(usuario, produto) {
     return r.data;
 }
 
-export async function listarFavoritos(){
-    const r = await api.get('/usuario/favorito');
+export async function listarFavoritos(id){
+    const r = await api.get(`/usuario/favorito/${id}`);
     return r.data;
 }

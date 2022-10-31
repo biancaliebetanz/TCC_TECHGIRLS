@@ -24,7 +24,9 @@ export default function Index(){
 
     async function listar(){
         const r = await ListarProdutosInicio();
+        console.log(r)
         setProdutos(r);
+        console.log(produtos)
     }
 
     async function CarregarCarrinho(){

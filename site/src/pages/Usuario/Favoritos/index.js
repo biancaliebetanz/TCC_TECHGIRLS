@@ -3,17 +3,20 @@ import BoxProduto from "../../../components/boxProduto/boxProdutoTema.js";
 import './index.scss'
 import Legendas from "../../../components/cabLegenda/index.js";
 import { useEffect, useState } from "react";
+import Storage from 'local-storage';
 import { listarFavoritos } from "../../../API/Usuario.js";
 
 
 export default function Index(){
-    const{produtos, setProdutos} = useState([]);
+
+    const [usuario, setUsuario] = useState(Storage('cliente-logado').data.id);
+    const [produtos, setProdutos] = useState([]);
 
 
         async function ListarFavoritos(){
-            const resp= await listarFavoritos();
-            console.log(resp)
+            const resp= await listarFavoritos(usuario);
             setProdutos(resp)
+            console.log(resp)
         }
         useEffect(() => {
             ListarFavoritos();
@@ -27,8 +30,12 @@ export default function Index(){
             <Legendas nome="Favoritos"></Legendas>
 
                     
-           
-            <BoxProduto />
+           <section className="favoritos">
+
+            {produtos.map(item =>
+                <BoxProduto nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>)}
+
+           </section>
 
         </main>
     )

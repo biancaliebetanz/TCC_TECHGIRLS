@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { buscarProduto } from "../../repository/produtoRepository.js";
+import { buscarProduto } from "../../repository/admin/produtoRepository.js";
 import { inserirNovoCartao } from "../../repository/usuario/cartaoRepository.js";
 import { inserirPedidoItem, Pedidos } from "../../repository/usuario/pedidoRepository.js";
 import { criarNovoPedido } from "../../service/novoProdutoService.js";

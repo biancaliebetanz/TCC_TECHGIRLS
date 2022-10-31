@@ -1,7 +1,7 @@
 import { Router } from "express"; 
-import { buscarProduto } from "../../repository/produtoRepository.js";
+import { buscarProduto } from "../../repository/admin/produtoRepository.js";
 import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  Favoritos, inserirEndereco,  inserirUsuario, 
-    listarAvaliacoes, listarEnderecos, listarFavoritos, removerProdutoFavoritos } from "../../repository/usuarioRepository.js";
+    listarAvaliacoes, listarEnderecos, listarFavoritos, removerProdutoFavoritos } from "../../repository/usuario/usuarioRepository.js";
 import { criarNovoPedido } from "../../service/novoProdutoService.js";
 
 const server = Router(); 
@@ -154,7 +154,7 @@ server.post('/usuario/favorito', async (req, resp) => {
     }
 })
 
-server.delete('/favorito/:id', async (req,resp) => {
+server.delete('/usuario/favorito/:id', async (req,resp) => {
 
     try {
         const { id } = req.params;
@@ -172,9 +172,10 @@ server.delete('/favorito/:id', async (req,resp) => {
 }
 })
 
-server.get('/usuario/favorito', async (req, resp) => {
+server.get('/usuario/favorito/:id', async (req, resp) => {
     try {
-        const resposta= await listarFavoritos();
+        const {id} = req.params;
+        const resposta= await listarFavoritos(id);
         resp.send(resposta);
     } catch (err) {
         resp.status(404).send ({
@@ -182,6 +183,7 @@ server.get('/usuario/favorito', async (req, resp) => {
         })
     }
 })
+
 server.put('/usuario/senha/:id', async (req, resp) => {
     try {
         const {id} = req.params;

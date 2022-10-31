@@ -6,7 +6,7 @@ import {
         buscarDestaque, buscarProduto, buscarCorProduto, 
         buscarTamanhoProduto, buscarImagemProduto, Resposta, ListarPedidos, AlterarSituacãoPedido, 
         alterarCor, alterarTamanho, deletarImagensDiferentes 
-}       from '../../repository/produtoRepository.js';
+}       from '../../repository/admin/produtoRepository.js';
 
 import multer from 'multer';
 import { Router } from 'express';

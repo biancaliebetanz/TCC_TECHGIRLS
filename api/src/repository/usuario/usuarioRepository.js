@@ -1,4 +1,4 @@
-import { con } from "./connection.js";
+import { con } from "../connection.js";
 
 export async function inserirUsuario(usuario){
     
@@ -12,7 +12,6 @@ export async function inserirUsuario(usuario){
     
     return usuario;
 }
-
 
 export async function AlterarInfosUsuarios(id, usuario){
     const resposta = `
@@ -163,16 +162,27 @@ const [resp] = await con.query(comando, [id]);
 return resp.affectedRows;
 }
 
-export async function listarFavoritos(){
+export async function listarFavoritos(id){
     const comando= `
     select 
-	ID_USUARIO_FAVORITO		ID, 
-    ID_USUARIO				USUARIO, 
-    ID_PRODUTO				PRODUTO
-from TB_USUARIO_FAVORITO;
+	tb_produto.id_produto 	as id,
+	nm_produto 				as nome, 
+	ds_descricao 			as descricao, 
+	vl_preco 				as preco, 
+	ds_disponivel 			as disponivel, 
+	nm_categoria		 	as categoria,
+	nm_tema 				as tema,
+	img_produto 			as imagem
+    from TB_USUARIO_FAVORITO
+inner join tb_produto on tb_produto.id_produto = TB_USUARIO_FAVORITO.id_produto
+inner join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria
+inner join tb_tema on tb_produto.id_tema = tb_tema.id_tema
+inner join tb_imagem on tb_imagem.id_produto = tb_produto.id_produto
+    where id_usuario = ?
+    and img_destaque = true
 `
-    const [linhas] = await con.query(comando);
-    return linhas
+    const [linhas] = await con.query(comando, [id]);
+    return linhas;
 }
 
 

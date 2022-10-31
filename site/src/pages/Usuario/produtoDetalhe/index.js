@@ -14,19 +14,14 @@ export default function Index(){
     const[produto, setProduto]= useState({cores:[], tamanho:[], imagens:[] , destaque:{}, info:{} });
     const[imagemPrincipal, setImagemPrincipal] = useState(0);
     
-
     const { id } = useParams();
-
     
     async function carregarPagina(){
         const resposta= await buscarPorId(id);
         setProduto(resposta);
-        
-
         buscarDestaque();
     }
 
-    
 
     //function ExibirImagemPrincipal(){
      //   if(produto.imagens.length > 0){

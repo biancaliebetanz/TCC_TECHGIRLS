@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listarImagemTema } from "../../repository/tema.js";
+import { listarImagemTema } from "../../repository/admin/tema.js";
 
 const server = Router(); 
 

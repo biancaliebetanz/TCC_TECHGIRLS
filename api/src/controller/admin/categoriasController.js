@@ -1,4 +1,4 @@
-import {listarCategorias} from '../../repository/categoria.js' 
+import {listarCategorias} from '../../repository/admin/categoria.js' 
 import { Router } from "express";
 const server = Router();
 
