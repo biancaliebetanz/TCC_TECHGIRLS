@@ -6,13 +6,21 @@ import CardProduto from "../../../components/cardProduto/cardProduto.js";
 import BoxProdutoTema from "../../../components/boxProduto/boxProdutoTema.js";
 import "./index.scss"
 import { buscarPorId,  ListarProdutosInicio } from "../../../API/Usuario";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Rodape from "../../../components/rodape";
-
+import {motion, MotionConfig} from 'framer-motion';
 
 export default function Index(){
     const [produtos, setProdutos] = useState([]);
     const [itens, setItens] = useState([]);
+
+    const carrossel= useRef();
+    const [widht, setWidht] = useState(0);
+
+    useEffect(() => {
+        console.log(carrossel.current?.scrollWidth, carrossel.current?.offsetWidth);
+        setWidht(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth)
+    }, [])
 
     async function listar(){
         const r = await ListarProdutosInicio();
@@ -64,21 +72,28 @@ export default function Index(){
                     <p>Troque ou devolva suas compras com facilidade no site</p>
                 </div>
 
-                <div className="buscados">
-                    <h1>Produtos mais buscados</h1>
+               
 
-                    <div className="setas">
-                        <img className="seta" src="../../../images/Vector.png"></img>
-
+                        
                     
-                    {produtos.map(item => 
-                        <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
-                        )}
+                  <div className="App">
+                  <motion.div ref={carrossel} className="carrossel-buscados" whileTap={{ cursor: "grabbing"}}>
+                        <motion.div className="inner" 
+                        drag="x" 
+                        dragConstraints={{right: 0, left: -widht}}
+>
+                            {produtos.map(item => 
+                                <motion.div className="item">
+                                    <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
+                                </motion.div>
+                            )}
+                        </motion.div>
 
-                        <img className="seta" src="../../../images/Vector2.png"></img>
-                    </div>
+                   </motion.div>
+                  </div>
+                       
                     
-                </div>
+                
                 <div>
                     
                 <div className="sessaoTemas">
