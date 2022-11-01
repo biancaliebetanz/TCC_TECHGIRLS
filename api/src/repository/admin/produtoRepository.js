@@ -411,3 +411,16 @@ export async function AlterarSituacãoPedido(id, pedido){
         pedido.id = id;
         return pedido;
 }
+
+// tema
+
+export async function alterarTemaProduto(novoId, id){
+    const comando = `
+    update tb_produto 
+    set id_tema = ?
+    where id_tema = ?
+    `;
+
+    const r = await con.query(comando, [novoId, id]);
+    return r.affectedRows;
+}

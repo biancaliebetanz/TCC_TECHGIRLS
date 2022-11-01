@@ -21,92 +21,97 @@ export default function Index() {
         document.getElementById("imagem").click();
     }
 
-    function exibirImagem(imagem) {
-        if (imagem == undefined){
-            return '../images/add.png'
+    function exibirImagem() {
+        if (imagem == undefined) {
+            return '/images/add.png'
         }
-        if(typeof(imagem) == 'string'){
+        else if (typeof (imagem) == 'string') {
+            console.log(imagem)
             return `${API_URL}/${imagem}`
+            
         }
         else {
             return URL.createObjectURL(imagem)
         }
     }
 
-    async function inserir(){ 
+    async function inserir() {
         try {
-        if(id){
-        const x = await alterarTema(id, nome, cor)
-        toast('Tema Alterado')
-        setTimeout(() => {
-            navigate('/admin/temas');
-        }, 1500);
+            if (id) {
+                const x = await alterarTema(id, nome, cor)
+                if ( typeof (imagem) !== 'string'){
+                    const y = await CadastrarImgTema(id, imagem)
+                }
+                toast('Tema Alterado')
+                setTimeout(() => {
+                    navigate('/admin/temas');
+                }, 1500);
+            }
+            else {
+                console.log(nome)
+                console.log(cor)
+                const x = await inserirTema(nome, cor);
+                const y = await CadastrarImgTema(x.id, imagem)
+                console.log(y);
+                console.log(x)
+                toast('Tema inserido')
+                //setTimeout(() => {
+                //  navigate('/admin/temas');
+                //}, 1500);
+            }
         }
-        else {
-        console.log(nome)
-        console.log(cor)
-        const x = await inserirTema(nome, cor);
-        const y = await CadastrarImgTema(x.id, imagem)
-        console.log(y);
-        console.log(x)
-        toast('Tema inserido')
-        //setTimeout(() => {
-          //  navigate('/admin/temas');
-        //}, 1500);
-        }
-        }
-        catch(err){
+        catch (err) {
             toast.error('erro: ' + err.message)
         }
     }
 
-        async function carregarTema() {
-            try {
+    async function carregarTema() {
+        try {
             const x = await buscarTemaId(id);
             console.log(x)
             setImagem(x.IMAGEM)
             setNome(x.NOME)
             setCor(x.COR)
-            }
-            catch(err){
-                toast.error('erro' + err.message)
-            }
         }
+        catch (err) {
+            toast.error('erro' + err.message)
+        }
+    }
 
-    useEffect(() =>{
-        if(id) {
+    useEffect(() => {
+        if (id) {
             carregarTema();
         }
     }, [])
 
-    
 
-return (
-    <main className="novoTema">
-             <MenuAdmin logo='../../../images/logoAdmin.png'> </MenuAdmin>
+
+    return (
+        <main className="novoTema">
+            <MenuAdmin logo='../../../images/logoAdmin.png'> </MenuAdmin>
             <div className="reg-temas">
-                    <div>
-                        <h1> Adicionar Temas </h1>
-                    </div>
-                        <div className="div1">
-                            <p>Nome do tema</p>
-                            <input type="text" value={nome} className="nome" placeholder='Exemplo: Harry Potter' onChange={e => setNome(e.target.value)}/>
-                        </div>
-                            <div>
-                            <p>Imagem do tema</p>
-                                <img className="imagemtema" src={() => exibirImagem(imagem)} onClick={escolherImagem} />
-                                <input type="file" id="imagem" onChange={e => setImagem(e.target.files[0])}/>
-                            </div>
-                                <div>
-                                    <p for="favcolor">Cor</p>
-                                    <input type="color"  name="favcolor" value={cor} onChange={e => setCor(e.target.value)}/>
-                                </div>   
+                <div>
+                    <h1> Adicionar Temas </h1>
+                </div>
+                <div className="div1">
+                    <p>Nome do tema</p>
+                    <input type="text" value={nome} className="nome" placeholder='Exemplo: Harry Potter' onChange={e => setNome(e.target.value)} />
+                </div>
+                <div>
+                    <p>Imagem do tema</p>
+                    <img className="imagemtema" src={exibirImagem()} onClick={escolherImagem} />
+                    <input type="file" id="imagem" onChange={e => setImagem(e.target.files[0])} />
+                </div>
+                <div>
+                    <p for="favcolor">Cor</p>
+                    <input type="color" name="favcolor" value={cor} onChange={e => setCor(e.target.value)} />
+                </div>
 
                 <div className="botao">
-                        <button onClick={inserir}> Salvar</button>
+                    <button onClick={inserir}> Salvar</button>
                 </div>
             </div>
-           
-    </main>
-)
-    }
+
+        </main>
+    )
+}

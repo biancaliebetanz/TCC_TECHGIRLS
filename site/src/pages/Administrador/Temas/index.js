@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../../API/config.js";
 import { deletarTema, Temas } from "../../../API/tema/temaAPI.js";
 import { toast } from "react-toastify";
+import { alterarTemaProduto } from "../../../API/CadProduto.js";
 
 export default function Index() {
 
@@ -27,9 +28,16 @@ export default function Index() {
         navigate(`/admin/tema/${id}`)
     }
     
-    async function deletar(id){
-        const r = await deletarTema(id);
-        toast('Tema deletado')
+    async function deletar(novoId, id){
+        try {
+            const x = await alterarTemaProduto(novoId, id);
+            const y = deletarTema(id);
+            toast('Tema deletado com sucesso!')
+
+        }
+        catch(err) {
+            toast.error('erro ' + err.message)
+        }
     }
 
 
@@ -46,8 +54,9 @@ export default function Index() {
                 <Link className="butao" to='/admin/tema'> Novo Tema</Link>
                 <div className="cont-tema">
                     {temas.map( item =>
-                    <Tema className="tema" 
+                    <Tema className="tema"
                     nome={item.nome} 
+                    cor={item.cor}
                     imagem={exibir(item.imagem)} 
                     deletar={() => deletar(item.id)} 
                     editar={() => editar(item.id)} 

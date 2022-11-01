@@ -86,3 +86,5 @@ export async function DeletarTema(id){
         return r.affectedRows;
 
     }
+
+    

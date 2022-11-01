@@ -161,4 +161,11 @@ export async function alterarProduto(id, nome, preco, tema, categoria,  descrica
     
     return r.data;
 }
+
+
+export async function alterarTemaProduto(novoId, id) {
+    const resposta = await api.post(`/produto/tema/${2}?novoId=${1}`)
+    return resposta.data;
+}
+
         

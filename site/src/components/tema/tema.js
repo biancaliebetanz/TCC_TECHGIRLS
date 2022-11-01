@@ -9,9 +9,9 @@ export default function Tema(props){
 
     
     return(
-        <div className='tema'>
+        <div className='tema' style={ {backgroundColor : props.cor} }>
             <div className='esp'>
-                <h4 className={props.cor}> {props.nome} </h4>
+                <h4> {props.nome} </h4>
 
                 <div>
                     <button onClick={props.editar}> editar </button>

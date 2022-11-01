@@ -90,3 +90,4 @@ server.put('/tema/:id/imagem', upload.single("img"), async (req, resp) => {
 })
 
 export default server;
+

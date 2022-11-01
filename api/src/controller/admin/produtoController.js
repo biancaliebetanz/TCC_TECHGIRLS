@@ -5,7 +5,7 @@ import {
         deletarCor, deletarTamanho, deletarProduto, deletarImagem,
         buscarDestaque, buscarProduto, buscarCorProduto, 
         buscarTamanhoProduto, buscarImagemProduto, Resposta, ListarPedidos, AlterarSituacãoPedido, 
-        alterarCor, alterarTamanho, deletarImagensDiferentes 
+        alterarCor, alterarTamanho, deletarImagensDiferentes, alterarTemaProduto 
 }       from '../../repository/admin/produtoRepository.js';
 
 import multer from 'multer';
@@ -400,6 +400,20 @@ server.put('/pedido/:id', async (req, resp) => {
 
     } catch (err) {
         resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/produto/tema/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const novoId = req.query.novoId;
+        const produto = await alterarTemaProduto(novoId, id);
+        resp.send(produto);
+    }
+    catch(err) {
+        resp.status(400).send({
             erro: err.message
         })
     }
