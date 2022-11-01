@@ -72,6 +72,7 @@ export async function DeletarTema(id){
     
         const [registros] = await con.query(comando, [id]);
         return registros[0];
+    
     }
 
     export async function inserirImagemTema(id, imagem){
@@ -81,7 +82,7 @@ export async function DeletarTema(id){
         WHERE ID_TEMA   = ?
         `;
 
-        const r = await con.query(comando, [imagem, id]);
+        const [r] = await con.query(comando, [imagem, id]);
         return r.affectedRows;
 
     }

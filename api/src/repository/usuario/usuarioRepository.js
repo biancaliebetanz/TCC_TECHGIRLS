@@ -145,7 +145,7 @@ export async function Favoritos(usuario, produto){
     const comando= `
     insert into tb_usuario_favorito (id_usuario, id_produto)
 values (?, ?)`;
-    const [resp] = await con.query(comando, [
+    const resp = await con.query(comando, [
         usuario,
         produto
     ])

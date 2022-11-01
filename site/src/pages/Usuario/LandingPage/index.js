@@ -1,27 +1,18 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Storage from 'local-storage'
 import "../../../common/common.scss"
 import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalhoPrinc.js";
-import CardProduto from "../../../components/cardProduto/cardProduto.js";
 import BoxProdutoTema from "../../../components/boxProduto/boxProdutoTema.js";
 import "./index.scss"
 import { buscarPorId,  ListarProdutosInicio } from "../../../API/Usuario";
 import { useEffect, useState, useRef } from "react";
 import Rodape from "../../../components/rodape";
-import {motion, MotionConfig} from 'framer-motion';
 
 export default function Index(){
     const [produtos, setProdutos] = useState([]);
     const [itens, setItens] = useState([]);
 
-    const carrossel= useRef();
-    const [widht, setWidht] = useState(0);
-
-    useEffect(() => {
-        console.log(carrossel.current?.scrollWidth, carrossel.current?.offsetWidth);
-        setWidht(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth)
-    }, [])
-
+   
     async function listar(){
         const r = await ListarProdutosInicio();
         console.log(r)
@@ -73,25 +64,12 @@ export default function Index(){
                     <img className="icons-3" src="../../../images/image 22.png"></img>
                     <p>Troque ou devolva suas compras com facilidade no site</p>
                 </div>
-
-               
-
                         
                     
                   <div className="App">
-                  <motion.div ref={carrossel} className="carrossel-buscados" whileTap={{ cursor: "grabbing"}}>
-                        <motion.div className="inner" 
-                        drag="x" 
-                        dragConstraints={{right: 0, left: -widht}}
->
                             {produtos.map(item => 
-                                <motion.div className="item">
                                     <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
-                                </motion.div>
                             )}
-                        </motion.div>
-
-                   </motion.div>
                   </div>
                        
                     
