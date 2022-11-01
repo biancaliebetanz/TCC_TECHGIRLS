@@ -142,10 +142,12 @@ server.get('/usuario/avaliacao', async (req, resp) => {
     }
 })
 
-server.post('/usuario/favorito', async (req, resp) => {
+server.post('/favorito/:usuario', async (req, resp) => {
     try {
-        const novoFavorito = req.body;
-        const favorito = await Favoritos(novoFavorito);
+        const usuario = req.params.usuario;
+        const produto = req.query.produto;
+        console.log(produto)
+        const favorito = await Favoritos(usuario, produto);
         resp.send(favorito);
     } catch (err) {
         resp.status(404).send({

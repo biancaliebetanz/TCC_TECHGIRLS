@@ -27,11 +27,7 @@ export async function buscarPorId(id){
 }
 
 export async function Favoritar(usuario, produto) {
-    const r = await api.post('/usuario/favorito', {
-        usuario: usuario,
-        produto: produto
-
-    })
+const r = await api.post(`/favorito/` + usuario + `?produto=` + produto)
     return r.data;
 }
 

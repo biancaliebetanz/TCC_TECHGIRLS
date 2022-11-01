@@ -11,20 +11,17 @@ import { toast } from 'react-toastify'
 export default function ProdutoTema(props){
 
     const [id, setId] = useState(props.id);
+    const [usuario, setUsuario] = useState(Storage('cliente-logado').data.id);
     
     const navigate = useNavigate();
 
-    
-    const[usuario, setUsuario] = useState([]);
-    const[produto, setProduto] = useState({info: {} ,nome: [] , preco: []});
+    const[produto, setProduto] = useState(props.id);
 
     async function AdicionarFav() {
         try {
-            const id= Storage('cliente-logado').data.id;
-            const r = await Favoritar(id, usuario.id, produto.id);
-            console.log(r)
+            console.log(produto)
+            const r = await Favoritar(usuario, produto);
             toast('Favoritado');
-
         }
         catch (err) {
             toast.error(err.response.data.erro);

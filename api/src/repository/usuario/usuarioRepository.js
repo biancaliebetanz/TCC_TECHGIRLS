@@ -141,16 +141,15 @@ FROM TB_PRODUTO_AVALIACAO`;
         
 }
 
-export async function Favoritos(favorito){
+export async function Favoritos(usuario, produto){
     const comando= `
-    INSERT INTO TB_USUARIO_FAVORITO(ID_USUARIO, ID_PRODUTO)
-    VALUES(?, ?)`;
+    insert into tb_usuario_favorito (id_usuario, id_produto)
+values (?, ?)`;
     const [resp] = await con.query(comando, [
-        favorito.usuario,
-        favorito.produto
+        usuario,
+        produto
     ])
-    favorito.id = resp.insertId;
-    return favorito;
+    return resp.affectedRows;
 }
 
 
