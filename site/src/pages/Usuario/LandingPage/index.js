@@ -8,25 +8,29 @@ import "./index.scss"
 import { buscarPorId,  ListarProdutosInicio } from "../../../API/Usuario";
 import { useEffect, useState, useRef } from "react";
 import Rodape from "../../../components/rodape";
-import {motion, MotionConfig} from 'framer-motion';
 
 export default function Index(){
     const [produtos, setProdutos] = useState([]);
     const [itens, setItens] = useState([]);
+    const carousel = useRef(null); 
 
-    const carrossel= useRef();
-    const [widht, setWidht] = useState(0);
+    const handleLeftClick= (e) =>{
+        e.preventDefault();
+        console.log(carousel.current.offsetWidth);
+        carousel.current.scrollLeft -= carousel.current.offsetWidth;
+    }
 
-    useEffect(() => {
-        console.log(carrossel.current?.scrollWidth, carrossel.current?.offsetWidth);
-        setWidht(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth)
-    }, [])
+    const handleRightClick= (e) =>{
+        e.preventDefault();
+        console.log(carousel.current.offsetWidth);
+        carousel.current.scrollLeft += carousel.current.offsetWidth;
+
+    }
+   
 
     async function listar(){
         const r = await ListarProdutosInicio();
-        console.log(r)
         setProdutos(r);
-        console.log(produtos)
     }
 
     async function CarregarCarrinho(){
@@ -67,33 +71,55 @@ export default function Index(){
                     <img className="icons-1" src="../../../images/image 69.png"></img>
                     <p>Frete fixo de R$20,00 para todo território brasileiro</p>
                     <hr className="linha-vertical"></hr>
-                    <img className="icons-2" src="../../../images/image 70.png"></img>
+                    <img className="icons-2" src="../../../images/cartao.png"></img>
                     <p>Parcele em até 10x sem juros nas compras acima de R$599</p>
                     <hr className="linha-vertical"></hr>
                     <img className="icons-3" src="../../../images/image 22.png"></img>
                     <p>Troque ou devolva suas compras com facilidade no site</p>
                 </div>
 
-               
-
                         
-                    
-                  <div className="App">
-                  <motion.div ref={carrossel} className="carrossel-buscados" whileTap={{ cursor: "grabbing"}}>
-                        <motion.div className="inner" 
-                        drag="x" 
-                        dragConstraints={{right: 0, left: -widht}}
->
-                            {produtos.map(item => 
-                                <motion.div className="item">
-                                    <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
-                                </motion.div>
-                            )}
-                        </motion.div>
+               
+                    <div>
+                        
+               <div className="div-astro">
+                    <img className="astronauta" src="./../../../images/astronauta.png"></img>
 
-                   </motion.div>
-                  </div>
+
+               </div>
+
+                    <div className="app">
                        
+                       <div className="bts">
+                                    <button onClick={handleLeftClick}> <img src="./../../../images/Vector.png"/></button>
+   
+                       </div>
+                       <div className="container">
+                           
+                                            <h3 className="titulo-h3">Produtos mais buscados</h3>
+       
+                    
+                    <div className="carousel" ref={carousel}>
+                        <div className="item">
+                            {produtos.map(item => 
+                                <div className="item">
+                                    <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
+                                </div>
+                                )}
+                        </div>
+                        
+                                
+                     </div>
+                     
+   
+                </div>
+                <div className="bts">
+                                    <button onClick={handleRightClick}><img src="./../../../images/Vector2.png"/></button>
+   
+                       </div>
+   
+           </div>
+                    </div>
                     
                 
                 <div>
