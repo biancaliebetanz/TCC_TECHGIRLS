@@ -11,6 +11,7 @@ import enderecoController from './controller/usuario/enderecoController.js'
 import temaUsuario from './controller/usuario/temaController.js'
 import pedidoController from './controller/usuario/pedidoController.js'
 import cartaoController from './controller/usuario/cartaoController.js'
+import PedidoAdmin from './controller/admin/pedidoController.js'
 
 import multer from "multer";
 import cors from "cors"
@@ -31,6 +32,7 @@ server.use(enderecoController);
 server.use(temaUsuario);
 server.use(pedidoController);
 server.use(cartaoController);
+server.use(PedidoAdmin)
 
 server.use('/storage/produto', express.static('storage/produto'));
 server.use('/storage/tema', express.static('storage/tema'));

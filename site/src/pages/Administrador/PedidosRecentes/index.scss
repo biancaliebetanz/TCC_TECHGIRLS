@@ -1,7 +1,5 @@
-* {
-    .pag1-adm{
-        height: 90vh;
-        
+.pag1-adm{
+    height: 90vh;
     display: flex;
     height: 100vh;
     width: 100%;
@@ -10,13 +8,23 @@
     align-items: center;
     justify-content: center;
 
-        
-    }
-
     .Bem-Vindo{
         margin-top: 1em;
         margin-right: 27em;
         margin-bottom: 2em;
-        
     }
+
+    .tabela {
+        background-color: #fff;
+    }
+
+    .tabela td {
+        padding: 0.5em;
+    }
+
+    .tabela thead {
+        background-color: #BA3272;
+        color: #fff;
+    }
+
 }

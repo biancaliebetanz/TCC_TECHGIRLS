@@ -38,7 +38,7 @@ export default function Index(){
             <Routes>
                 <Route path='/' element={<LadingPage/>}/>
                 <Route path='/login/admin' element={<LoginAdmin />} />
-                <Route path='/pedidosRecentes' element={<PedidosRecentes />} />
+                <Route path='/admin/pedidos' element={<PedidosRecentes />} />
                 <Route path='/produtos' element={<Produtos />} />
                 <Route path='/admin/produto' element={<AddProduto />} />
                 <Route path='/login/usuario' element={<LoginUsuario/>} />

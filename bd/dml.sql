@@ -121,3 +121,14 @@ select * from tb_pedido_item where id_pedido =11;
 select * from tb_cartao;
 delete from tb_pedido where id_pedido != 0;
 delete from tb_usuario where id_usuario != 1;
+
+select
+		id_pedido 			as id_pedido,
+		nm_usuario 			as nome,
+        vl_subtotal			as preco,
+        ds_situacao			as situacao,
+        ds_cep				as cep,
+        dt_pedido 			as data
+from tb_pedido
+inner join tb_usuario on tb_usuario.id_usuario = tb_pedido.id_usuario
+inner join tb_usuario_endereco on tb_usuario_endereco.id_usuario = tb_pedido.id_usuario;
