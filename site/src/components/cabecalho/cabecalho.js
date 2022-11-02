@@ -6,6 +6,7 @@ import BoxProdutos from '../boxProdutos/boxProduto.js';
 
 export default function CabecalhoPrincipal(props) {
 
+    const[produtos, setProdutos] = useState('')
     const [busca, setBusca] = useState('');
 
 
