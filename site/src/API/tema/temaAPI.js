@@ -47,7 +47,6 @@ export async function inserirTema(nome, cor) {
         const resp = await api.get(`/api/${id}/tema`);
         return resp.data;
     }
-
     
 export async function alterarTema(id, nome, cor){
     

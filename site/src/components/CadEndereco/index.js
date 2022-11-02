@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Storage from 'local-storage'
 import { toast } from 'react-toastify'
-import { SalvarEndereco } from '../../API/usuario/enderecoApi';
+import { SalvarEndereco } from '../../API/usuario/enderecoApi.js';
 import './index.scss'
 
 export default function CadastroEndereco() {

@@ -2,54 +2,73 @@ import './index.scss'
 
 import Cabecalho from '../../../components/cabecalho/cabecalho.js'
 import { useEffect, useState } from 'react';
-
-import { useNavigate, useParams } from 'react-router-dom';
-import  BoxProdutoTema from '../../../components/boxProduto/boxProdutoTema.js'
+import { useParams } from 'react-router-dom';
+import BoxProdutoTema from '../../../components/boxProduto/boxProdutoTema.js'
 import { listarPorTema } from '../../../API/usuario/temaApi.js';
-import { buscarTemaId } from '../../../API/CadProduto';
-import { buscarPorId } from '../../../API/Usuario';
+import { buscarTemaId } from '../../../API/CadProduto.js';
+import { API_URL } from '../../../API/config';
+import { Link } from 'react-router-dom';
 
-export default function Index(){
+export default function Index() {
 
     const { id } = useParams();
     const [produtos, setProdutos] = useState([]);
+    const [tema, setTema] = useState({});
+    const [imagem, setImagem] = useState();
 
-    async function carregar(){
-        console.log(id)
-        let r = await listarPorTema(id);
-        console.log(r)
+    async function carregar() {
+        const r = await listarPorTema(id);
         setProdutos(r);
-    
     }
 
-    async function carregarPagina(){
-        const resposta= await buscarPorId(id);
-        setProdutos(resposta);
-        
+    async function carregarPagina() {
+        const x = await buscarTemaId(id);
+        console.log('x')
+        console.log(x)
+        setTema(x);
+        setImagem(tema.fundo);
+    }
 
-        buscarTemaId();
+    function exibir(imagem) {
+        return `${API_URL}/${imagem}`;
     }
 
     useEffect(() => {
-        carregar()
+        carregarPagina();
+        carregar();
     }, [])
 
-    return(
+    return (
         <main className='maintemaproduto'>
 
-            <Cabecalho logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
-            user='../../../images/user.png' sacola='../../../images/sacola.png' banner='../../../images/dragon.jpg'/>
-        
+            <Cabecalho logo='../../../images/logoAdmin.png' menu='../../../images/menu.png' fav='../../../images/favoritos.png'
+                user='../../../images/user.png' sacola='../../../images/sacola.png' banner={exibir(tema.imagem)} />
+
             <section>
+                <hr className='linha' />
+
+                <img className='banner1' src={exibir(imagem)} />
+
+                <div className='links-menu'>
+                    <Link className='Link'>Vestimenta</Link>
+                    <Link className='Link' >Acessório</Link>
+                    <Link className='Link'>Colecionável</Link>
+                    <Link className='Link'>Funko</Link>
+                    <Link className='Link'>Caneca</Link>
+                    <Link className='Link'>Pelúcia</Link>
+                    <Link className='Link'>Moda Casa</Link>
+
+                </div>
+                <hr className='linha-menu' />
 
                 <div className='produtos-tema'>
-                    {produtos.map(item => 
-                    <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>
+                    {produtos.map(item =>
+                        <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id} />
                     )}
                 </div>
             </section>
 
-            
+
 
 
         </main>

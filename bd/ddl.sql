@@ -1,3 +1,4 @@
+
 CREATE DATABASE GEEK_DB;
 USE GEEK_DB;
 
@@ -45,6 +46,7 @@ CREATE TABLE TB_PRODUTO (
     VL_PRECO		decimal(10,2),
     DS_DESCRICAO	VARCHAR(500),
     DS_DISPONIVEL	BOOL,
+    BT_DESTAQUE		BOOL,
     FOREIGN KEY (ID_TEMA) REFERENCES TB_TEMA (ID_TEMA),
 	FOREIGN KEY (ID_CATEGORIA) REFERENCES TB_CATEGORIA (ID_CATEGORIA)
 );
@@ -175,6 +177,4 @@ CREATE TABLE TB_CARRINHO (
     foreign key (id_categoria) references tb_categoria (id_categoria),
     foreign key (id_produto) references tb_produto (id_produto)
 );
-
-
 

@@ -1,7 +1,7 @@
 .main {
     display: flex;
     width: 100%;
-    min-height: 100vh ;
+    min-height: 100vh;
 
     .landing-conteudo {
         display: flex;
@@ -11,291 +11,330 @@
         margin-top: 15vh;
     }
 
-.banner{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    bottom: 1em;
-}
-
-.faixa{
-    padding: 1.5em;
-    display: flex;
-    justify-content: space-around;
-    background-color: #FBF8F8;
-    align-items: center;
+    .sessaoTemas {
+        display: flex;
+        flex-direction: column;
+        background-color: #420555;
+        width: 100vw;
+        padding: 6em 4em;
+    }
 
     
-
-    p{
-        text-align: center;
-        width: 20em;
+    .sessao {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        height: 100%;
     }
-    .icons-1{
-        width: 60px;
-        height: 40px;
+
+    .card {
+        margin: 0em 2em;
+        height: 50vh;
+        width: 30vh;
+        border-radius: 0.5em;
+        margin-top: 2em;
     }
-    .icons-3{
-        width: 40px;
-        height: 40px;
+
+    .card div {
+        display: flex;
+        padding: 1em;
+        border-radius: 0em 0em 1em 1em;
+        height: 15%;
+        align-items: center;
+        justify-content: center;
     }
-}
-.linha-vertical{
-    width: 40px;
-    height: 0px;
-    background-color: #000;
 
-    transform: rotate(88.6deg);
-}
-
-.div-astro{
-    display: flex;
-    justify-content:flex-end;
-
-    flex-direction: row;
-
-    .astronauta{
-        width: 250px;
-        height: 230px;
-        margin-bottom: 0.5;
+    .tema-link {
+        font-family: 'Lexend-Regular';
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 18px;
     }
-}
 
-.app{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .tema-link:hover {
+        cursor: pointer;
+        color: rgb(194, 192, 192);
+    }
 
-    width: 100%;
-    min-height: 80vh;
+    .imagem-tema {
+        height: 85%;
+        width: 100%;
+        border-radius: 0.5em 0.5em 0em 0em;
+    }
 
-   
-    .container{
-        max-width: 75vw;
+    .banner {
+        width: 100%;
+        height: 100%;
         position: relative;
-        bottom: 7em;
-        .titulo-h3{
-            text-align: center;
-            font-size: 1.7em;
-            margin-top: 1em;
-            background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            position: relative;
         bottom: 1em;
+    }
+
+        .encontre {
+            text-align: center;
+            color: #FBF8F8;
         }
 
-        h3{
+        .main h2 {
+            padding-top: 5em;
             text-align: center;
+            color: #fff;
         }
-        
-        .carousel{
-            display: flex;
-            
-            overflow: hidden;
-            scroll-behavior: smooth;
+
+    .faixa {
+        padding: 1.5em;
+        display: flex;
+        justify-content: space-around;
+        background-color: #FBF8F8;
+        align-items: center;
+
+
+
+        p {
+            text-align: center;
+            width: 20em;
         }
-        .carousel::-webkit-scrollbar{
-            display: none;
+
+        .icons-1 {
+            width: 60px;
+            height: 40px;
         }
-        .item{
-            display: flex;
-            flex-direction: row;
-            margin: 10px;
-            padding: 11px;
+
+        .icons-3 {
+            width: 40px;
+            height: 40px;
         }
-        
     }
+
+    .linha-vertical {
+        width: 40px;
+        height: 0px;
+        background-color: #000;
+
+        transform: rotate(88.6deg);
     }
-    .bts{
+
+    .div-astro {
+        display: flex;
+        justify-content: flex-end;
+
+        flex-direction: row;
+
+        .astronauta {
+            width: 250px;
+            height: 230px;
+            margin-bottom: 0.5;
+        }
+    }
+
+    .app {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        min-height: 80vh;
+
+
+        .container {
+            max-width: 75vw;
+            position: relative;
+            bottom: 7em;
+
+            .titulo-h3 {
+                text-align: center;
+                font-size: 1.7em;
+                margin-top: 1em;
+                background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+
+                position: relative;
+                bottom: 1em;
+            }
+
+            h3 {
+                text-align: center;
+            }
+
+            .carousel {
+                display: flex;
+
+                overflow: hidden;
+                scroll-behavior: smooth;
+            }
+
+            .carousel::-webkit-scrollbar {
+                display: none;
+            }
+
+            .item {
+                display: flex;
+                flex-direction: row;
+                margin: 10px;
+                padding: 11px;
+            }
+
+        }
+    }
+
+    .bts {
         width: 100%;
         text-align: center;
         align-items: center;
         position: relative;
         bottom: 6em;
-        button{
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        margin: 5px;
-    }
 
-    
-}
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
 
 
-
-
-
-
+        .linha-vertical {
+            width: 40px;
+            height: 0px;
+            background-color: #000;
 
 
 
 
 
-.setas{
 
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 1em 4em;
-    justify-content: space-between;
-}
-.seta{
-    height: 3em;
-    width: 3em;
-}
 
-.sessaoTemas{
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    background-color: #420555;
-    padding-bottom: 10em;
 
-}
-.encontre{
-    text-align: center;
-    color: #FBF8F8;
-    margin-top: 4em;
 
-}
+        .icons-1 {
+            width: 85px;
+            height: 55px;
+        }
 
-.main h2{
-    padding-top: 5em;
-    text-align: center;
-    color: #fff;
-}
-.sessao{
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    margin-top: 5em;
-}
-.card{
-    display: flex;
-    flex-direction: column;
-    
-}
-.Tema1{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1.5em;
-    padding-top: 1em;
-    font-size: 20px;
-    border-radius: 0px 0px 20px 20px;
-    background-color: #FF4B00;
-    color: #fff;
+        .icons-3 {
+            height: 3em;
+        }
 
-    position: relative;
-    bottom: 1px;
-    text-decoration: none;
+        .main p {
+            width: 220px;
+            font-size: 14px;
+            text-align: center;
+        }
 
-}
-.Tema2{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1.5em;
-    padding-top: 1em;
-    font-size: 20px;
+        .App {
+            width: 100%;
+            max-width: 1150px;
+            margin: 0 auto;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4EB9DB;
 
-    border-radius: 0px 0px 20px 20px;
-    background-color: #00B9AE;
-    color: #fff;
-    text-decoration: none;
+        }
 
-}
-.Tema3{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1.5em;
-    padding-top: 1em;
-    font-size: 20px;
+        .carrossel-buscados {
+            cursor: grab;
+            overflow: hidden;
+        }
 
-    border-radius: 0px 0px 20px 20px;
-    background-color: #FF2C83;
-    color: #fff;
-    text-decoration: none;
+        .inner {
+            display: flex;
+        }
 
-}
-.Tema4{
-        display: flex;
-        justify-content: center;
-        padding-bottom: 1.5em;
-        padding-top: 1em;
-        font-size: 20px;
+        .item {
+            min-height: 100px;
+            min-width: 290px;
+            padding: 16px;
+        }
+
+
+        .Bem-vindo {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .h3 {
+            background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 30px;
+            width: 12.5em;
+            line-height: 43px;
+            text-align: center;
+
+            position: relative;
+            top: -17em;
+            left: 26em;
+        }
+
+        .texto {
+            font-size: 23px;
+            width: 20em;
+            line-height: 45px;
+            text-align: center;
+
+
+            position: relative;
+            left: 33em;
+            top: -20em;
+        }
+
+        .galaxia {
+            margin: 0px;
+            height: 100%;
+        }
 
         border-radius: 0px 0px 20px 20px;
-        background-color: #FFC501;
+        background-color: #521FAF;
         color: #fff;
         text-decoration: none;
 
-}
-.Tema5{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1.5em;
-    padding-top: 1em;
-    font-size: 20px;
+    }
 
-    border-radius: 0px 0px 20px 20px;
-    background-color: #4EB9DB;
-    color: #fff;
-    text-decoration: none;
+    .Bem-vindo {
+        height: 100vh;
+        overflow: hidden;
+    }
 
+    .h3 {
+        background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 30px;
+        width: 12.5em;
+        line-height: 43px;
+        text-align: center;
 
-}
-.Tema6{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 1.5em;
-    padding-top: 1em;
-    font-size: 20px;
+        position: relative;
+        top: -17em;
+        left: 26em;
+    }
 
-    border-radius: 0px 0px 20px 20px;
-    background-color: #521FAF;
-    color: #fff;
-    text-decoration: none;
-
-}
-
-.Bem-vindo{
-    height: 100vh;
-    overflow: hidden;
-}
-.h3{
-    background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 30px;
-    width: 12.5em;
-    line-height: 43px;
-    text-align: center;
-
-    position: relative;
-    top:  -17em;
-    left: 26em;
-}
-.texto{
-    font-size: 23px;
-    width: 20em;
-    line-height: 45px;
-    text-align: center;
+    .texto {
+        font-size: 23px;
+        width: 20em;
+        line-height: 45px;
+        text-align: center;
 
 
-    position: relative;
-    left: 33em;
-    top: -20em;
-}
-.galaxia{
-    margin: 0px;
-    height: 100%;
-}
-.alien{
-    width: 100px;
-    height: 100px;
+        position: relative;
+        left: 33em;
+        top: -20em;
+    }
+
+    .galaxia {
+        margin: 0px;
+        height: 100%;
+    }
+
+    .alien {
+        width: 100px;
+        height: 100px;
+    }
 }
 }

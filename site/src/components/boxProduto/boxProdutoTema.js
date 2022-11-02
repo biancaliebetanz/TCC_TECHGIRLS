@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { API_URL } from "../../API/config";
-import { Favoritar } from "../../API/Usuario";
+import { Favoritar } from "../../API/Usuario.js";
 import './boxProdutoTema.scss';
 import Storage from 'local-storage'
 import { toast } from 'react-toastify'

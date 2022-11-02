@@ -4,7 +4,7 @@ import Tema from '../../../components/tema/tema.js';
 import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalhoPrinc.js';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { buscarPorId } from '../../../API/Usuario';
+import { buscarPorId } from '../../../API/Usuario.js';
 import Storage from 'local-storage';
 import { API_URL } from '../../../API/config';
 import { toast } from 'react-toastify';

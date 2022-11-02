@@ -1,9 +1,9 @@
 import './index.scss';
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { UsuarioCadastro } from '../../../API/Usuario';
+import { UsuarioCadastro } from '../../../API/Usuario.js';
 import { toast } from 'react-toastify';
-import { InserirUsuarioLogin } from '../../../API/logAdm';
+import { InserirUsuarioLogin } from '../../../API/logAdm.js';
 
 export default function Index() {
 

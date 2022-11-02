@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API_URL } from '../../API/config';
-import { deletarTema } from '../../API/tema/temaAPI';
+import { deletarTema } from '../../API/tema/temaAPI.js';
 import './tema.scss'
 
 export default function Tema(props){
