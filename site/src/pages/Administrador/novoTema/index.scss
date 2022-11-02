@@ -15,11 +15,17 @@
  .reg-temas{
     display: flex;
     flex-direction: column;
-
+    padding: 2em;
     background-color: #fff;
     background-size: 25em;
     width: 65em;
     height: 90vh;
+
+    .imgss {
+        display: flex;
+        flex-direction: row;
+        margin: 2em 0em;
+    }
     
 
     h2{
@@ -28,11 +34,6 @@
         margin-bottom: 2em;
     }
 
-    div{
-        margin-top: 3em;
-        margin-left: 6em;
-
-    }
     .div1{
         input{
             height: 1.8em;
@@ -40,13 +41,15 @@
             background-color: #cfcccc;
             border: none;
         }
+    margin: 2em 0em;
     }
     p{
         margin-bottom: 0.8em;
     }
   .botao{
-        display: flex;
-        justify-content: center;
+
+    padding: 2em 0em;
+    display: flex;
        
     button{
         margin-top: 2em;
@@ -66,7 +69,16 @@
     width: 8em;
 }
 
+.imagemfundo {
+    width: 31em;
+    height: 12em;
+}
+
 #imagem {
+    visibility: hidden;
+}
+
+#imagemFundo {
     visibility: hidden;
 }
 

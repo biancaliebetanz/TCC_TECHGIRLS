@@ -31,6 +31,17 @@ export async function inserirTema(nome, cor) {
         return resposta.status;
     }
 
+    export async function CadastrarImgTemaFundo(id, imagem){
+        const formData = new FormData();
+        formData.append('img', imagem);
+        const resposta = await api.put(`/tema/${id}/imagemFundo`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            },
+        });
+        return resposta.status;
+    }
+
     
     export async function buscarTemaId(id){
         const resp = await api.get(`/api/${id}/tema`);

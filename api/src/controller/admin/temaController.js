@@ -1,4 +1,4 @@
-import {buscarIdTema, DeletarTema, EditarTema, inserirImagemTema, inserirTema, listarTemas} from '../../repository/admin/tema.js' 
+import {buscarIdTema, DeletarTema, EditarTema, inserirImagemTema, inserirImagemTemaFundo, inserirTema, listarTemas} from '../../repository/admin/tema.js' 
 import { Router } from "express";
 import multer from 'multer';
 const server = Router();
@@ -80,6 +80,21 @@ server.put('/tema/:id/imagem', upload.single("img"), async (req, resp) => {
         const imagem = req.file.path;
 
         const r = inserirImagemTema(id, imagem);
+        resp.status(204).send();
+    }
+    catch(err){
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/tema/:id/imagemFundo', upload.single("img"), async (req, resp) => {
+    try{
+        const {id} = req.params;
+        const imagem = req.file.path;
+
+        const r = inserirImagemTemaFundo(id, imagem);
         resp.status(204).send();
     }
     catch(err){
