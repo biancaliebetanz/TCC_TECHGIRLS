@@ -7,7 +7,7 @@ import BoxProdutoTema from "../../../components/boxProduto/boxProdutoTema.js";
 import "./index.scss"
 import { buscarPorId, ListarProdutosInicio } from "../../../API/Usuario.js";
 import { useEffect, useState, useRef } from "react";
-import Rodape from "../../../components/rodape";
+import Rodape from "../../../components/rodape"
 import { motion, MotionConfig } from 'framer-motion';
 import { API_URL } from "../../../API/config";
 import { Temas } from "../../../API/tema/temaAPI.js";
@@ -16,7 +16,7 @@ import { CardTema } from "../../../components/usuario/cardTema/index.js";
 export default function Index() {
     const [produtos, setProdutos] = useState([]);
     const [itens, setItens] = useState([]);
-
+    const carousel = useRef(null);
     const carrossel = useRef();
     const [widht, setWidht] = useState(0);
 
@@ -27,11 +27,23 @@ export default function Index() {
         setWidht(carrossel.current?.scrollWidth - carrossel.current?.offsetWidth)
     }, [])
 
+    const handleLeftClick = (e) => {
+        e.preventDefault();
+        console.log(carousel.current.offsetWidth);
+        carousel.current.scrollLeft -= carousel.current.offsetWidth;
+    }
+
+    const handleRightClick = (e) => {
+        e.preventDefault();
+        console.log(carousel.current.offsetWidth);
+        carousel.current.scrollLeft += carousel.current.offsetWidth;
+
+    }
+
+
     async function listar() {
         const r = await ListarProdutosInicio();
-        console.log(r)
         setProdutos(r);
-        console.log(produtos)
     }
 
     async function listarTemas() {
@@ -84,7 +96,7 @@ export default function Index() {
                     <img className="icons-1" src="../../../images/image 69.png"></img>
                     <p>Frete fixo de R$20,00 para todo território brasileiro</p>
                     <hr className="linha-vertical"></hr>
-                    <img className="icons-2" src="../../../images/image 70.png"></img>
+                    <img className="icons-2" src="../../../images/cartao.png"></img>
                     <p>Parcele em até 10x sem juros nas compras acima de R$599</p>
                     <hr className="linha-vertical"></hr>
                     <img className="icons-3" src="../../../images/image 22.png"></img>
@@ -92,50 +104,71 @@ export default function Index() {
                 </div>
 
 
+                <div>
+
+                    <div className="div-astro">
+                        <img className="astronauta" src="./../../../images/astronauta.png"></img>
 
 
+                    </div>
 
-                <div className="App">
-                    <motion.div ref={carrossel} className="carrossel-buscados" whileTap={{ cursor: "grabbing" }}>
-                        <motion.div className="inner"
-                            drag="x"
-                            dragConstraints={{ right: 0, left: -widht }}
-                        >
-                            {produtos.map(item =>
-                                <motion.div className="item">
-                                    <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id} />
-                                </motion.div>
-                            )}
-                        </motion.div>
+                    <div className="app">
 
-                    </motion.div>
-                </div>
-
-
-                    <div className="sessaoTemas">
-
-                        <h2 className="encontre">Encontre produtos incríveis!</h2>
-
-                        <div className="sessao">
-
-                            {temas.map(item =>
-                                <div className="card">
-                                    <img className="imagem-tema" alt='' src={exibir(item.imagem)} />
-                                    <div style={{ backgroundColor: item.cor }}>
-                                        <Link className="tema-link" to={'/usuario/tema/' + item.id}> {item.nome} </Link>
-                                    </div>
-                                </div>
-                            )}
+                        <div className="bts">
+                            <button onClick={handleLeftClick}> <img src="./../../../images/Vector.png" /></button>
 
                         </div>
-                    </div>
-                    <div className="Bem-vindo">
-                        <img className="galaxia" src="../../../images/galaxia.png"></img>
-                        <h3 className="h3">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>
+                        <div className="container">
 
-                        <p className="texto">A ideia de criar uma loja virtual voltada para a cultura pop veio de um grupo de amigas nerds. Nosso objetivo é trazer produtos com qualidade, buscando valorizar as obras que os estampam.</p>
+                            <h3 className="titulo-h3">Produtos mais buscados</h3>
+
+
+                            <div className="carousel" ref={carousel}>
+                                <div className="item">
+                                    {produtos.map(item =>
+                                        <div className="item">
+                                            <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id} />
+                                        </div>
+                                    )}
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div className="bts">
+                            <button onClick={handleRightClick}><img src="./../../../images/Vector2.png" /></button>
+
+                        </div>
+
                     </div>
-                    <Rodape></Rodape>
+                </div>
+
+                <div className="sessaoTemas">
+
+                    <h2 className="encontre">Encontre produtos incríveis!</h2>
+
+                    <div className="sessao">
+
+                        {temas.map(item =>
+                            <div className="card">
+                                <img className="imagem-tema" alt='' src={exibir(item.imagem)} />
+                                <div style={{ backgroundColor: item.cor }}>
+                                    <Link className="tema-link" to={'/usuario/tema/' + item.id}> {item.nome} </Link>
+                                </div>
+                            </div>
+                        )}
+
+                    </div>
+                </div>
+                <div className="Bem-vindo">
+                    <img className="galaxia" src="../../../images/galaxia.png"></img>
+                    <h3 className="h3">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>
+
+                    <p className="texto">A ideia de criar uma loja virtual voltada para a cultura pop veio de um grupo de amigas nerds. Nosso objetivo é trazer produtos com qualidade, buscando valorizar as obras que os estampam.</p>
+                </div>
+                <Rodape></Rodape>
 
             </section>
 
