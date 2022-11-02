@@ -14,91 +14,91 @@ export async function listarTemas() {
     return linhas;
 }
 
-export async function EditarTema(id, tema){
-    const comando= `
+export async function EditarTema(id, tema) {
+    const comando = `
     UPDATE TB_TEMA
         SET NM_TEMA    = ?,
         DS_COR          =?
         WHERE   ID_TEMA =?`;
 
-        const [resposta] = await con.query(comando, [
-            tema.nome,
-            tema.cor,
-            id
-        ])
-        tema.id = id;
-        return tema;
+    const [resposta] = await con.query(comando, [
+        tema.nome,
+        tema.cor,
+        id
+    ])
+    tema.id = id;
+    return tema;
 }
 
-export async function inserirTema(tema){
+export async function inserirTema(tema) {
     const resp = `
     INSERT INTO TB_TEMA (NM_TEMA, DS_COR) 
     VALUES (? , ?)
 `;
-    const [resposta] = await con.query(resp ,[tema.nome, tema.cor])
-    
+    const [resposta] = await con.query(resp, [tema.nome, tema.cor])
+
     tema.id = resposta.insertId;
-    return tema;  
+    return tema;
 }
 
 
-export async function DeletarTema(id){
+export async function DeletarTema(id) {
     const comando = `DELETE FROM TB_TEMA
         WHERE ID_TEMA = ?`;
-    
-        const [resposta] = await con.query(comando, [id]);
-        return resposta.affectedRows;
-    }
 
-    export async function listarImagemTema(id) {
-        const comando = `
+    const [resposta] = await con.query(comando, [id]);
+    return resposta.affectedRows;
+}
+
+export async function listarImagemTema(id) {
+    const comando = `
             select img_tema     as imagem
               from tb_tema
             where id_tema = ?
         `;
-    
-        const r = await con.query(comando, [id]);
-        return r[0];
+
+    const r = await con.query(comando, [id]);
+    return r[0];
 }
 
-    export async function buscarIdTema(id) {
-        const comando = `
-        SELECT ID_TEMA 			ID,
-        NM_TEMA			NOME,
-        DS_COR			COR,
-        IMG_TEMA AS IMAGEM,
-        IMG_FUNDO AS FUNDO
+export async function buscarIdTema(id) {
+    const comando = `
+        SELECT ID_TEMA 	    as id,
+        NM_TEMA			    as nome,
+        DS_COR			    as cor,
+        IMG_TEMA            as imagem,
+        IMG_FUNDO           as fundo
         FROM TB_TEMA
         WHERE ID_TEMA = ?
         `;
-    
-        const [registros] = await con.query(comando, [id]);
-        return registros[0];
-    
-    }
 
-    export async function inserirImagemTema(id, imagem){
-        const comando= `
+    const [registros] = await con.query(comando, [id]);
+    return registros[0];
+
+}
+
+export async function inserirImagemTema(id, imagem) {
+    const comando = `
         UPDATE TB_TEMA
         SET IMG_TEMA    = ?
         WHERE ID_TEMA   = ?
         `;
 
-        const [r] = await con.query(comando, [imagem, id]);
-        return r.affectedRows;
+    const [r] = await con.query(comando, [imagem, id]);
+    return r.affectedRows;
 
-    }
+}
 
-    export async function inserirImagemTemaFundo(id, imagem){
-        const comando= `
+export async function inserirImagemTemaFundo(id, imagem) {
+    const comando = `
         UPDATE TB_TEMA
         SET IMG_FUNDO    = ?
         WHERE ID_TEMA   = ?
         `;
 
-        const [r] = await con.query(comando, [imagem, id]);
-        return r.affectedRows;
+    const [r] = await con.query(comando, [imagem, id]);
+    return r.affectedRows;
 
-    }
+}
 
-    
+

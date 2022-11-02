@@ -57,7 +57,6 @@ export default function Index() {
         }
     }
 
-
     function exibir(imagem) {
         return `${API_URL}/${imagem}`;
     }
