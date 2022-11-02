@@ -8,7 +8,6 @@ import "./index.scss"
 import { buscarPorId, ListarProdutosInicio } from "../../../API/Usuario.js";
 import { useEffect, useState, useRef } from "react";
 import Rodape from "../../../components/rodape"
-import { motion, MotionConfig } from 'framer-motion';
 import { API_URL } from "../../../API/config";
 import { Temas } from "../../../API/tema/temaAPI.js";
 import { CardTema } from "../../../components/usuario/cardTema/index.js";
