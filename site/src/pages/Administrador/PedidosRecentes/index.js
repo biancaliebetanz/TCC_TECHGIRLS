@@ -4,11 +4,35 @@ import "../../../common/common.scss"
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Storage from 'local-storage';
+import { toast } from "react-toastify";
+import { listarPedidos } from "../../../API/admin/pedido/pedidoApi.js";
 
 export default function Index() {
 
     const [admin, setAdmin] = useState('');
     const navigate = useNavigate();
+
+    // VARIÁVEIS DE ESTADO
+
+    const [pedidos, setPedidos] = useState([]);
+
+    // FUNÇÕES
+
+    async function carregarPedidos(){
+            const r = await listarPedidos();
+            setPedidos(r);
+            console.log(r)
+    }
+
+    // USEEFFECTS
+
+    useEffect(() => {
+        carregarPedidos();
+    }, [])
+
+    useEffect(() =>{
+        console.log(pedidos)
+    }, [pedidos])
 
     useEffect(() => {
         if (!Storage('admin-logado')) {
@@ -19,6 +43,7 @@ export default function Index() {
         }
 
     }, [])
+    
     return (
         <main className="pag1-adm">
             <MenuAdmin logo='../../../images/logoAdmin.png' />
@@ -45,14 +70,16 @@ export default function Index() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td> #01 </td>
-                                <td> Beltrano </td>
-                                <td> 04830-960 </td>
-                                <td> 120,00 </td>
-                                <td> Aguardando Pagamento </td>
-                                <td>  </td>
-                            </tr>
+                            {pedidos.map(item =>
+                                <tr>
+                                     <td> #{item.id_pedido} </td>
+                                    <td> {item.nome} </td>
+                                    <td> {item.cep} </td>
+                                    <td> {item.preco} </td>
+                                    <td> {item.situacao} </td>
+                                    <td>  </td>
+                                </tr>
+                            )}
                         </tbody>
                     </table>
 

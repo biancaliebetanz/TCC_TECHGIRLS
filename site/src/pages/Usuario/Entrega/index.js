@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API_URL } from '../../../API/config';
-import { salvarNovoPedido } from '../../../API/pedido';
+import { salvarNovoPedido } from '../../../API/usuario/pedido.js';
 import { buscarPorId } from '../../../API/Usuario';
 import { ListarEnderecos } from '../../../API/usuario/enderecoApi';
 import CabecalhoCompra from '../../../components/cabecalhoCompra/index.js';
@@ -74,6 +74,7 @@ export default function Pedido(){
            setProduto(Storage('carrinho'));
            setValorTotal(calcularValorTotal());
            console.log(valorTotal)
+           console.log(idEndereco)
            setPedido(  
            {
                endereco: idEndereco,
@@ -91,6 +92,7 @@ export default function Pedido(){
                produto: produto
            } )
            const r= await salvarNovoPedido(id, pedido)
+           console.log(r)
            toast.dark('pedido inserido com sucesso')
            Storage('carrinho', []);
             
@@ -120,6 +122,8 @@ export default function Pedido(){
                         {enderecos.map(item =>
                             <CardEndereco item={item} selecionar={setIdEndereco} selecionado={item.id == idEndereco}/>
                         )}
+
+                        {idEndereco}
                     </div>
 
                 </div>

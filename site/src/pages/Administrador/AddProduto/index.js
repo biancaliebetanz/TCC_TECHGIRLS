@@ -6,9 +6,13 @@ import {  useEffect, useState } from "react";
 import {  CadastrarCor, CadastrarPoduto, CadastrarTamanho, listarCategorias, listarTemas, salvarImagens, CadastrarImgDestaque} from '../../../API/CadProduto.js';
 import DeletarItem from "./../../../components/delete/delete.js"
 import { API_URL } from "../../../API/config.js";
+import { useNavigate } from "react-router-dom";
+import Storage from 'local-storage';
 
 export default function Index() {
 
+    const navigate = useNavigate();
+    const [admin, setAdmin] = useState('');
 
 //VARIÁVEIS DE ESTADO
 
@@ -209,6 +213,16 @@ export default function Index() {
     useEffect(() => {
         carregarCategorias();
         carregarTemas();
+    }, [])
+
+    useEffect(() => {
+        if (!Storage('admin-logado')) {
+            navigate('/login/admin')
+        } else {
+            const AdmLogado = Storage('admin-logado');
+            setAdmin(AdmLogado.nome)
+        }
+
     }, [])
 
     return (

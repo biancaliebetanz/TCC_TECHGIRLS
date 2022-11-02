@@ -4,7 +4,7 @@ import {
         buscarPorNome, buscarPorCategoria, buscarPorTema, alterarProduto, removerProduto,
         deletarCor, deletarTamanho, deletarProduto, deletarImagem,
         buscarDestaque, buscarProduto, buscarCorProduto, 
-        buscarTamanhoProduto, buscarImagemProduto, Resposta, ListarPedidos, AlterarSituacãoPedido, 
+        buscarTamanhoProduto, buscarImagemProduto, Resposta, AlterarSituacãoPedido, 
         alterarCor, alterarTamanho, deletarImagensDiferentes, alterarTemaProduto 
 }       from '../../repository/admin/produtoRepository.js';
 
@@ -377,17 +377,7 @@ server.post('/resposta', async (req, resp) => {
     }
 })
 
-server.get('/pedido', async (req, resp) => {
-    try {
-        const pedido= await ListarPedidos();
-        resp.send(pedido);
 
-    } catch (err) {
-        resp.status(404).send({
-            erro: err.message
-        })
-        }
-})
 
 server.put('/pedido/:id', async (req, resp) => {
     try {

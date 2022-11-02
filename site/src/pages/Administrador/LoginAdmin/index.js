@@ -21,7 +21,7 @@ export default function Index(){
 
     useEffect(() => {
         if(Storage('admin-logado')){
-            navigate('/PedidosRecentes')
+            navigate('/admin/pedidos')
         }
         
     }, [])
@@ -39,7 +39,7 @@ export default function Index(){
             
 
            setTimeout(() => {
-            navigate('/PedidosRecentes');
+            navigate('/admin/pedidos');
 
         }, 3000);
             

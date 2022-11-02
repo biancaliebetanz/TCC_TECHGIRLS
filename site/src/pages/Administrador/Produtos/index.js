@@ -7,11 +7,13 @@ import { useEffect, useState } from "react";
 import { buscarCategoria, buscarPorTema, deletarProduto, ProdutosListados } from "../../../API/CadProduto";
 import { toast } from "react-toastify";
 import { API_URL } from "../../../API/config";
+import Storage from 'local-storage';
 
 
 export default function Index(){
 
     const navigate = useNavigate();
+    const [admin, setAdmin] = useState('');
 
     const[produto, setProduto] = useState([]);
 
@@ -58,6 +60,16 @@ export default function Index(){
 
     useEffect(() => {
         ListarProdutos();
+    }, [])
+
+    useEffect(() => {
+        if (!Storage('admin-logado')) {
+            navigate('/login/admin')
+        } else {
+            const AdmLogado = Storage('admin-logado');
+            setAdmin(AdmLogado.nome)
+        }
+
     }, [])
 
     return(

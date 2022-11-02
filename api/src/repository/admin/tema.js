@@ -5,7 +5,8 @@ export async function listarTemas() {
         select id_tema         as id,
                nm_tema         as nome,
                ds_cor          as cor,
-               img_tema        as imagem
+               img_tema        as imagem,
+               IMG_FUNDO       as fundo
         from tb_tema
     `;
 
@@ -65,7 +66,8 @@ export async function DeletarTema(id){
         SELECT ID_TEMA 			ID,
         NM_TEMA			NOME,
         DS_COR			COR,
-        IMG_TEMA AS IMAGEM
+        IMG_TEMA AS IMAGEM,
+        IMG_FUNDO AS FUNDO
         FROM TB_TEMA
         WHERE ID_TEMA = ?
         `;
@@ -79,6 +81,18 @@ export async function DeletarTema(id){
         const comando= `
         UPDATE TB_TEMA
         SET IMG_TEMA    = ?
+        WHERE ID_TEMA   = ?
+        `;
+
+        const [r] = await con.query(comando, [imagem, id]);
+        return r.affectedRows;
+
+    }
+
+    export async function inserirImagemTemaFundo(id, imagem){
+        const comando= `
+        UPDATE TB_TEMA
+        SET IMG_FUNDO    = ?
         WHERE ID_TEMA   = ?
         `;
 
