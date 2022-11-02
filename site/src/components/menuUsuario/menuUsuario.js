@@ -3,7 +3,7 @@ import './menuUsuario.scss'
 import { useNavigate } from "react-router-dom";
 import Storage from 'local-storage'
 import { useEffect, useState } from "react";
-import { UsuarioCadastro } from "../../API/Usuario";
+import { UsuarioCadastro } from "../../API/Usuario.js";
 export default function MenuUsuario(){
     const navigate= useNavigate();
 

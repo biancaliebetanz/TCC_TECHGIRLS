@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import  BoxProdutoTema from '../../../components/boxProduto/boxProdutoTema.js'
 import { listarPorTema } from '../../../API/usuario/temaApi.js';
-import { buscarTemaId } from '../../../API/CadProduto';
-import { buscarPorId } from '../../../API/Usuario';
+import { buscarTemaId } from '../../../API/CadProduto.js';
+import { buscarPorId } from '../../../API/Usuario.js';
 
 export default function Index(){
 

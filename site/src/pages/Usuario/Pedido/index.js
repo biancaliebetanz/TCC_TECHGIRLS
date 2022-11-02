@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react"
 import Storage from 'local-storage'
-import { buscarPorId } from "../../../API/Usuario";
+import { buscarPorId } from "../../../API/Usuario.js";
 import CarrinhoItem from "../../../components/carrinhoItem/carrinhoItem.js";
 import './index.scss'
 import CabecalhoCompra from "../../../components/cabecalhoCompra/index.js";
