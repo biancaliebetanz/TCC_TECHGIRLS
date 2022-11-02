@@ -10,3 +10,8 @@ export async function listarPorTema(id){
     const resp = await api.get(`/usuario/tema/${id}`);
     return resp.data;
 }
+
+export async function Temas() {
+    const resp = await api.get('/api/tema');
+    return resp.data;
+}

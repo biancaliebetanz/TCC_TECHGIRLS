@@ -3,13 +3,17 @@ import MenuAdmin from "../../../components/pagAdm/pagAdm";
 import DeletarItem from "../../../components/delete/delete.js";
 import { API_URL } from "../../../API/config.js";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import Storage from 'local-storage';
 
 
 export default function Index() {
 
     // VARIÁVEIS DE ESTADO
+
+    const navigate = useNavigate();
+    const [admin, setAdmin] = useState('');
 
     const { id } = useParams();
  
@@ -184,6 +188,16 @@ export default function Index() {
         carregarCategorias();
         carregarTemas();
         carregarProduto();
+    }, [])
+
+    useEffect(() => {
+        if (!Storage('admin-logado')) {
+            navigate('/login/admin')
+        } else {
+            const AdmLogado = Storage('admin-logado');
+            setAdmin(AdmLogado.nome)
+        }
+
     }, [])
 
 

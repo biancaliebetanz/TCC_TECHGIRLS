@@ -63,6 +63,7 @@ export async function listarTemas() {
     const resp = await api.get('/api/tema')
     return resp.data;
 }
+
 export async function buscarProdutosPorNome(nome) {
     const resp = await api.get(`/produto?nome=${nome}`)
     return resp.data;

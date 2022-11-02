@@ -7,10 +7,12 @@ import { API_URL } from "../../../API/config.js";
 import { deletarTema, Temas } from "../../../API/tema/temaAPI.js";
 import { toast } from "react-toastify";
 import { alterarTemaProduto } from "../../../API/CadProduto.js";
+import Storage from 'local-storage'
 
 export default function Index() {
 
     const navigate = useNavigate();
+    const [admin, setAdmin] = useState('');
 
     const [temas, setTemas] = useState([]);
 
@@ -43,6 +45,16 @@ export default function Index() {
 
     useEffect(() =>{
         listarTemas()
+    }, [])
+
+    useEffect(() => {
+        if (!Storage('admin-logado')) {
+            navigate('/login/admin')
+        } else {
+            const AdmLogado = Storage('admin-logado');
+            setAdmin(AdmLogado.nome)
+        }
+
     }, [])
 
     return (

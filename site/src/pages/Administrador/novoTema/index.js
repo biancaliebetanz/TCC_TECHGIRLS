@@ -4,11 +4,13 @@ import { toast } from "react-toastify";
 import { API_URL } from "../../../API/config.js";
 import { alterarTema, buscarTemaId, CadastrarImgTema, inserirTema } from "../../../API/tema/temaAPI.js";
 import MenuAdmin from "../../../components/pagAdm/pagAdm.js";
+import Storage from 'local-storage'
 import "./index.scss";
 
 export default function Index() {
 
     const navigate = useNavigate();
+    const [admin, setAdmin] = useState('');
 
     const [nome, setNome] = useState('');
     const [imagem, setImagem] = useState();
@@ -84,7 +86,15 @@ export default function Index() {
         }
     }, [])
 
+    useEffect(() => {
+        if (!Storage('admin-logado')) {
+            navigate('/login/admin')
+        } else {
+            const AdmLogado = Storage('admin-logado');
+            setAdmin(AdmLogado.nome)
+        }
 
+    }, [])
 
     return (
         <main className="novoTema">
