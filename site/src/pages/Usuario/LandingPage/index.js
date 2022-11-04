@@ -1,8 +1,7 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Storage from 'local-storage'
 import "../../../common/common.scss"
 import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalhoPrinc.js";
-import CardProduto from "../../../components/cardProduto/cardProduto.js";
 import BoxProdutoTema from "../../../components/boxProduto/boxProdutoTema.js";
 import "./index.scss"
 import { buscarPorId, ListarProdutosInicio } from "../../../API/Usuario.js";
@@ -10,7 +9,6 @@ import { useEffect, useState, useRef } from "react";
 import Rodape from "../../../components/rodape"
 import { API_URL } from "../../../API/config";
 import { Temas } from "../../../API/tema/temaAPI.js";
-import { CardTema } from "../../../components/usuario/cardTema/index.js";
 
 export default function Index() {
     const [produtos, setProdutos] = useState([]);
@@ -162,15 +160,16 @@ export default function Index() {
                     </div>
                 </div>
                 <div className="Bem-vindo">
-                    <img className="galaxia" src="../../../images/galaxia.png"></img>
-                    <h3 className="h3">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>
+                    <img className="galaxia" src="../../../images/galaxia.png"/>
 
-                    <p className="texto">A ideia de criar uma loja virtual voltada para a cultura pop veio de um grupo de amigas nerds. Nosso objetivo é trazer produtos com qualidade, buscando valorizar as obras que os estampam.</p>
                 </div>
-                <Rodape></Rodape>
+                <h3 className="h3-bemVindo">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>
+                <p className="texto">A ideia de criar uma loja virtual voltada para a cultura pop veio de um grupo de amigas nerds. Nosso objetivo é trazer produtos com qualidade, buscando valorizar as obras que os estampam.</p>
+
+                
 
             </section>
-
+                        <footer insta='./../../../images/insta.png'></footer>
 
 
         </main>

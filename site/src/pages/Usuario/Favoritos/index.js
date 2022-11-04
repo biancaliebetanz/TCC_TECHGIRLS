@@ -5,6 +5,8 @@ import Legendas from "../../../components/cabLegenda/index.js";
 import { useEffect, useState } from "react";
 import Storage from 'local-storage';
 import { listarFavoritos } from "../../../API/Usuario.js";
+import Rodape from "../../../components/rodape/index.js";
+
 
 
 export default function Index(){
@@ -36,7 +38,7 @@ export default function Index(){
                 <BoxProduto nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>)}
 
            </section>
-
+                    <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'></Rodape>
         </main>
     )
 }

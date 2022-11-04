@@ -251,56 +251,14 @@
         }
 
 
-        .Bem-vindo {
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .h3 {
-            background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 30px;
-            width: 12.5em;
-            line-height: 43px;
-            text-align: center;
-
-            position: relative;
-            top: -17em;
-            left: 26em;
-        }
-
-        .texto {
-            font-size: 23px;
-            width: 20em;
-            line-height: 45px;
-            text-align: center;
-
-
-            position: relative;
-            left: 33em;
-            top: -20em;
-        }
-
-        .galaxia {
-            margin: 0px;
-            height: 100%;
-        }
-
-        border-radius: 0px 0px 20px 20px;
-        background-color: #521FAF;
-        color: #fff;
-        text-decoration: none;
-
-    }
+   
 
     .Bem-vindo {
         height: 100vh;
         overflow: hidden;
     }
 
-    .h3 {
+    .h3-bemVindo {
         background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
         -webkit-background-clip: text;
         background-clip: text;
@@ -337,4 +295,4 @@
         height: 100px;
     }
 }
-}
+    }}
