@@ -1,7 +1,7 @@
 .main {
     display: flex;
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
 
     .landing-conteudo {
         display: flex;
@@ -9,6 +9,8 @@
         height: max-content;
         width: 100%;
         margin-top: 15vh;
+        margin: 0px;
+
     }
 
     .sessaoTemas {
@@ -66,9 +68,9 @@
 
     .banner {
         width: 100%;
-        height: 100%;
+        height: 85%;
         position: relative;
-        bottom: 1em;
+        top: 5.5em;
     }
 
         .encontre {
@@ -178,8 +180,73 @@
             }
 
         }
+        .bts {
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            position: relative;
+            bottom: 6em;
+    
+            button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                margin: 5px;
+            }
+    
+    
     }
 
+   
+}
+
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 80vh;
+
+
+    .container {
+        max-width: 75vw;
+        position: relative;
+        bottom: 7em;
+
+        .titulo-h1 {
+            text-align: center;
+            font-size: 1.7em;
+            margin-top: 1em;
+            
+            position: relative;
+            bottom: 1em;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .carousel1 {
+            display: flex;
+
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .carousel1::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sessao {
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+            padding: 11px;
+        }
+
+    }
     .bts {
         width: 100%;
         text-align: center;
@@ -195,17 +262,10 @@
         }
 
 
-        .linha-vertical {
-            width: 40px;
-            height: 0px;
-            background-color: #000;
+}
 
 
-
-
-
-
-
+}
 
 
         .icons-1 {
@@ -223,39 +283,19 @@
             text-align: center;
         }
 
-        .App {
-            width: 100%;
-            max-width: 1150px;
-            margin: 0 auto;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #4EB9DB;
-
-        }
-
-        .carrossel-buscados {
-            cursor: grab;
-            overflow: hidden;
-        }
-
-        .inner {
-            display: flex;
-        }
-
-        .item {
-            min-height: 100px;
-            min-width: 290px;
-            padding: 16px;
-        }
-
-
-   
+      
 
     .Bem-vindo {
+        display: flex ;
+        justify-content: center ;
+        height: 90vh;
+        display: flex;
         height: 100vh;
-        overflow: hidden;
+        width: 100%;
+        background-image: url("../../../../public/images/galaxia.png");
+        background-position: -55px -200px;
+        align-items: center;
+        justify-content: center;
     }
 
     .h3-bemVindo {
@@ -269,8 +309,8 @@
         text-align: center;
 
         position: relative;
-        top: -17em;
-        left: 26em;
+        left: 18em;
+        bottom: 5em;
     }
 
     .texto {
@@ -281,18 +321,16 @@
 
 
         position: relative;
-        left: 33em;
-        top: -20em;
+        left: 5em;
+        top: 3em;
     }
 
     .galaxia {
         margin: 0px;
-        height: 100%;
+        position: absolute;
+        
     }
 
-    .alien {
-        width: 100px;
-        height: 100px;
-    }
+    
 }
-    }}
+    

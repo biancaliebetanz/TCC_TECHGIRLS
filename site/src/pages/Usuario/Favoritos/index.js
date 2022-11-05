@@ -38,7 +38,7 @@ export default function Index(){
                 <BoxProduto nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>)}
 
            </section>
-                    <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'></Rodape>
+                    <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' ></Rodape>
         </main>
     )
 }
