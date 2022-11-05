@@ -201,19 +201,23 @@
 }
 
 
-.app {
+.app1 {
     display: flex;
     justify-content: center;
     align-items: center;
 
     width: 100%;
     min-height: 80vh;
+    background-color: #420555;
 
 
-    .container {
+
+    .container1 {
         max-width: 75vw;
         position: relative;
         bottom: 7em;
+        background-color: #420555;
+
 
         .titulo-h1 {
             text-align: center;
@@ -239,7 +243,7 @@
             display: none;
         }
 
-        .sessao {
+        .item1 {
             display: flex;
             flex-direction: row;
             margin: 10px;
@@ -247,7 +251,7 @@
         }
 
     }
-    .bts {
+    .bts1 {
         width: 100%;
         text-align: center;
         align-items: center;

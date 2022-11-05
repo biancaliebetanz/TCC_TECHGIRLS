@@ -142,23 +142,42 @@ export default function Index() {
                     </div>
                 </div>
 
-                <div className="sessaoTemas">
 
-                    <h2 className="encontre">Encontre produtos incríveis!</h2>
+                <div className="app1">
 
-                    <div className="sessao">
+<div className="bts1">
+    <button onClick={handleLeftClick}> <img src="./../../../images/Vector.png" /></button>
 
-                        {temas.map(item =>
-                            <div className="card">
-                                <img className="imagem-tema" alt='' src={exibir(item.imagem)} />
-                                <div style={{ backgroundColor: item.cor }}>
-                                    <Link className="tema-link" to={'/usuario/tema/' + item.id}> {item.nome} </Link>
-                                </div>
-                            </div>
-                        )}
+</div>
+<div className="container1">
 
-                    </div>
-                </div>
+    <h3 className="titulo-h1">Encontre produtos incríveis</h3>
+
+
+    <div className="carousel1" ref={carousel}>
+    <div className="item1">
+
+{temas.map(item =>
+    <div className="card">
+        <img className="imagem-tema" alt='' src={exibir(item.imagem)} />
+        <div style={{ backgroundColor: item.cor }}>
+            <Link className="tema-link" to={'/usuario/tema/' + item.id}> {item.nome} </Link>
+        </div>
+    </div>
+)}
+
+</div>
+
+    </div>
+
+
+</div>
+<div className="bts1">
+    <button onClick={handleRightClick}><img src="./../../../images/Vector2.png" /></button>
+
+</div>
+
+</div>
                 <div className="Bem-vindo">
                     <img className="galaxia" src="../../../images/galaxia.png"/>
                       <h3 className="h3-bemVindo">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>
