@@ -78,12 +78,21 @@ export default function Index(){
                         
                     </table>
                     <div className="valoresFinais">
-                        <p>{qtdItens()} produtos</p>
-                        <h1>Total : R${calcularValorTotal()}</h1>
+                        <h3>Produtos {qtdItens()}</h3>
+                        <hr className="linha-sacola"></hr>
+                        <h3 className="h3-total">Total : R${calcularValorTotal()}</h3>
                     </div>
             </section>
-            
+            <div className="botoes">
+            <div className="voltar">
+            <Link to='/'> Escolher mais produtos </Link>
+            </div>
+            <div className="final">
             <Link to='/entrega'> Finalizar </Link>
+
+            </div>
+            </div>
+            
         </main>
     )
 }

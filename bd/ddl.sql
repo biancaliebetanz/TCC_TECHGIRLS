@@ -126,10 +126,14 @@ CREATE TABLE TB_PEDIDO (
     id_pedido_item 		int primary key auto_increment,
     id_produto 			int,
     id_pedido			int,
+    id_cor              int,
+    ID_TAMANHO          int,
     qtd_itens			int,
     vl_produto			decimal(10, 2),
     foreign key (id_produto) references tb_produto (id_produto),
     foreign key (id_pedido) references tb_pedido (id_pedido)
+    foreign key (id_cor) references tb_cor (id_cor)
+    foreign key (id_tamanho) references tb_tamanho (id_tamanho)
 );
     
 CREATE TABLE TB_USUARIO_FAVORITO (

@@ -1,4 +1,6 @@
 .main {
+    display: flex;
+    flex-direction: column;
 
     .nome {
         font-family: 'Lexend-Light';
@@ -107,9 +109,13 @@
     border: 1px solid #000;
     text-transform: capitalize;
 }
+
+
+
+}
+
 .leg{
-    background-color: #5d28c0;
+    background-color: #FF2C83;
+    padding-right: 2em;
+    padding-left: 2em;
 }
-
-}
-

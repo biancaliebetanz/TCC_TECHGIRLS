@@ -3,9 +3,11 @@ footer{
     justify-content: center;
     flex-direction: column;
     background-color: #521FAF;
-    height: 35vh;
+    height: 30vh;
     padding-top: 1.5em;
     padding-bottom: 1em;
+    position: absolute;
+    width: 100%;
     .outro{
         display: flex;
         justify-content: center;

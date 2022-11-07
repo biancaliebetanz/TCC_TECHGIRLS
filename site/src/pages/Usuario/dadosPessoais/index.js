@@ -20,31 +20,49 @@ export default function Index(){
     
     return(
         <main className='DadosPessoais'>
-            <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
-            user='../../../images/user.png' sacola='../../../images/sacola.png'/>
-            <Legendas nome='Dados Pessoais'></Legendas>
-            <Caixa ajuste='ajuste-caixa'></Caixa>
+            <div>
+                <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
+                user='../../../images/user.png' sacola='../../../images/sacola.png'/>
+            </div>
+            <div>
+                <Legendas nome='Dados Pessoais'></Legendas>
+            </div>
+            <div>
+                <Caixa ajuste='ajuste-caixa'></Caixa>
+                <MenuUsuario></MenuUsuario>
+
+            </div>
            
-            <MenuUsuario></MenuUsuario>
 
-            <div>
-                <p>Nome</p>
+            <div className='row'>
+            <div className='infos-pessoais1'>
+                <div>
+                    <p>Nome</p>
+                </div>
+                <div>
+                    <p>E-mail</p>
+                </div>
+                <div>
+                    <p>Telefone</p>
+                </div>
             </div>
-            <div>
-                <p>Telefone</p>
+            <div className='infos-pessoais2'>
+                <div>
+                    <p>CPF</p>
+                </div>
+                <div>
+                    <p>RG</p>
+                </div>
+                <div>
+                    <p>Data de nascimento</p>
+                </div>
             </div>
-            <div>
-                <p>CPF</p>
-            </div>
-            <div>
-                <p>RG</p>
-            </div>
-            <div>
-                <p>Data de nascimento</p>
             </div>
 
+            <div className='rod'>
             <Rodape></Rodape>
 
+            </div>
         </main>
 
     )

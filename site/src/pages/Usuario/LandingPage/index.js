@@ -79,11 +79,13 @@ export default function Index() {
     return (
         <main className="main">
 
+            <div>
             <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png' fav='../../../images/favoritos.png'
                 user='../../../images/user.png' sacola='../../../images/sacola.png' />
 
+            </div>
             <section className="landing-conteudo">
-                <div>
+                <div className="container-banner">
                     <Link to='/strangerThings'>
                         <img className="banner" src='../../../images/Stranger things 1.png' />
                     </Link>
@@ -161,17 +163,19 @@ export default function Index() {
 </div>
 
                 <div className="Bem-vindo">
-                    <img className="galaxia" src="../../../images/galaxia.png"/>
                       <h3 className="h3-bemVindo">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>
                 <p className="texto">A ideia de criar uma loja virtual voltada para a cultura pop veio de um grupo de amigas nerds. Nosso objetivo é trazer produtos com qualidade, buscando valorizar as obras que os estampam.</p>
 
 
                 </div>
-              
-                            <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
+                <div>
+                <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
+
+            </div>
 
 
             </section>
+        
 
 
 

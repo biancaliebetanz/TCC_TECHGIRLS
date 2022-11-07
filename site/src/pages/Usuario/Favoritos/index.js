@@ -37,8 +37,11 @@ export default function Index(){
             {produtos.map(item =>
                 <BoxProduto nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>)}
 
+           
            </section>
-                    <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' ></Rodape>
+           <div>
+                <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' ></Rodape>
+            </div>
         </main>
     )
 }

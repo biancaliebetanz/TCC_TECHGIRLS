@@ -9,6 +9,7 @@ import Storage from 'local-storage';
 import { API_URL } from '../../../API/config';
 import { toast } from 'react-toastify';
 import Legendas from '../../../components/cabLegenda';
+import Rodape from '../../../components/rodape';
 
 export default function Index(){
     const[produto, setProduto]= useState({cores:[], tamanho:[], imagens:[] , destaque:{}, info:{} });
@@ -73,7 +74,8 @@ export default function Index(){
             <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
             <Legendas nome={produto.info.NomeTema}></Legendas>  
-            <div className='alinhamento-pag'>
+
+            <section className='alinhamento-pag'>
                 <article className='detalhes'>
                  <div className='info esp'>
                     <h1 className='nome'> {produto.info.nome} </h1>
@@ -121,9 +123,12 @@ export default function Index(){
                 </div>
 
             </article>
-            </div>
+            </section>
 
-            
+            <div>
+                <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
+
+            </div>
                 
             
             
