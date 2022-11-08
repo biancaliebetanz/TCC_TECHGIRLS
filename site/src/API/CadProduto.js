@@ -116,7 +116,7 @@ export async function buscarDestaque(id){
 
 
     export async function buscarTemaId(id){
-        const resp = await api.get('/api' + id + '/tema');
+        const resp = await api.get('/api/' + id + '/tema');
         return resp.data;
     }
 //deletar

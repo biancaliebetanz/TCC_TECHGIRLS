@@ -15,20 +15,17 @@ export default function Index() {
     const [produtos, setProdutos] = useState([]);
     const [tema, setTema] = useState({});
     const [imagem, setImagem] = useState();
-    
-    // sobe pelo amor de deus eu mexi em coisa dms meu deus
 
     async function carregar() {
         const r = await listarPorTema(id);
         setProdutos(r);
     }
 
+
     async function carregarPagina() {
         const x = await buscarTemaId(id);
-        console.log('x')
-        console.log(x)
         setTema(x);
-        setImagem(tema.fundo);
+        setImagem(x.fundo);
     }
 
     function exibir(imagem) {

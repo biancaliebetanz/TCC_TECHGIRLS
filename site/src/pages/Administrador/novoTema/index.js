@@ -106,16 +106,14 @@ export default function Index() {
         }
     }
 
-    useEffect(() => {
-        if (id) {
-            carregarTema();
-        }
-    }, [])
 
     useEffect(() => {
         if (!Storage('admin-logado')) {
             navigate('/login/admin')
         } else {
+            if (id){
+                carregarTema();
+            }
             const AdmLogado = Storage('admin-logado');
             setAdmin(AdmLogado.nome)
         }
