@@ -55,12 +55,9 @@ export default function Index(){
             carrinho = Storage('carrinho');
         }
         if(!carrinho.find(item => item.id === id )){
-            carrinho.push({
-                id: id, 
-                qtd: 1
-            })
-            Storage('carrinho', carrinho)
+            carrinho = [...carrinho, {id: id, qtd : 1}]
         }
+        Storage('carrinho', carrinho);
         toast.dark('Produto adicionado ao carrinho')
     }
     

@@ -37,11 +37,9 @@ export default function Index(){
         if(carrinho){
             let temp= [];
             for(let item of carrinho){
+                console.log(item.id)
                let produto = await buscarPorId(item.id);
-                temp.push({
-                    produto,
-                    qtd: item.qtd,
-                })
+               temp = [...temp, {produto, qtd : item.qtd }]
             }
             console.log(temp)
             setItens(temp)
