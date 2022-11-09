@@ -148,21 +148,21 @@ export default function Index() {
 
                 <div className="sessaoTemas">
 
-<h2 className="encontre">Encontre produtos incríveis!</h2>
+                    <h2 className="encontre">Encontre produtos incríveis!</h2>
 
-<div className="sessao">
+                    <div className="sessao">
 
-    {temas.map(item =>
-        <div className="card">
-            <img className="imagem-tema" alt='' src={exibir(item.imagem)} />
-            <div style={{ backgroundColor: item.cor }}>
-                <Link className="tema-link" to={'/usuario/tema/' + item.id}> {item.nome} </Link>
-            </div>
-        </div>
-    )}
+                        {temas.map(item =>
+                            <div className="card">
+                                <img className="imagem-tema" alt='' src={exibir(item.imagem)} />
+                                <div style={{ backgroundColor: item.cor }}>
+                                    <Link className="tema-link" to={'/usuario/tema/' + item.id}> {item.nome} </Link>
+                                </div>
+                            </div>
+                        )}
 
-</div>
-</div>
+                    </div>
+                    </div>
 
                 <div className="Bem-vindo">
                       <h3 className="h3-bemVindo">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>

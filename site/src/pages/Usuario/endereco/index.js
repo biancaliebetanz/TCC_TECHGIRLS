@@ -39,7 +39,7 @@ export default function Index(){
 
             <Caixa ajuste='ajuste-caixa-endereco'></Caixa>
             <MenuUsuario></MenuUsuario>
-            <section>
+            <section className='end-card'>
                 <div>
                 {enderecos.map(item =>
                     <CardEndereco item={item}/>
@@ -49,7 +49,10 @@ export default function Index(){
                 </div>
 
             </section>
-                    <Rodape></Rodape>
+            <div>
+            <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
+
+            </div>
 
         </main>
 

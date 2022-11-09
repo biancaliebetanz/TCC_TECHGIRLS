@@ -54,31 +54,6 @@ export default function Index(){
             </div>
            
 
-            <div className='row'>
-            <div className='infos-pessoais1'>
-                <div>
-                    <p>Nome</p>
-                </div>
-                <div>
-                    <p>E-mail</p>
-                </div>
-                <div>
-                    <p>Telefone</p>
-                </div>
-            </div>
-            <div className='infos-pessoais2'>
-                <div>
-                    <p>CPF</p>
-                </div>
-                <div>
-                    <p>RG</p>
-                </div>
-                <div>
-                    <p>Data de nascimento</p>
-                </div>
-            </div>
-            </div>
-
             <div className='rod'>
             <Rodape></Rodape>
 

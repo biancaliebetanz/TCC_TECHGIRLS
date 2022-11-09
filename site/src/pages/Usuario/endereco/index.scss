@@ -1,11 +1,13 @@
-.SeusEnderecos{
+main .SeusEnderecos{
     height: 50vh;
     width: 100%;
     
 section {
     height: 100%;
     padding: 2em;
+
 }
+
 
 .leg{
         position: relative;
@@ -29,5 +31,19 @@ section {
     position: unset;
 
    }
-
+  
 }
+.novo{
+    position: relative;
+    bottom: 8em;
+    
+    .bt-novo{
+        color: #4EB9DB;
+    }
+}
+.end-card{
+    position: absolute;
+    bottom: 23em;
+    left: 25em;
+}
+
