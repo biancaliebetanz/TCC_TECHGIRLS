@@ -25,7 +25,10 @@ export default function Index(){
             <MenuUsuario ></MenuUsuario>
 
             <CadastroEndereco></CadastroEndereco>
-                <Rodape></Rodape>
+            <div>
+                <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
+
+            </div>
         </main>
     )
 }
