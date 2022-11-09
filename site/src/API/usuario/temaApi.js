@@ -15,3 +15,9 @@ export async function Temas() {
     const resp = await api.get('/api/tema');
     return resp.data;
 }
+
+export async function listarPorCategoria(id, categoria) {
+    const resp = await api.get(`/usuario/tema/${id}/categoria?categoria=${categoria}`);
+    return resp.data;
+}
+
