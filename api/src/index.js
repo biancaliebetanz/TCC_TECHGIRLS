@@ -38,8 +38,6 @@ server.use('/storage/produto', express.static('storage/produto'));
 server.use('/storage/tema', express.static('storage/tema'));
 server.use('/storage/banner', express.static('storage/banner'));
 
-
-
 server.use(multer);
 
 
