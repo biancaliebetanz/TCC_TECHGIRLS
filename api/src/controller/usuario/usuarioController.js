@@ -1,8 +1,6 @@
 import { Router } from "express"; 
-import { buscarProduto } from "../../repository/admin/produtoRepository.js";
 import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  Favoritos, inserirEndereco,  inserirUsuario, 
     listarAvaliacoes, listarEnderecos, listarFavoritos, removerProdutoFavoritos } from "../../repository/usuario/usuarioRepository.js";
-import { criarNovoPedido } from "../../service/novoProdutoService.js";
 
 const server = Router(); 
 
