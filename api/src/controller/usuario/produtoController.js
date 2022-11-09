@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { buscarCorProduto, buscarDestaque, 
     buscarImagemProduto, buscarProduto, buscarTamanhoProduto } from "../../repository/admin/produtoRepository.js";
-import { listarPorTema, ListarProdutosInicio } from "../../repository/usuario/produtoRepository.js";
+import { listarPorTema, listarPorTemaCategoria, ListarProdutosInicio } from "../../repository/usuario/produtoRepository.js";
 
 const server = Router();
 
@@ -54,6 +54,20 @@ server.get('/usuario/tema/:id', async (req,resp) => {
         })
     }
 })
+
+server.get('/usuario/tema/:id/categoria', async (req,resp) => {
+    try {
+        const { id } = req.params;
+        const {categoria} = req.query;
+        const resposta = await listarPorTemaCategoria(id, categoria);
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 
 
 export default server;

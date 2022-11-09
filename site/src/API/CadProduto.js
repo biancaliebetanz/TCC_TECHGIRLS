@@ -119,6 +119,7 @@ export async function buscarDestaque(id){
         const resp = await api.get('/api/' + id + '/tema');
         return resp.data;
     }
+    
 //deletar
 
 export async function deletarProduto(id) {
