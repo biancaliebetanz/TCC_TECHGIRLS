@@ -4,10 +4,8 @@ import { API_URL } from '../../API/config';
 import './carrinhoItem.scss'
 
 
-export default function CarrinhoItem({item:{ produto:{info, destaque}, qtd }, removerItem , CarregarCarrinho, classe}) {
-  const[qtdProduto, setQtdProduto] = useState(qtd)
-
-  
+export default function CarrinhoItem({item:{ produto:{info, destaque}, qtd }, removerItem , CarregarCarrinho}) {
+  const[qtdProduto, setQtdProduto] = useState(qtd);
 
     function removerProduto(){
         removerItem(info.id);

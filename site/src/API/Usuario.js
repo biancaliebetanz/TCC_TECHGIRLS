@@ -25,6 +25,10 @@ export async function buscarPorId(id){
     const resp = await api.get('/api/produto/'+ id);
     return resp.data;
 }
+export async function buscarUsuarioId(id){
+    const resp = await api.get('/usuario/'+ id);
+    return resp.data;
+}
 
 export async function Favoritar(usuario, produto) {
 const r = await api.post(`/favorito/` + usuario + `?produto=` + produto)

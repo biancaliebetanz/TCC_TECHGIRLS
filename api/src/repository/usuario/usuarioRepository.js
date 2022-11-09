@@ -1,5 +1,21 @@
 import { con } from "../connection.js";
 
+export async function buscarUsuario(id){ 
+    const comando= `
+    select 
+    id_usuario as id,
+    nm_usuario as nome,
+    ds_telefone as telefone,
+    ds_cpf as cpf,
+    ds_rg as rg,
+    dt_nascimento as nascimento
+    from tb_usuario
+    where id_usuario = ?`;
+
+    const [r] = await con.query(comando, [id]);
+    return r[0];
+}
+
 export async function inserirUsuario(usuario){
     
     const comando = `
