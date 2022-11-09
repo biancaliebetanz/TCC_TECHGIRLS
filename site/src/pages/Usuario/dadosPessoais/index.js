@@ -7,14 +7,34 @@ import Legendas from '../../../components/cabLegenda';
 import Rodape from '../../../components/rodape';
 import { useNavigate } from 'react-router-dom';
 import Storage from  'local-storage';
-import { useEffect} from 'react';
+import { useEffect, useState} from 'react';
+import { buscarUsuarioId } from '../../../API/Usuario';
 
 export default function Index(){
+    
+    const [id, setId] = useState(Storage('cliente-logado').data.id);
+
+    const [nome, setNome] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [datadenasc, setDatadenasc] = useState('');
+    const [rg, setRg] = useState('');
+    const [cpf, setCpf] = useState('');
+
     const navigate= useNavigate();
+
+    function carregarUsuario(){
+
+        const x = buscarUsuarioId(id)
+        console.log(x);
+        setNome(x.nome);
+    }
     
     useEffect(() => {
         if(!Storage('cliente-logado')){
-            navigate('/')
+            navigate('/login/usuario')
+        }
+        else {
+            carregarUsuario();
         }
     }, [])
     

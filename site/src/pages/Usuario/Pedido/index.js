@@ -32,7 +32,8 @@ export default function Index(){
     }
     
     async function CarregarCarrinho(){
-        let carrinho= Storage('carrinho')
+        let carrinho= Storage('carrinho');
+        console.log(carrinho);
         if(carrinho){
             let temp= [];
             for(let item of carrinho){
