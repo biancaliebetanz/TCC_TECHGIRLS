@@ -96,10 +96,10 @@ export default function Index() {
         try {
             const x = await buscarTemaId(id);
             console.log(x)
-            setImagem(x.IMAGEM)
-            setNome(x.NOME)
-            setCor(x.COR)
-            setImagemFundo(x.FUNDO)
+            setImagem(x.imagem)
+            setNome(x.nome)
+            setCor(x.cor)
+            setImagemFundo(x.fundo)
         }
         catch (err) {
             toast.error('erro' + err.message)
