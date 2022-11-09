@@ -21,8 +21,8 @@ export default function MenuUsuario(){
             <img className="usuario-logado" src="./../../../images/usuariologado.png"></img>
         </div>
             <div className="links">
-                <Link className="Link">Dados Pessoais</Link>
-                <Link className="Link">Endereços</Link>
+                <Link to='/dadosPessoais' className="Link">Dados Pessoais</Link>
+                <Link  to='/endereco' className="Link">Endereços</Link>
                 <Link className="Link">Meus Pedidos</Link>
                 <div>
                 <p onClick={SairCliente} className="Link">Sair</p>

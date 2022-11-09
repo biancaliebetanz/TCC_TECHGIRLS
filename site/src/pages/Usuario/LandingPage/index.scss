@@ -207,75 +207,7 @@
 }
 
 
-.app1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    width: 100%;
-    min-height: 80vh;
-    background-color: #420555;
-
-
-
-    .container1 {
-        max-width: 75vw;
-        position: relative;
-        bottom: 7em;
-        background-color: #420555;
-
-
-        .titulo-h1 {
-            text-align: center;
-            font-size: 1.7em;
-            margin-top: 1em;
-            
-            position: relative;
-            bottom: 1em;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .carousel1 {
-            display: flex;
-
-            overflow: hidden;
-            scroll-behavior: smooth;
-        }
-
-        .carousel1::-webkit-scrollbar {
-            display: none;
-        }
-
-        .item1 {
-            display: flex;
-            flex-direction: row;
-            margin: 10px;
-            padding: 11px;
-        }
-
-    }
-    .bts1 {
-        width: 100%;
-        text-align: center;
-        align-items: center;
-        position: relative;
-        bottom: 6em;
-
-        button {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-
-}
-
-
-}
 
 
         .icons-1 {
@@ -302,7 +234,6 @@
         height: 80vh;
         width: 100%;
         background-image: url("../../../../public/images/galaxia.png");
-        background-position: -55px -200px;
         align-items: center;
         justify-content: center;
         background-repeat: no-repeat;
@@ -337,7 +268,6 @@
 
     .galaxia {
         margin: 0px;
-        position: absolute;
         
     }
 

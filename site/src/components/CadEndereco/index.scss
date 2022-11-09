@@ -1,9 +1,9 @@
-.comp-endereco{
+ div .comp-endereco{
     display: flex;
     justify-content: center;
-    position: relative;
-    left: 2em;
-    bottom: 3em;
+    position: absolute;
+    left: 25em;
+    bottom: 7em;
 
     
     
@@ -94,7 +94,7 @@ button{
     height: 30px;
 
     position: relative;
-    top: 6em;
+    top: 8em;
     left: 20em;
     margin-bottom: 4em;
 
