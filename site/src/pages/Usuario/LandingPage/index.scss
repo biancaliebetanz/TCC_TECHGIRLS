@@ -31,11 +31,17 @@
     }
 
     .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         margin: 0em 2em;
         height: 50vh;
         width: 30vh;
         border-radius: 0.5em;
         margin-top: 2em;
+    
+        
+
     }
 
     .card div {
