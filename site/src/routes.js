@@ -28,6 +28,7 @@ import NovoEndereco from './pages/Usuario/novoEndereco/index.js'
 import Entrega from './pages/Usuario/Entrega/index.js'
 import AdminTemas from './pages/Administrador/Temas/index.js'
 import NovoTema from './pages/Administrador/novoTema/index.js'
+import UsuarioTema from './pages/Usuario/TemaPesquisa/index.js'
 
 
 export default function Index(){
@@ -64,6 +65,7 @@ export default function Index(){
                 <Route path='/admin/temas' element={<AdminTemas/>} />
                 <Route path='/admin/tema' element={<NovoTema/>} />
                 <Route path='/admin/tema/:id' element={<NovoTema/>} />
+                <Route path='/usuario/tema/:id' element={<UsuarioTema/>} />
                 <Route path='/usuario/pedido' element={<Pedido/>} />
             </Routes>
         </BrowserRouter>
