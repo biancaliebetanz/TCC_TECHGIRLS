@@ -11,7 +11,7 @@ import { toast } from 'react-toastify'
 export default function ProdutoTema(props){
 
     const [id, setId] = useState(props.id);
-    const [usuario, setUsuario] = useState(Storage('cliente-logado').data.id);
+    const [usuario, setUsuario] = useState(user());
     
     const navigate = useNavigate();
 
@@ -19,6 +19,9 @@ export default function ProdutoTema(props){
 
     async function AdicionarFav() {
         try {
+            if(!usuario){
+                throw new Error('Faça login para favoritar!')
+            }
             console.log(produto)
             const r = await Favoritar(usuario, produto);
             toast('Favoritado');
@@ -27,6 +30,15 @@ export default function ProdutoTema(props){
             toast.error(err.response.data.erro);
         }
     }   
+
+    function user() {
+        if(Storage('cliente-logado')){
+            return Storage('cliente-logado').data.id
+        }
+        else {
+            return ''
+        }
+    }
 
 
     function exibirImagem(img){

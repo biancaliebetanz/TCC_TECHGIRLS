@@ -68,7 +68,6 @@ export default function CabecalhoPrincipal(props){
 
     useEffect(() => {
         CarregarCarrinho();
-
     }, [])
 
     

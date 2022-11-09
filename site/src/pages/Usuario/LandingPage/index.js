@@ -72,7 +72,9 @@ export default function Index() {
 
     useEffect(() => {
         listar();
+        if(Storage('cliente-logado')){
         CarregarCarrinho();
+        }
         listarTemas();
     }, [])
 
