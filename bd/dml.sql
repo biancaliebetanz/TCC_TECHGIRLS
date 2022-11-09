@@ -25,15 +25,35 @@ select ID_ADM_LOGIN id,
     
 
 
+    
 -- CATEGORIA 
 
-    INSERT INTO TB_CATEGORIA ( NM_CATEGORIA)
-        VALUES ('Roupa');
+INSERT INTO TB_CATEGORIA ( NM_CATEGORIA)
+	VALUES ('Vestimenta');
+    
+INSERT INTO TB_CATEGORIA ( NM_CATEGORIA)
+	VALUES ('Acessório');
+    
+INSERT INTO TB_CATEGORIA ( NM_CATEGORIA)
+	VALUES ('Caneca');
+    
+INSERT INTO TB_CATEGORIA ( NM_CATEGORIA)
+	VALUES ('Pelúcia');
+
+INSERT INTO TB_CATEGORIA (nm_categoria)
+	VALUES ('Colecionável');
+
+INSERT INTO TB_CATEGORIA (nm_categoria)
+    VALUES ('Funko');
+    
+INSERT INTO TB_CATEGORIA (nm_categoria)
+    VALUES ('Decoração');
+
     
     SELECT ID_CATEGORIA   ID,
 			NM_CATEGORIA  NOME
     FROM TB_CATEGORIA
-    WHERE NM_CATEGORIA = 'Roupa';
+    WHERE NM_CATEGORIA = 'Vestimenta';
 
 SELECT
 		ID_PRODUTO		ID, 

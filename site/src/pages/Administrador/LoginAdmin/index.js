@@ -26,9 +26,6 @@ export default function Index(){
         
     }, [])
     
-
-
-
         async function Acessar(){
             ref.current.continuousStart();
             setCarregando(true);
@@ -36,9 +33,7 @@ export default function Index(){
            try{
             const r= await LoginAdm(email, senha);
             Storage('admin-logado', r);
-            
-
-           setTimeout(() => {
+            setTimeout(() => {
             navigate('/admin/pedidos');
 
         }, 3000);
@@ -48,7 +43,7 @@ export default function Index(){
             setCarregando(false);
             if(err.response.status === 401){
                 setErro(err.response.data.erro);
-            toast('erro: ' + err.message)
+            toast('Erro: ' + erro)
         }
     }
 

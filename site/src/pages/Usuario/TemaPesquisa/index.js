@@ -49,13 +49,13 @@ export default function Index() {
                 <img className='banner1' src={exibir(imagem)} />
 
                 <div className='links-menu'>
-                    <Link className='Link'>Vestimenta</Link>
-                    <Link className='Link' >Acessório</Link>
-                    <Link className='Link'>Colecionável</Link>
-                    <Link className='Link'>Funko</Link>
-                    <Link className='Link'>Caneca</Link>
-                    <Link className='Link'>Pelúcia</Link>
-                    <Link className='Link'>Moda Casa</Link>
+                    <button className='Link'>Vestimenta     </button>
+                    <button className='Link'>Acessório     </button>
+                    <button className='Link'>Colecionável   </button>
+                    <button className='Link'>Funko          </button>
+                    <button className='Link'>Caneca         </button>
+                    <button className='Link'>Pelúcia        </button>
+                    <button className='Link'>Decoração      </button>
 
                 </div>
                 <hr className='linha-menu' />
