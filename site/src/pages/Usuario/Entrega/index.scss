@@ -26,198 +26,308 @@
         padding: 2em;
     }
 
-.alterar1{
-    margin-right: 18em;
-    margin-left: 8em;
-    color: #8d8c8c;
+    .alterar1 {
+        margin-right: 18em;
+        margin-left: 8em;
+        color: #8d8c8c;
 
-}
+    }
 
-.alterar2{
-    margin-right: 18em;
-}
+    .alterar2 {
+        margin-right: 18em;
+    }
 
-.alterar3{
-    color: #8d8c8c;
-}
+    .alterar3 {
+        color: #8d8c8c;
+    }
 
-.titulo{
-    color: #FF2C83;
-    margin: 1em 0em;
-    .titulo p{  
-        font-family: 'Lexend-Regular';
+    .titulo {
         color: #FF2C83;
-        font-size: 16px;
+        margin: 1em 0em;
+
+        .titulo p {
+            font-family: 'Lexend-Regular';
+            color: #FF2C83;
+            font-size: 16px;
+        }
+
+        hr {
+            width: 90%;
+            margin: 0.2em 0em;
+            border: 1px solid #FF2C83;
+        }
     }
-    hr{
+
+    //Resumo do Pedido
+    .cab-res-ped {
+        display: flex;
+        flex-direction: row;
+        background-color: #521FAF;
+        padding: 1em;
+        width: 350px;
+
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+
+        p {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            margin-left: 1em;
+        }
+    }
+
+    .box-resumo {
+        width: 350px;
+        height: 350px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
+        overflow: auto;
+
+    }
+
+    .resumo-pedidos {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .titulos {
+        margin-top: 5px;
+
+        h2 {
+            font-size: 14px;
+            color: #464646;
+        }
+
+    }
+
+    .nome {
+        font-size: 12px;
+        color: #5E5E5E;
+        width: 10em;
+    }
+
+    .preco {
+        font-size: 12px;
+        color: #FF2C83;
+    }
+
+    .imagem-resumo {
+        width: 75px;
+        height: 70px;
+        border-radius: 5px;
+        margin: 0.5em;
+
+    }
+
+    .qtd {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .total {
+
+        display: flex;
+        flex-direction: row;
+        background-color: #D9D9D9;
+        padding: 1em;
+        width: 352px;
+        height: 10vh;
+        box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
+    }
+
+    .p-total {
+        margin-left: 12em;
+
+    }
+
+    .sub-total {
+        display: flex;
+        align-items: center;
+        margin-left: 3em;
+    }
+
+    .formulario-cartao {
+        border: 3px solid transparent;
+        border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
+        border-image-slice: 1;
+        padding: 25px;
         width: 90%;
-        margin: 0.2em 0em;
-        border: 1px solid #FF2C83; 
+        height: fit-content;
+        margin: 3em 0em;
+
+        .compra {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+
+        }
+
+        .fileira1 {
+            display: flex;
+            flex-direction: row;
+            margin-top: 1em;
+
+            .div1 {
+                input {
+                    width: 25em;
+
+                }
+            }
+
+            .div2 {
+                margin-left: 2em;
+
+                input {
+                    width: 20em;
+                }
+            }
+
+            .div3 {
+                margin-left: 2em;
+
+                select {
+                    width: 11em;
+                }
+            }
+
+            .div4 {
+                margin-left: 2em;
+
+                select {
+                    width: 14em;
+                }
+            }
+
+            .div5 {
+                margin-left: 2em;
+            }
+        }
+
+        p {
+            font-size: 13px;
+            margin-bottom: 0.5em;
+        }
     }
-}
 
-//Resumo do Pedido
-.cab-res-ped{
-    display: flex;
-    flex-direction: row;
-    background-color: #521FAF;
-    padding: 1em;
-    width: 350px;
-
-    position: -webkit-sticky; 
-    position: sticky;
-    top: 0;
-
-    p{
-        display: flex;
-        align-items: center;
+    .salvar {
+        padding: 1em 6em;
+        justify-self: end;
+        background: #521FAF;
         color: #fff;
-        margin-left: 1em;
+        border: none;
+        margin-top: 4em;
+        border-radius: 5px;
+
     }
-}
 
-.box-resumo{
-    width: 350px;
-    height: 350px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
-    overflow: auto;
-        
-}
-
-.resumo-pedidos{
-    display: flex;
-    flex-direction: row;
-}
-
-.titulos{
-    margin-top: 5px;
-    h2{
-        font-size: 14px;
-        color: #464646;
-    }
-    
-}
-
-.nome{
-    font-size: 12px;
-    color: #5E5E5E;
-    width: 10em;
-}
-
-.preco{
-    font-size: 12px;
-    color: #FF2C83;
-}
-
-.imagem-resumo{
-    width: 75px;
-    height: 70px;
-    border-radius: 5px;
-    margin: 0.5em;
-
-}
-
-.qtd{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.total{
-
-    display: flex;
-    flex-direction: row;
-    background-color:  #D9D9D9;
-    padding: 1em;
-    width: 352px;
-    height: 10vh;
-    box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
-}
-
-.p-total{
-    margin-left: 12em;
-
-}
-
-.sub-total{
-    display: flex;
-    align-items: center;
-    margin-left: 3em;
-}
-.formulario-cartao{
-    border: 3px solid transparent;
-    border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
-    border-image-slice: 1;
-    padding: 25px;
-    width: 90%;
-    height: fit-content;
-    margin: 3em 0em;
-
-    .compra{
+    .box-endereco {
         display: flex;
         flex-direction: row;
-        align-items: center;
-
-        
+        padding: 0.5em 0em;
     }
-    .fileira1{
+
+    // inserir endereco
+
+    .camp-endereco {
         display: flex;
-        flex-direction: row;
-        margin-top: 1em;
 
-        .div1{
-            input{
-                width: 25em;
+        p {
+            color: #6e6e6e;
+            margin-bottom: 0.2em;
+
+        }
+
+        .endereco {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+
+            p {
+                font-size: 1em;
+                margin-left: 0.2em; 
+                margin-top: 0.2em;
+            }
+        }
+
+        .endereco1 {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .div2 {
+            p {
+                margin-left: 2em;
+            }
+
+            input {
+                margin-left: 2.5em;
+                width: 22em;
+            }
+        }
+
+        .div3 {
+
+            input {
+                width: 30em;
+            }
+        }
+
+        .div4 {
+            p {
+                margin-left: 2em;
+            }
+
+            input {
+                width: 5.5em;
+                margin-left: 2.5em;
 
             }
         }
-        .div2{
-            margin-left: 2em;
 
-            input{
-                width: 20em;
+        .div6 {
+            p {
+                margin-left: 2em;
+            }
+
+            input {
+                width: 11.5em;
+                margin-left: 2.5em;
+
             }
         }
-        .div3{
-            margin-left: 2em;
-            select{
-                width: 11em;
-            }
+
+        input {
+            border: 1px solid #FF2C83;
+            margin-bottom: 0.8em;
+            height: 1.2em;
         }
-        .div4{
-            margin-left: 2em;
-            select{
-                width: 14em;
-            }
+
+
+        .btn {
+            display: flex;
+            justify-self: center;
+            align-self: center;
         }
-        .div5{
-            margin-left: 2em;
+
+        button {
+            width: 132px;
+            height: 25px;
+            margin-bottom: 4em;
+            background: #521FAF;
+            color: #fff;
+            border-radius: 10px;
+            border: none;
         }
     }
 
-p{
-    font-size: 13px;
-    margin-bottom: 0.5em;
 }
-}
-.salvar{
-    padding: 1em 6em;
-    justify-self: end;
-    background: #521FAF;
-    color: #fff;
-    border: none;
-    margin-top: 4em;
-    border-radius: 5px;
-
-}
-
-.box-endereco {
-    display: flex;
-    flex-direction: row;
-    padding: 0.5em 0em;
-}
-
-}
-
