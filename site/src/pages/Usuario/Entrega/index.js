@@ -50,7 +50,7 @@ export default function Pedido() {
     async function salvarEndereco() {
         try {
             const id = Storage('cliente-logado').data.id;
-            const r = await SalvarEndereco(id, cep, referencia, endereco, bairro, cidade, estado, numero);
+            const r = await SalvarEndereco(id, cep, referencia, endereco, bairro, cidade, estado, numeroEnd);
             toast('Endereço salvo');
             carregarEnderecos();
 
@@ -199,7 +199,7 @@ export default function Pedido() {
                                                     </div>
                                                     <div className='div4'>
                                                         <p> Número</p>
-                                                        <input type='text' value={numeroEnd} onChange={e => setNumeroEnd(e.target.value)} />
+                                                        <input type='number' value={numeroEnd} onChange={e => setNumeroEnd(e.target.value)} />
                                                     </div>
                                                 </div>
 
