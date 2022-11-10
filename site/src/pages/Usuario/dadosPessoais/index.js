@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Storage from  'local-storage';
 import { useEffect, useState} from 'react';
 import { buscarUsuarioId } from '../../../API/Usuario';
+import Infos from '../../../components/infosUser';
 
 export default function Index(){
     
@@ -50,7 +51,7 @@ export default function Index(){
             <div>
                 <Caixa ajuste='ajuste-caixa'></Caixa>
                 <MenuUsuario></MenuUsuario>
-
+                <Infos></Infos>
             </div>
            
 

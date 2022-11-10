@@ -1,6 +1,6 @@
 import { Router } from "express"; 
 import { buscarProduto } from "../../repository/admin/produtoRepository.js";
-import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  Favoritos, inserirEndereco,  inserirUsuario, 
+import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  buscarUsuario,  Favoritos, inserirEndereco,  inserirUsuario, 
     listarAvaliacoes, listarEnderecos, listarFavoritos, removerProdutoFavoritos } from "../../repository/usuario/usuarioRepository.js";
 import { criarNovoPedido } from "../../service/novoProdutoService.js";
 
@@ -32,6 +32,23 @@ server.post('/usuario', async (req, resp) => {
         })
     }
    
+})
+
+server.get('/api/usuario/:id', async (req, resp) => {
+    try{
+        const id = req.params.id;
+
+        const usuario = await buscarUsuario(id);;
+
+        resp.send(
+             usuario
+         )
+    }
+    catch (err){
+        resp.status(400).send({
+            erro: err.message
+        })    
+    }
 })
 
 server.post('/endereco', async (req, resp) => {
