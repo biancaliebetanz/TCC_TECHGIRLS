@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import Storage from 'local-storage';
 import { listarFavoritos } from "../../../API/Usuario.js";
 import Rodape from "../../../components/rodape/index.js";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function Index(){
 
+    const navigate = useNavigate()
     const [usuario, setUsuario] = useState(Storage('cliente-logado').data.id);
     const [produtos, setProdutos] = useState([]);
 

@@ -48,6 +48,16 @@ export default function CabecalhoPrincipal(props){
         Storage('carrinho',carrinho);
         CarregarCarrinho();
     }
+
+    function favoritos(){
+        if(Storage('cliente-logado')){
+            return '/Favoritos';
+            }
+        else{
+            return '/login/usuario'
+        }
+        }
+    
     
     async function CarregarCarrinho(){
         let carrinho= Storage('carrinho')
@@ -86,7 +96,7 @@ export default function CabecalhoPrincipal(props){
                     </div>
 
                     <div className="espbotoes">
-                    <Link to='/Favoritos'><img className='icons1' src={props.fav}/></Link>
+                    <Link to={favoritos()}><img className='icons1' src={props.fav}/></Link>
                           <img onClick={logado} className='icons1' src={props.user}/>
 
                     <img className='icons1' src={props.sacola} onClick={exibiritems} />
