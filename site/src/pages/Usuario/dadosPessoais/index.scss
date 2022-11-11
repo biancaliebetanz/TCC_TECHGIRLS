@@ -2,9 +2,37 @@ main .DadosPessoais{
     height: 50vh;
     width: 100%;
 
+    .Endereco {
+        margin-top: 5em;
+        border: 3px solid transparent;
+        border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
+        border-image-slice: 1;
+        padding: 25px;
+        margin-right: 0.5em;
+        width: 80vw;
+        height: fit-content;
+        color: #252525;
+        font-family: 'Lexend-Light';
+        font-size: 12px;
+        text-transform: capitalize;
+        display: flex;
+    margin-top: 15vh;
+    
+        h6 {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+    
+    .Endereco:hover {
+        cursor: pointer;
+    }
+    }
+    
+
     .leg{
        
         background-color: #6235b4;
+
 
 }
 .footer{

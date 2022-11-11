@@ -1,16 +1,12 @@
 .menu-user{
     display: flex;
     flex-direction: row;
-    position: relative;
-    bottom: 11em;
-    left: 8em;
-    
-    
 
+    .direction {
+        display: flex;
+        flex-direction: column;
+    }
     .usuario-logado{
-        position: relative;
-        bottom: 6em;
-        left: 3.5em;
     
         width: 6vh;
         height: 7.5vh;

@@ -48,10 +48,10 @@ export default function Index(){
             <div>
                 <Legendas nome='Dados Pessoais'></Legendas>
             </div>
-            <div>
-                <Caixa ajuste='ajuste-caixa'></Caixa>
-                <MenuUsuario></MenuUsuario>
-                <Infos></Infos>
+
+            <div className='Endereco' style={ {display : 'flex', width : '80vw', marginTop : '20vh'} }>
+                <MenuUsuario />
+                <Infos />
             </div>
            
 

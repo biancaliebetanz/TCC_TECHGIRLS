@@ -34,16 +34,16 @@ section {
   
 }
 .novo{
-    position: relative;
-    bottom: 8em;
     
     .bt-novo{
         color: #4EB9DB;
     }
 }
 .end-card{
-    position: absolute;
-    bottom: 23em;
-    left: 25em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2em;
+    margin: 0.5em;
 }
 
