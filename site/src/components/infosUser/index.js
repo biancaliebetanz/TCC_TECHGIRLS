@@ -45,28 +45,26 @@ export default function Infos(){
                     <p>{usuario.nome}</p>
                 </div>
                <div>
-               <p>E-mail</p>
-               <p>{usuarioLogin.email}</p>
-               
+                    <p>E-mail</p>
+                    <p>{usuarioLogin.email}</p>
                </div>
                 <div>
-                <p>Telefone</p>
-                <p>{usuario.telefone}</p>
+                    <p>Telefone</p>
+                    <p>{usuario.telefone}</p>
                 </div>
             </div>
             <div className="coluna2">
                 <div>
-                <p>CPF</p>
-                <p>{usuario.cpf}</p>
+                    <p>CPF</p>
+                    <p>{usuario.cpf}</p>
                 </div>
-               <div>
-               <p>RG</p>
-               <p>{usuario.rg}</p>
+                <div>
+                    <p>RG</p>
+                    <p>{usuario.rg}</p>
                </div>
                <div>
-               <p>Data de Nascimento</p>
-               <p>{usuario.nascimento}</p>
-
+                    <p>Data de Nascimento</p>
+                    <p>{usuario.nascimento}</p>
                </div>
             </div>
 

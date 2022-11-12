@@ -3,16 +3,30 @@ import './menuUsuario.scss'
 import { useNavigate } from "react-router-dom";
 import Storage from 'local-storage'
 import { useEffect, useState } from "react";
-import { UsuarioCadastro } from "../../API/Usuario.js";
+import { buscarUsuarioId, UsuarioCadastro } from "../../API/Usuario.js";
 export default function MenuUsuario() {
     const navigate = useNavigate();
+    const [usuario, setUsuario] = useState([]);
 
+    async function CarregarNome(){
+        const r= await buscarUsuarioId(Storage('cliente-logado').data.id);
+        setUsuario(r);
+    }
+
+    useEffect(() => {
+        CarregarNome();
+    }, [usuario]);
+
+    useEffect(() => {
+        CarregarNome();
+    }, [])
 
     function SairCliente() {
         Storage.remove('cliente-logado');
         navigate('/')
     }
 
+    
 
 
     return (
@@ -20,6 +34,7 @@ export default function MenuUsuario() {
             <div className="direction">
                 <div>
                 <img className="usuario-logado" src="./../../../images/usuariologado.png"></img>
+                <p> Olá {usuario.nome}!!</p>
             </div>
             <div className="links">
                 <Link to='/dadosPessoais' className="Link">Dados Pessoais</Link>
