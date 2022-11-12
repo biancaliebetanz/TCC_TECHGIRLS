@@ -41,8 +41,10 @@ server.get('/api/usuario/:id', async (req, resp) => {
         const usuario = await buscarUsuario(id);;
 
         resp.send(
-             usuario
-         )
+            {
+             dados : usuario
+            }
+        )
     }
     catch (err){
         resp.status(400).send({
