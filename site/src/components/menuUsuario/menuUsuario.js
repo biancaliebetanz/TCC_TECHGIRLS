@@ -24,7 +24,7 @@ export default function MenuUsuario() {
             <div className="links">
                 <Link to='/dadosPessoais' className="Link">Dados Pessoais</Link>
                 <Link to='/endereco' className="Link">Endereços</Link>
-                <Link className="Link">Meus Pedidos</Link>
+                <Link to='/seusPedidos' className="Link">Meus Pedidos</Link>
                 <div>
                     <p onClick={SairCliente} className="Link">Sair</p>
                 </div>

@@ -20,6 +20,7 @@ import Entrega from './pages/Usuario/Entrega/index.js'
 import AdminTemas from './pages/Administrador/Temas/index.js'
 import NovoTema from './pages/Administrador/novoTema/index.js'
 import UsuarioTema from './pages/Usuario/TemaPesquisa/index.js'
+import EditarDados from './pages/Usuario/editarDados/index.js'
 
 
 export default function Index(){
@@ -49,6 +50,7 @@ export default function Index(){
                 <Route path='/admin/tema/:id' element={<NovoTema/>} />
                 <Route path='/usuario/tema/:id' element={<UsuarioTema/>} />
                 <Route path='/usuario/pedido' element={<Pedido/>} />
+                <Route path='/editar/dados' element={<EditarDados/>} />
             </Routes>
         </BrowserRouter>
     )

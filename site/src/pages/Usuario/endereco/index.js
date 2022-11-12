@@ -13,6 +13,7 @@ import MenuUsuario from '../../../components/menuUsuario/menuUsuario';
 import Rodape from '../../../components/rodape';
 import Legendas from '../../../components/cabLegenda';
 import Infos from '../../../components/infosUser';
+import { Link } from 'react-router-dom';
 
 export default function Index() {
 
@@ -47,6 +48,10 @@ export default function Index() {
 
 
                     </div>
+            </div>
+
+            <div>
+                <Link className='Link1' to='/novoEndereco'>Novo Endereço</Link>
             </div>
 
             <div>

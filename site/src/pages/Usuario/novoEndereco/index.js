@@ -20,11 +20,14 @@ export default function Index(){
              <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
                                     <Legendas nome="Endereços"></Legendas>
+                
+                <div className='Endereco' style={ {display : 'flex', width : '80vw', marginTop : '20vh'} }>
+                <MenuUsuario />
+                <CadastroEndereco></CadastroEndereco>
 
-            <Caixa ></Caixa>
-            <MenuUsuario ></MenuUsuario>
+            </div>
+           
 
-            <CadastroEndereco></CadastroEndereco>
             <div>
                 <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
 

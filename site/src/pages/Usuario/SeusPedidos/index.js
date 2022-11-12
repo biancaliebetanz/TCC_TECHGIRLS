@@ -14,11 +14,14 @@ export default function Index(){
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
                                     <Legendas nome="Seus Pedidos"></Legendas>
 
-            <Caixa ></Caixa>
-            <MenuUsuario ></MenuUsuario>
+            <div className='Endereco' style={ {display : 'flex', width : '80vw', marginTop : '20vh'} }>
+                <MenuUsuario />
+
+            </div>
+           
 
             <div>
-                <Rodape></Rodape>
+            <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' logo='./../../../images/logo.png'></Rodape>
             </div>
             
         </main>

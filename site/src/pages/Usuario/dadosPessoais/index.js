@@ -5,7 +5,7 @@ import Caixa from '../../../components/boxInfos/boxInfos.js';
 import MenuUsuario from '../../../components/menuUsuario/menuUsuario';
 import Legendas from '../../../components/cabLegenda';
 import Rodape from '../../../components/rodape';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Storage from  'local-storage';
 import { useEffect, useState} from 'react';
 import { buscarUsuarioId } from '../../../API/Usuario';
@@ -52,6 +52,11 @@ export default function Index(){
             <div className='Endereco' style={ {display : 'flex', width : '80vw', marginTop : '20vh'} }>
                 <MenuUsuario />
                 <Infos />
+            </div>
+
+            <div>
+                <Link className='Link2' to='/editar/dados'> Editar Informações</Link>
+
             </div>
            
 
