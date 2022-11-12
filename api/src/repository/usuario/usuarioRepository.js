@@ -16,6 +16,22 @@ export async function buscarUsuario(id){
     return r[0];
 }
 
+
+export async function BuscarInfoLogin(id) {
+    const comando =
+        `
+        select
+                ID_USUARIO_LOGIN    as idUserLogin,
+                DS_EMAIL	        as email,
+                DS_SENHA	        as senha
+        FROM TB_USUARIO_LOGIN
+        WHERE id_usuario = ?;    
+    `
+    const [resposta] = await con.query(comando, [id])
+    return resposta[0]
+}
+
+
 export async function inserirUsuario(usuario){
     
     const comando = `

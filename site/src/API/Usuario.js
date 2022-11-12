@@ -26,7 +26,12 @@ export async function buscarPorId(id){
     return resp.data;
 }
 export async function buscarUsuarioId(id){
-    const resp = await api.get('/api/usuario/' + id);
+    const resp = await api.get(`/api/usuario/${id}`);
+    return resp.data;
+}
+
+export async function buscarLoginId(id){
+    const resp = await api.get(`/api/usuarioLogin/${id}`);
     return resp.data;
 }
 

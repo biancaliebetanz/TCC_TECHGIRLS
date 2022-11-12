@@ -1,6 +1,6 @@
 import { Router } from "express"; 
 import { buscarProduto } from "../../repository/admin/produtoRepository.js";
-import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  buscarUsuario,  Favoritos, inserirEndereco,  inserirUsuario, 
+import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  BuscarInfoLogin,  buscarUsuario,  Favoritos, inserirEndereco,  inserirUsuario, 
     listarAvaliacoes, listarEnderecos, listarFavoritos, removerProdutoFavoritos } from "../../repository/usuario/usuarioRepository.js";
 import { criarNovoPedido } from "../../service/novoProdutoService.js";
 
@@ -41,9 +41,24 @@ server.get('/api/usuario/:id', async (req, resp) => {
         const usuario = await buscarUsuario(id);;
 
         resp.send(
-            {
-             dados : usuario
-            }
+           usuario
+        )
+    }
+    catch (err){
+        resp.status(400).send({
+            erro: err.message
+        })    
+    }
+})
+
+server.get('/api/usuarioLogin/:id', async (req, resp) => {
+    try{
+        const id = req.params.id;
+
+        const usuarioLogin = await BuscarInfoLogin(id);;
+
+        resp.send(
+           usuarioLogin
         )
     }
     catch (err){
