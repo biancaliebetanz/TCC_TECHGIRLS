@@ -19,11 +19,11 @@ export default function Index(){
         <main className="novoEndereco">
              <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
-                                    <Legendas nome="Endereços"></Legendas>
+                    <Legendas nome="Endereços" />
                 
                 <div className='Endereco' style={ {display : 'flex', width : '80vw', marginTop : '20vh'} }>
                 <MenuUsuario />
-                <CadastroEndereco></CadastroEndereco>
+                <CadastroEndereco />
 
             </div>
            

@@ -1,4 +1,4 @@
-.pag1-adm{
+.pag1-adm {
     height: 90vh;
     display: flex;
     height: 100vh;
@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
 
-    .Bem-Vindo{
+    .Bem-Vindo {
         margin-top: 1em;
         margin-right: 27em;
         margin-bottom: 2em;
@@ -27,4 +27,85 @@
         color: #fff;
     }
 
+    .fundosituacao {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.582);
+        width: 100%;
+        height: 100vh;
+        z-index: 2;
+        position: absolute;
+    }
+
+    .situacaoalterar {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        height: 50vh;
+        border: 3px solid transparent;
+        border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
+        border-image-slice: 1;
+        background-color: #fff;
+        justify-content: center;
+        padding: 1em;
+    }
+
+    .situacaoalterar h2 {
+        font-family: 'Lexend-Bold';
+        font-size: 22px;
+        padding: 10px 0px;
+    }
+
+    .opcoessit {
+        margin: 2em 0em;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 25vh;
+    }
+
+    .opcoessit div {
+        padding: 0.5em;
+        margin: 0.5em 0em;
+    }
+
+    .opcoessit h6 {
+        font-family: 'Lexend-Light';
+        font-size: 14px;
+    }
+
+    .opcoessit h6:hover{
+        cursor: pointer;
+        color: #FF2C83;
+    }
+
+    .situacaoalterar h3 {
+        font-family: 'Lexend-Regular';
+        font-size: 16px;
+    }
+
+    .situacaoalterar span {
+        color: #521FAF;
+    }
+
+    .botoessit {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .botoessit button {
+        padding: 5px 10px;
+        background-color: #FF2C83;
+        border-radius: 10px;
+        font-family: 'Lexend-Light';
+        color: #fff;
+        margin-right: 1em;
+        border: none;
+    }
+
+    .botoessit button:hover {
+        background-color: #db2973;
+    }
 }

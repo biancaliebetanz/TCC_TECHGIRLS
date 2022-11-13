@@ -16,6 +16,17 @@ export async function UsuarioCadastro(nome, telefone, cpf, rg, nascimento) {
     return r.data;
 }
 
+export async function EditarUsuario(nome, telefone, cpf, rg, nascimento, id) {
+    const r = await api.put(`/usuario/${id}`, {
+        nome: nome,
+        telefone: telefone,
+        cpf: cpf,
+        rg: rg,
+        nascimento: nascimento
+    })
+    return r.data;
+}
+
 export async function ListarProdutosInicio() {
     const r = await api.get('/usuario/produto');
     return r.data;
@@ -44,3 +55,4 @@ export async function listarFavoritos(id){
     const r = await api.get(`/usuario/favorito/${id}`);
     return r.data;
 }
+

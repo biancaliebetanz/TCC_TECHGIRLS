@@ -1,0 +1,76 @@
+.editando {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .dados {
+        border: 3px solid transparent;
+        border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
+        border-image-slice: 1;
+        padding: 25px;
+        width: 80vw;
+        height: 50vh;
+        color: #252525;
+        font-family: "Lexend-Light";
+        font-size: 12px;
+        text-transform: capitalize;
+        display: flex;
+        margin: 20vh 0vh;
+    }
+
+    div
+    .user{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    
+        .info1{
+            p{
+                margin: 1em;
+                color:#6235b4;
+    
+    
+            }
+    
+            input{
+                margin-left: 1em;
+                width: 20em;
+                border: 1px solid #ff2b5e;
+            }
+            h1{
+                margin: 1em;
+                margin-bottom: 2em;
+                color:#6235b4;
+            }
+        }
+    
+        .info2{
+            margin-left: 10em;
+            margin-top: 7em;
+            margin-bottom: 3em;
+            p{
+                margin: 1em;
+                color:#6235b4;
+    
+            }
+            input{
+                margin-left: 1em;
+                border: 1px solid #ff2b5e;
+    
+            }
+        }
+    button{
+        position: relative;
+        top: 25em;
+        background-color: #6235b4;
+        height: 2.5em;
+        width: 10em;
+        color: #ffff;
+        border: none;
+        border-radius: 30px;
+        
+    
+    }
+    } 
+
+}

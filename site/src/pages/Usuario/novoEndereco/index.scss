@@ -1,8 +1,9 @@
-main{
-    height: 40vh;
+.novoEndereco{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+
     .leg{
-   
     background-color: #6235b4;
 }
 .card-end{
