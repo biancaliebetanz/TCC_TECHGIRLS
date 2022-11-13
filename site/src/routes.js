@@ -21,7 +21,7 @@ import AdminTemas from './pages/Administrador/Temas/index.js'
 import NovoTema from './pages/Administrador/novoTema/index.js'
 import UsuarioTema from './pages/Usuario/TemaPesquisa/index.js'
 import EditarDados from './pages/Usuario/editarDados/index.js'
-
+import Finalizacao from './pages/Usuario/Finalizacao/index.js'
 
 export default function Index(){
     return(
@@ -51,6 +51,7 @@ export default function Index(){
                 <Route path='/usuario/tema/:id' element={<UsuarioTema/>} />
                 <Route path='/usuario/pedido' element={<Pedido/>} />
                 <Route path='/editar/dados' element={<EditarDados/>} />
+                <Route path='/usuario/finalizacao' element={<Finalizacao/>} />
             </Routes>
         </BrowserRouter>
     )

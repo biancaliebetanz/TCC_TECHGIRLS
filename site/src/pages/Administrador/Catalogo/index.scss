@@ -1,0 +1,22 @@
+
+    .catalogo {
+        display: flex ;
+        justify-content: center ;
+        height: 90vh;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        background-image: url("../../../../public/images/planodefundo.png");
+        background-position: -55px -200px;
+        align-items: center;
+        justify-content: center;
+
+        .catalogo-container {
+            background-color: #fff;
+            background-size: 25em;
+            width: 65em;
+            height: 90vh;
+    
+        } 
+    
+    }

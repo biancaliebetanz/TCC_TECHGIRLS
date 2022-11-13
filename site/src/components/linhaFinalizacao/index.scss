@@ -1,12 +1,19 @@
+.linha-passos{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
 .passos{
+
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     margin-top: 2em;
 }
 
 .linha-finalizacao{
-    display: flex;
-    justify-content: center;
     height: 2px;
     width: 75em;
     margin-left: 5.5em;
