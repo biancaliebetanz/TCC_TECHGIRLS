@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Storage, { set } from 'local-storage';
 import { toast } from "react-toastify";
-import { listarPedidoId, listarPedidos } from "../../../API/admin/pedido/pedidoApi.js";
+import { alterarSituacaoPedido, listarPedidoId, listarPedidos } from "../../../API/admin/pedido/pedidoApi.js";
 
 export default function Index() {
 
@@ -47,6 +47,19 @@ export default function Index() {
         setPedido(x)
         setSituacao(x.situacao)
         setIdPedido(id);
+    }
+
+    async function alterarSituacao(){
+        try{
+            const x = await alterarSituacaoPedido(idPedido, situacao);
+            console.log(x);
+            toast('Situação do pedido alterada com sucesso!');
+            setAlterar(false)
+            carregarPedidos();
+        }
+        catch(err){
+            toast.error('Erro: ' + err.message)
+        }
     }
 
     function cor() {
@@ -148,7 +161,7 @@ export default function Index() {
 
                 <div className="botoessit">
                     <button onClick={() => setAlterar(false)}> Voltar</button> 
-                    <button> Salvar</button>
+                    <button onClick={alterarSituacao}> Salvar</button>
                 </div>
 
                         </div>

@@ -39,3 +39,16 @@ export async function listarPedidoId(id) {
 
 
 }
+
+
+export async function AlterarSituacãoPedido(id, situacao){
+    const comando = `
+    UPDATE TB_PEDIDO
+    SET DS_SITUACAO     = ?
+    WHERE ID_PEDIDO = ? `;
+    const [resp] = await con.query(comando, [situacao, id
+    ]);
+    return { id : id,
+            situacao : situacao
+        };
+}

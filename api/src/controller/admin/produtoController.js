@@ -4,7 +4,7 @@ import {
         buscarPorNome, buscarPorCategoria, buscarPorTema, alterarProduto, removerProduto,
         deletarCor, deletarTamanho, deletarProduto, deletarImagem,
         buscarDestaque, buscarProduto, buscarCorProduto, 
-        buscarTamanhoProduto, buscarImagemProduto, Resposta, AlterarSituacãoPedido, 
+        buscarTamanhoProduto, buscarImagemProduto, Resposta, 
         alterarCor, alterarTamanho, deletarImagensDiferentes, alterarTemaProduto 
 }       from '../../repository/admin/produtoRepository.js';
 
@@ -378,22 +378,6 @@ server.post('/resposta', async (req, resp) => {
 })
 
 
-
-server.put('/pedido/:id', async (req, resp) => {
-    try {
-        const { id } = req.params;
-        const pedido = req.body;
-
-        const resposta= await AlterarSituacãoPedido(id, pedido);
-
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(404).send({
-            erro: err.message
-        })
-    }
-})
 
 server.put('/produto/tema/:id', async (req, resp) => {
     try {
