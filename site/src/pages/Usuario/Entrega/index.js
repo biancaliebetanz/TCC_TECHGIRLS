@@ -10,7 +10,7 @@ import CabecalhoCompra from '../../../components/cabecalhoCompra/index.js';
 import CaixaPagamento from '../../../components/caixaPagamento';
 import CardEndereco from '../../../components/cardEndereco';
 import LinhaFinalizacao from '../../../components/linhaFinalizacao/index.js';
-import Rodape from '../../../components/usuario/rodape';
+import Rodape from '../../../components/rodape';
 import './index.scss'
 import CadastroEndereco from '../../../components/CadEndereco';
 

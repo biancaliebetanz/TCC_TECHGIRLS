@@ -9,7 +9,7 @@ import Storage from 'local-storage';
 import { API_URL } from '../../../API/config';
 import { toast } from 'react-toastify';
 import Legendas from '../../../components/cabLegenda';
-import Rodape from '../../../components/usuario/rodape';
+import Rodape from '../../../components/rodape';
 
 export default function Index(){
     const[produto, setProduto]= useState({cores:[], tamanho:[], imagens:[] , destaque:{}, info:{} });

@@ -235,9 +235,7 @@ server.get('/produto/nome', async (req, resp) => {
                 
             const resposta = await buscarPorNome(nome);
         
-            if (resposta.length == 0)
-                resp.status(404).send([])
-            else
+           
                 resp.send(resposta);
         } catch (err) {
             resp.status(400).send({

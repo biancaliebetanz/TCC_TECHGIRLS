@@ -4,7 +4,7 @@ import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalho
 import Caixa from '../../../components/boxInfos/boxInfos.js';
 import MenuUsuario from '../../../components/menuUsuario/menuUsuario';
 import Legendas from '../../../components/cabLegenda';
-import Rodape from '../../../components/usuario/rodape';
+import Rodape from '../../../components/rodape';
 import { Link, useNavigate } from 'react-router-dom';
 import Storage from 'local-storage';
 import { useEffect, useState } from 'react';

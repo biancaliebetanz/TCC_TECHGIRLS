@@ -8,7 +8,9 @@ export default function BannerPag() {
         <main className="catalogo">
              <MenuAdmin logo='../../../images/logoAdmin.png' className="menu"> </MenuAdmin> 
 
-            
+            <div className="catalogo-container">
+                <p>Altere os banners</p>
+            </div>
             
         </main>
     )

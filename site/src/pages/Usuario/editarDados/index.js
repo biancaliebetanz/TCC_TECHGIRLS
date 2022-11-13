@@ -2,7 +2,7 @@ import { useState } from "react";
 import { EditarUsuario } from "../../../API/Usuario";
 import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalhoPrinc";
 import Legendas from "../../../components/cabLegenda";
-import Rodape from "../../../components/usuario/rodape";
+import Rodape from "../../../components/rodape";
 import Storage from 'local-storage'
 
 import './index.scss'

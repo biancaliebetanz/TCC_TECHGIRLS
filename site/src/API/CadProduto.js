@@ -154,7 +154,6 @@ export async function alterarProduto(id, nome, preco, tema, categoria,  descrica
             },
             
             cores: cores,
-        
             tamanho: tamanho
 
           }
