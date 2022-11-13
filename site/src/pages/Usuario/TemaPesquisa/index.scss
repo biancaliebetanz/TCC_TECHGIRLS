@@ -2,7 +2,10 @@
 
     .produtos-tema {
         display: flex;
+        justify-content: center;
         flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 2em;
     }
 
 
@@ -41,4 +44,22 @@
         cursor: pointer;
         color: #643ab3;
     }
+    .paginacao{
+        display: flex;
+        justify-content: center;
+        margin: 1em;
+    }
+    .bt-paginacao{
+        margin: 0.5em;
+        border: none;
+        font-size: 1em;
+        background-color: #fff;
+        color: #521FAF;
+    }
+
+    .bt-paginacao:hover,.button.button-custom:active {
+
+        color: #FF2B5E;
+        
+        }  
 }

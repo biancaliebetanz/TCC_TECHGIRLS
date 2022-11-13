@@ -8,6 +8,7 @@ import { listarPorCategoria, listarPorTema } from '../../../API/usuario/temaApi.
 import { buscarTemaId } from '../../../API/CadProduto.js';
 import { API_URL } from '../../../API/config';
 import { Link } from 'react-router-dom';
+import Rodape from '../../../components/rodape';
 
 export default function Index() {
 
@@ -22,6 +23,14 @@ export default function Index() {
     const [caneca, setCaneca] = useState('Caneca');
     const [pelucia, setPelucia] = useState('Pelúcia');
     const [decoracao, setDecoracao] = useState('Decoração');
+
+    const[listaporPag, setListarporPag] = useState(15);
+    const[current, setCurrent] = useState(0);
+
+    const pages =   Math.ceil(produtos.length / listaporPag);
+    const startIndex = current * listaporPag;
+    const endIndex= startIndex + listaporPag;
+    const currentItens= produtos.slice(startIndex, endIndex)
 
     async function carregar() {
         const r = await listarPorTema(id);
@@ -74,11 +83,18 @@ export default function Index() {
                 <hr className='linha-menu' />
 
                 <div className='produtos-tema'>
-                    {produtos.map(item =>
+                    {currentItens.map(item =>
                         <BoxProdutoTema nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id} />
                     )}
                 </div>
+                <div className='paginacao'>
+                    {Array.from(Array(pages), (item, index) => {
+                        return <button className='bt-paginacao' value={index} onClick={(e) => setCurrent(Number(e.target.value))}>{index + 1}</button>
+                })}
+                </div>
             </section>
+
+            <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
 
 
 
