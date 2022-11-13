@@ -70,7 +70,7 @@ export default function Index(){
         <main className="main">
             <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
-            <Legendas nome={produto.info.NomeTema}></Legendas>  
+            <Legendas nome={produto.info.NomeTema} />  
 
             <section className='alinhamento-pag'>
                 <article className='detalhes'>

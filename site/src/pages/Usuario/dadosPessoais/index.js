@@ -46,12 +46,21 @@ export default function Index(){
                 user='../../../images/user.png' sacola='../../../images/sacola.png'/>
             </div>
             <div>
-                <Legendas nome='Dados Pessoais'></Legendas>
+                <Legendas nome='Dados Pessoais' cor={'#6235b4'}/>
             </div>
 
-            <div className='Endereco' style={ {display : 'flex', width : '80vw', marginTop : '20vh'} }>
+            <div className='dados'>
                 <MenuUsuario />
+
                 <Infos />
+
+                <div>
+
+                </div>
+
+                <div> </div>
+
+                <div></div>
             </div>
 
             <div>
@@ -61,7 +70,7 @@ export default function Index(){
            
 
             <div className='rod'>
-            <Rodape></Rodape>
+            <Rodape />
 
             </div>
         </main>

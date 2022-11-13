@@ -37,7 +37,7 @@ export default function Index() {
         <main className='SeusEnderecos'>
             <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png' fav='../../../images/favoritos.png'
                 user='../../../images/user.png' sacola='../../../images/sacola.png' />
-            <Legendas nome="Endereços"></Legendas>
+            <Legendas nome="Endereços" cor={'#6235b4'}/>
 
             <div className='Endereco' style={{ display: 'flex', width: '80vw', marginTop: '20vh' }}>
                 <MenuUsuario />

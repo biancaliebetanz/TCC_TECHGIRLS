@@ -28,10 +28,10 @@ export default function Index(){
 
         
     return(
-        <main>
+        <main className="telaFav">
             <CabecalhoPrincipal  logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
-            <Legendas nome="Favoritos"></Legendas>
+            <Legendas nome="Favoritos" cor={'#e25475'} />
 
                     
            <section className="favoritos">
