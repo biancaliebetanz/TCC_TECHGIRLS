@@ -18,7 +18,7 @@ export default function CabecalhoPrincipal(props) {
 
     function logado() {
         if (Storage('cliente-logado')) {
-            navigate('/dadosPessoais')
+            navigate('/usuario/dados')
         }
         else if (!Storage('cliente-logado')) {
             navigate('/login/usuario')

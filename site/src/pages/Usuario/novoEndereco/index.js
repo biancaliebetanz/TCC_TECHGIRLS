@@ -5,7 +5,7 @@ import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalho
 import Legendas from "../../../components/cabLegenda/index.js";
 import CadastroEndereco from "../../../components/CadEndereco/index.js";
 import MenuUsuario from "../../../components/menuUsuario/menuUsuario.js";
-import Rodape from "../../../components/rodape/index.js";
+import Rodape from "../../../components/usuario/rodape/index.js";
 import './index.scss'
 
 export default function Index(){

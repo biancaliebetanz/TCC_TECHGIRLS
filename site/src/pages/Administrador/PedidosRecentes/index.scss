@@ -1,12 +1,13 @@
 .pag1-adm {
-    height: 90vh;
-    display: flex;
     height: 100vh;
+    display: flex;
     width: 100%;
     background-image: url("../../../../public/images/planodefundo.png");
-    background-position: -55px -30px;
     align-items: center;
     justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     .Bem-Vindo {
         margin-top: 1em;

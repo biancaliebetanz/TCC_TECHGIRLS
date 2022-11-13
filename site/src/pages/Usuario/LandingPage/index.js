@@ -6,7 +6,7 @@ import BoxProdutoTema from "../../../components/boxProduto/boxProdutoTema.js";
 import "./index.scss"
 import { buscarPorId, ListarProdutosInicio } from "../../../API/Usuario.js";
 import { useEffect, useState, useRef } from "react";
-import Rodape from "../../../components/rodape"
+import Rodape from "../../../components/usuario/rodape"
 import { API_URL } from "../../../API/config";
 import { Temas } from "../../../API/tema/temaAPI.js";
 

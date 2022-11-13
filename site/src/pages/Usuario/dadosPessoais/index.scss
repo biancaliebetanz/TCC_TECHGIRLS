@@ -3,13 +3,61 @@
     display: flex;
     flex-direction: column;
 
+    .menu-user {
+        display: flex;
+        flex-direction: row;
+
+
+        .direction {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            width: 100%;
+        }
+
+        .usuario-logado {
+
+            width: 6vh;
+            height: 7.5vh;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            padding: 1em;
+        }
+
+        .Link {
+            margin: 1em 0em;
+            text-decoration: none;
+            border: none;
+            font-family: 'Lexend-Regular';
+            color: #252525;
+            text-align: left;
+        }
+
+        .Link:hover{
+            cursor: pointer;
+            color: #FF2C83;
+        }
+
+        .hr {
+            height: 90%;
+            width: 4px;
+            background-image: linear-gradient(to bottom, #4EB9DB, #521FAF, #FF2C83);
+            border: none;
+            align-self: center;
+
+        }
+    }
+
     .dados {
         border: 3px solid transparent;
         border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
         border-image-slice: 1;
         padding: 25px;
         width: 80vw;
-        height: 50vh;
+        height: 60vh;
         color: #252525;
         font-family: 'Lexend-Light';
         font-size: 12px;
@@ -43,11 +91,7 @@
         margin-top: 2em;
     }
 
-    .menu-user {
-        margin-top: 2.5em;
-    }
 
-}
 
 .Link2 {
 
@@ -64,4 +108,16 @@
     position: relative;
     top: 2em;
     left: 60%;
+}
+
+.end-card {
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
+    padding: 2em;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
 }

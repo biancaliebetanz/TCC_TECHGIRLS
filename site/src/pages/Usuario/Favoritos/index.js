@@ -5,7 +5,7 @@ import Legendas from "../../../components/cabLegenda/index.js";
 import { useEffect, useState } from "react";
 import Storage from 'local-storage';
 import { listarFavoritos } from "../../../API/Usuario.js";
-import Rodape from "../../../components/rodape/index.js";
+import Rodape from "../../../components/usuario/rodape/index.js";
 import { useNavigate } from "react-router-dom";
 
 

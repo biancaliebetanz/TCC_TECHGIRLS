@@ -18,7 +18,7 @@ export default function MenuAdmin(props){
                     <Link className="opcao">Administrador</Link>
                 </div>
                 <div>
-                  <Link className="opcao">Catálogos</Link>
+                  <Link to='/admin/banner' className="opcao">Catálogos</Link>
                 </div>
                 <div>
                     <Link to='/admin/pedidos' className="opcao">Pedidos</Link>

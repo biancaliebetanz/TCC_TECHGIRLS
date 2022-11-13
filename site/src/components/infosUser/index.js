@@ -10,8 +10,6 @@ export default function Infos(){
     const [usuario, setUsuario] = useState([]);
     const [usuarioLogin, setUsuarioLogin] = useState([]);
    
-
-
     async function CarregarInfos(){
         const resposta = await buscarUsuarioId(Storage('cliente-logado').data.id);
         setUsuario(resposta);
@@ -42,29 +40,29 @@ export default function Infos(){
             <div className="coluna1">
                 <div>
                     <p id='nome'>Nome</p>
-                    <p>{usuario.nome}</p>
+                    <span>{usuario.nome}</span>
                 </div>
                <div>
                     <p>E-mail</p>
-                    <p>{usuarioLogin.email}</p>
+                    <span>{usuarioLogin.email}</span>
                </div>
                 <div>
                     <p>Telefone</p>
-                    <p>{usuario.telefone}</p>
+                    <span>{usuario.telefone}</span>
                 </div>
             </div>
             <div className="coluna2">
                 <div>
                     <p>CPF</p>
-                    <p>{usuario.cpf}</p>
+                    <span>{usuario.cpf}</span>
                 </div>
                 <div>
                     <p>RG</p>
-                    <p>{usuario.rg}</p>
+                    <span>{usuario.rg}</span>
                </div>
                <div>
                     <p>Data de Nascimento</p>
-                    <p>{usuario.nascimento}</p>
+                    <span>{usuario.nascimento}</span>
                </div>
             </div>
 
