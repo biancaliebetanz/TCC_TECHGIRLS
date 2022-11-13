@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { EditarUsuario } from "../../../API/Usuario";
 import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalhoPrinc";
 import Legendas from "../../../components/cabLegenda";
 import Rodape from "../../../components/rodape";
+import Storage from 'local-storage'
 
 import './index.scss'
+import { toast } from "react-toastify";
 
 export default function Index(){
 
@@ -13,6 +16,19 @@ export default function Index(){
     const [cpf, setCpf] = useState('');
     const [nascimento, setNascimento] = useState('');
     const [telefone, setTelefone] = useState('');
+
+    function editar(){
+        try{
+        const id = Storage('cliente-logado').data.id;
+        console.log(id)
+        const alterar = EditarUsuario(nome, telefone, cpf, rg, nascimento, id);
+        console.log(alterar)
+        toast('Informações alteradas com sucesso!')
+        }
+        catch (err){
+            toast.error('Erro: ' + err.message)
+        }
+    }
 
 
     return(
@@ -24,7 +40,7 @@ export default function Index(){
             <div>
                 <Legendas nome='Dados Pessoais'  cor={'#6235b4'}/>
             </div>
-            <div className='Endereco' style={ {display : 'flex', width : '80vw', marginTop : '20vh'} }>
+            <div className='dados' >
             <div className="user">
           <div className="info1">
             <h1>Edite Seus Dados</h1>
@@ -56,7 +72,7 @@ export default function Index(){
             </div>
             
            </div>
-           <button>Salvar</button>
+           <button onClick={editar}>Salvar</button>
         </div>
             </div>
             <div>
