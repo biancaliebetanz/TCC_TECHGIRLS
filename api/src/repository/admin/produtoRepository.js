@@ -383,17 +383,6 @@ VALUES(?, ?);
 }
 
 
-export async function AlterarSituacãoPedido(id, pedido){
-        const comando = `
-        UPDATE TB_PEDIDO
-        SET DS_SITUACAO     = ?
-        WHERE ID_PEDIDO`;
-        const [resp] = await con.query(comando, [pedido.situacao, id
-        ])
-        pedido.id = id;
-        return pedido;
-}
-
 // tema
 
 export async function alterarTemaProduto(novoId, id){

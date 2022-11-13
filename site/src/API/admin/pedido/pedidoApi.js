@@ -15,3 +15,8 @@ export async function listarPedidoId(id) {
     return resp.data;
 }
 
+export async function alterarSituacaoPedido(id, situacao) {
+    const resp = await api.put(`/pedido/${id}?situacao=${situacao}`)
+    return resp.data;
+}
+
