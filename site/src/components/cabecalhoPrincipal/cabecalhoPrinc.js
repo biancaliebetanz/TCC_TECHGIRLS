@@ -26,12 +26,16 @@ export default function CabecalhoPrincipal(props) {
     }
 
     function exibiritems() {
-        if (exibirCarrinho == false) {
+        if(Storage('cliente-logado') && exibirCarrinho == false){
             setexibirCarrinho(true)
         }
-        else if (exibirCarrinho == true) {
+        else if (!Storage('cliente-logado')){
+            navigate('/login/usuario')
+        }
+        else if(exibirCarrinho == true){
             setexibirCarrinho(false)
         }
+        
     }
 
     async function buscarNomeClick() {
@@ -109,7 +113,7 @@ export default function CabecalhoPrincipal(props) {
 
                             {itens.map(item =>
                                 <div className="carrinhoitens">
-                                    <p> {item.info.nome}</p>
+                                    <p> {item.produto.info.nome}</p>
                                 </div>
                             )}
                             <Link to='/usuario/pedido'> Realizar Pedido </Link>
