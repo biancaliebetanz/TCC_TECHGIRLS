@@ -1,11 +1,35 @@
-.telaFav {
+ .telaFav {
+    height: 100%;
+
+    
 .favoritos {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     width: auto;
     padding: 5%;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+.paginacao{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 2em;
+
+}
+.bt-paginacao{
+    margin: 0.5em;
+    border: none;
+    font-size: 1em;
+    background-color: #fff;
+    color: #521FAF;
+    
 }
 
+.bt-paginacao:hover,.button.button-custom:active {
+
+    color: #FF2B5E;
+    
+    }  
 }
