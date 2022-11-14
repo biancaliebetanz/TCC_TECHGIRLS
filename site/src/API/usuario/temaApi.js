@@ -22,6 +22,6 @@ export async function listarPorCategoria(id, categoria) {
 }
 
 export async function DeletarTema(id) {
-    const resposta = await api.delete('/api/tema/' + id)
+    const resposta = await api.delete(`/api/tema/${id}`)
     return resposta.data;
 }
