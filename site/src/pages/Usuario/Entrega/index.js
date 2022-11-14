@@ -18,7 +18,7 @@ export default function Pedido() {
 
     const navigate = useNavigate();
 
-    const [id, setId] = useState(Storage('cliente-logado').data.id);
+    const [id, setId] = useState();
 
     const [itens, setItens] = useState([]);
     const [pedido, setPedido] = useState({});
@@ -104,6 +104,9 @@ export default function Pedido() {
 
     async function SalvarPedido() {
         try {
+            const y = Storage('cliente-logado').data.id;
+            setId(y);
+            console.log(id)
             setProduto(Storage('carrinho'));
             setValorTotal(calcularValorTotal());
             console.log(valorTotal)
@@ -114,7 +117,7 @@ export default function Pedido() {
                     tipoFrete: frete,
                     subtotal: valorTotal,
                     cartao: {
-                        usuario: 1,
+                        usuario: id,
                         nomeCartao: nome,
                         numero: numero,
                         validade: validade,
