@@ -24,3 +24,9 @@ export async function DeletarPedido(id) {
     const resposta = await api.delete(`/api/pedido/${id}`)
     return resposta.status;
 }
+
+
+export async function DeletarPedidoItem(id) {
+    const resposta = await api.delete(`/pedido/produto/${id}`)
+    return resposta.status;
+}
