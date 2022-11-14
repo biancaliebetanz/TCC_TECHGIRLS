@@ -1,17 +1,15 @@
 import './index.scss'
 
 import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalhoPrinc.js';
-import Caixa from '../../../components/boxInfos/boxInfos.js';
-import MenuUsuario from '../../../components/menuUsuario/menuUsuario';
 import Legendas from '../../../components/cabLegenda';
 import Rodape from '../../../components/rodape';
 import { Link, useNavigate } from 'react-router-dom';
 import Storage from 'local-storage';
 import { useEffect, useState } from 'react';
-import { buscarUsuarioId } from '../../../API/Usuario';
-import Infos from '../../../components/infosUser';
+import { buscarLoginId, buscarUsuarioId } from '../../../API/Usuario';
 import { ListarEnderecos } from '../../../API/usuario/enderecoApi';
 import CardEndereco from '../../../components/cardEndereco';
+import CadastroEndereco from '../../../components/CadEndereco';
 
 export default function Index() {
 
@@ -20,6 +18,7 @@ export default function Index() {
     const navigate = useNavigate();
 
     const [id, setId] = useState(Storage('cliente-logado').data.id);
+
 
     const [nome, setNome] = useState('');
     const [telefone, setTelefone] = useState('');
@@ -30,13 +29,23 @@ export default function Index() {
     const [exibir, setExibir] = useState(1);
 
     const [enderecos, setEnderecos] = useState([]);
+
+    // dados
+
     const [usuario, setUsuario] = useState([]);
+    const [usuarioLogin, setUsuarioLogin] = useState([]);
+
 
     // FUNÇÕES
 
-    async function CarregarNome() {
-        const r = await buscarUsuarioId(Storage('cliente-logado').data.id);
-        setUsuario(r);
+    async function CarregarInfos() {
+        const resposta = await buscarUsuarioId(Storage('cliente-logado').data.id);
+        setUsuario(resposta);
+    }
+
+    async function CarregarInfosLogin() {
+        const resposta = await buscarLoginId(Storage('cliente-logado').data.id);
+        setUsuarioLogin(resposta);
     }
 
     async function carregarEnderecos() {
@@ -59,15 +68,18 @@ export default function Index() {
     // USE EFFECTS
 
     useEffect(() => {
+        CarregarInfos();
+        CarregarInfosLogin();
+
+    }, [usuario, usuarioLogin])
+
+    useEffect(() => {
         carregarEnderecos();
     }, [enderecos])
 
     useEffect(() => {
-        CarregarNome();
-    }, [usuario]);
-
-    useEffect(() => {
-        CarregarNome();
+        CarregarInfos();
+        CarregarInfosLogin();
         carregarEnderecos();
     }, [])
 
@@ -115,30 +127,96 @@ export default function Index() {
 
                 {exibir == 1 &&
 
-                    <Infos />
+                    // <Infos />
+                    <div className='flex-column-info'>
+                        <h2> Dados Pessoais</h2>
+                        <div className="princ-infos1">
+                            <div className="coluna11">
+                                <div>
+                                    <p id='nome'>Nome</p>
+                                    <span>{usuario.nome}</span>
+                                </div>
+                                <div>
+                                    <p>E-mail</p>
+                                    <span>{usuarioLogin.email}</span>
+                                </div>
+                                <div>
+                                    <p>Telefone</p>
+                                    <span>{usuario.telefone}</span>
+                                </div>
+                            </div>
+                            <div className="coluna21">
+                                <div>
+                                    <p>CPF</p>
+                                    <span>{usuario.cpf}</span>
+                                </div>
+                                <div>
+                                    <p>RG</p>
+                                    <span>{usuario.rg}</span>
+                                </div>
+                                <div>
+                                    <p>Data de Nascimento</p>
+                                    <span>{usuario.nascimento}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button className='Link2' onClick={() => setExibir(4)}> Editar Informações </button>
+                        </div>
+
+                    </div>
+
                 }
 
                 {exibir == 2 &&
-                    <div className='end-card'>
-                        {enderecos.map(item =>
-                            <CardEndereco item={item} />
-                        )}
+                    <div className='flex-column-info'>
+                        <h2> Endereços</h2>
+                        <div className='end-card'>
+                            {enderecos.map(item =>
+                                <CardEndereco item={item} />
+                            )}
+
+                        </div>
+
+                        <div>
+                            <button className='Link2' onClick={() => setExibir(5)}> Novo endereço </button>
+                        </div>
 
                     </div>
+
 
                 }
 
                 {exibir == 3 &&
 
-                    <div>
+                    <div className='flex-column-info'>
+                       <h2> Meus Pedidos</h2>
+                       <div> </div>
+                    </div>
+                }
+
+                {exibir == 4 &&
+                    <div className='flex-column-info'>
+                         <h2> Editar informações</h2>
+                    </div>
+                }
+
+                {exibir == 5 &&
+
+                <div className='flex-column-info'> 
+                    <h2> Novo Endereço </h2>
+                    <CadastroEndereco />
+                </div>
+
+                }
+
+                {exibir == 6 &&
+                    <div className='flex-column-info'>
+                        <h2> Visualizar Pedido</h2>
 
                     </div>
                 }
-            </div>
-
-            <div>
-                <Link className='Link2' to='/editar/dados'> Editar Informações</Link>
-
             </div>
 
 

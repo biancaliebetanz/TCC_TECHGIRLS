@@ -165,7 +165,6 @@ export default function Index() {
             console.log(idTemas)
             const r = await alterarProduto(id, nome, preco, idTemas, idCategoria, descricao, disponivel, cor, tamanho);
             console.log(r);
-            
             const b = await alterarImagens(id, imagem1, imagem2, imagem3, imagem4);
             console.log(b)
             toast('Produto alterado com sucesso')

@@ -59,3 +59,12 @@ export async function DeletarPedido(id) {
     const [resposta] = await con.query(comando, [id]);
     return resposta.affectedRows;
 }
+
+export async function DeletarPedidoItem(id){
+    const comando = `
+    DELETE FROM TB_PEDIDO_ITEM
+    WHERE ID_PRODUTO = ?
+    ` 
+    const [resp] = await con.query(comando, [id]);
+    return resp.affectedRows;
+}
