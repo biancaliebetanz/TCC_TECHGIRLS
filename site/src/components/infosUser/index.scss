@@ -1,4 +1,4 @@
-.princ-infos{
+.princ-infos {
     display: flex;
     flex-direction: row;
     align-self: center;
@@ -6,7 +6,7 @@
     height: 100%;
     padding: 2em;
 
-    div {
+    .princ-infos div {
         margin: 2em 0em;
     }
 
@@ -22,12 +22,12 @@
         left: 10em;
         padding: 2em;
     }
-    p{
+    .princ-infos p{
         font-family: 'Lexend-Regular';
         font-size: 16px;
         color: rgb(85, 85, 85);
     }
-    span {
+    .princ-infos span {
         font-family: 'Lexend-Light';
         font-size: 14px;
         color: rgb(0, 0, 0);
