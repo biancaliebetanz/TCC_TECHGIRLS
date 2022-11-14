@@ -10,9 +10,12 @@
     background-position: center;
 
     .Bem-Vindo {
-        margin-top: 1em;
-        margin-right: 27em;
-        margin-bottom: 2em;
+        font-size: 1.1em;
+        position: relative;
+        right: 15em;
+        top: 1em;
+        margin-bottom: 8em;
+
     }
 
     .tabela {
@@ -108,5 +111,27 @@
 
     .botoessit button:hover {
         background-color: #db2973;
+    }
+    
+        .oi{
+            display: flex;
+            flex-direction: row;
+            .adm{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                position: relative;
+                left: 13em;
+                bottom: 2.5em;
+        
+                img{
+                    width: 35px;
+                    height: 35px;
+                }
+                p{
+                    font-size: 0.9em;
+                    margin-left: 0.5em;
+                }
+        }
     }
 }
