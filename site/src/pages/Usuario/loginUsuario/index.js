@@ -68,7 +68,7 @@ export default function Index() {
                     <Link className="voltar" to='/'> Voltar</Link>
                 </div>
 
-                    <Link to='/loginAdmin'> <img src='' alt='' /> </Link>
+                    <Link to='/login/admin'> <img src='../images/authorization.png' alt='' className="login-admin"/> </Link>
                       
                 
             </div>
