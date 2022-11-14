@@ -52,3 +52,12 @@ export async function AlterarSituacãoPedido(id, situacao){
             situacao : situacao
         };
 }
+
+export async function DeletarPedidoItem(id){
+    const comando = `
+    DELETE FROM TB_PEDIDO_ITEM
+    WHERE ID_PRODUTO = ?
+    ` 
+    const [resp] = await con.query(comando, [id]);
+    return resp.affectedRows;
+}

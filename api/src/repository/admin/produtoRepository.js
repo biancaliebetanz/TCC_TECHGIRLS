@@ -140,7 +140,8 @@ export async function alterarProduto (id, produto) {
 			    ID_CATEGORIA   = ?,
 			    VL_PRECO       = ?,
 			    DS_DESCRICAO   = ?,
-			    DS_DISPONIVEL  = ?
+			    DS_DISPONIVEL  = ?,
+                BT_DESTAQUE    = TRUE
 			WHERE 
                 ID_PRODUTO     = ?
             `;
@@ -219,6 +220,15 @@ export async function filtrarPorTema(nome){
         };
         
 // deletar
+
+export async function deletarProdutoFavorito(id){
+    const comando= `
+    DELETE FROM TB_USUARIO_FAVORITO
+    WHERE ID_PRODUTO = ?
+    `;
+    const [resp] = await con.query(comando, [id]);
+    return resp.affectedRows;
+}
 
 export async function deletarCor(idProduto) {
     const comando =`

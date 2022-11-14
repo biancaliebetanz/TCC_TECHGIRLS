@@ -5,11 +5,12 @@ import {
         deletarCor, deletarTamanho, deletarProduto, deletarImagem,
         buscarDestaque, buscarProduto, buscarCorProduto, 
         buscarTamanhoProduto, buscarImagemProduto, Resposta, 
-        alterarCor, alterarTamanho, deletarImagensDiferentes, alterarTemaProduto 
+        alterarCor, alterarTamanho, deletarImagensDiferentes, alterarTemaProduto, deletarProdutoFavorito 
 }       from '../../repository/admin/produtoRepository.js';
 
 import multer from 'multer';
 import { Router } from 'express';
+import { DeletarPedidoItem } from '../../repository/admin/pedidoRepository.js';
 
 const server = Router();
 const upload = multer({dest:'./storage/produto'}); //bia adiciona o storage/banner aqui please
@@ -345,6 +346,8 @@ server.delete('/produto/:id', async (req, resp) => {
     try {
 
         const  id  = req.params.id;
+        await DeletarPedidoItem(id);
+        await deletarProdutoFavorito(id);
         await deletarCor(id);
         await deletarTamanho(id);
         await deletarImagem(id);
