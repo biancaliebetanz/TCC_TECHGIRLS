@@ -14,8 +14,9 @@ export default function Tema(props){
                 <h4> {props.nome} </h4>
 
                 <div>
-                    <button onClick={props.editar}> editar </button>
-                    <button onClick={props.deletar}> remover </button>
+                    <img className='lixo-edit' onClick={props.editar} src='../images/editBranco.png'></img>
+                    <img className='lixo-edit' onClick={props.deletar} src='../images/lixoBranco.png'></img>
+
                 </div>
 
             </div>

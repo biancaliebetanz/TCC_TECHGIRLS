@@ -13,7 +13,6 @@ import ProdutoDetalhe from './pages/Usuario/produtoDetalhe/index.js'
 import SeusPedidos from './pages/Usuario/SeusPedidos/index.js'
 import DetalhePedidos from './pages/Usuario/detalhePedidos/index.js'
 import Pedido from './pages/Usuario/Pedido/index.js'
-import Catalogo from './pages/Administrador/Catalogo/index.js'
 import NovoEndereco from './pages/Usuario/novoEndereco/index.js'
 import Entrega from './pages/Usuario/Entrega/index.js'
 import AdminTemas from './pages/Administrador/Temas/index.js'
@@ -39,7 +38,6 @@ export default function Index(){
                 <Route path='/admin/tema/:id' element={<NovoTema/>} />
                 <Route path='/admin/tema' element={<NovoTema/>} />
                 <Route path='/admin/banner' element={<BannerAdmin/>} />
-                <Route path='/catalogo' element={<Catalogo/>} />
 
 
                 <Route path='/usuario/dados' element={<DadosPessoais/>} />

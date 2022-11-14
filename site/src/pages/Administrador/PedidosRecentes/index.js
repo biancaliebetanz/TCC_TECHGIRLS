@@ -170,12 +170,18 @@ export default function Index() {
 
             <div className="PedRecentes fundo">
 
-                <div>
-                    <img src='' alt='' />
-                    <h2 className="Bem-Vindo">Bem vindo a área de administração {admin}</h2>
-                    <h3>Pedidos Recentes</h3>
+                <div className="oi">
+                    <div>
+                        <h2 className="Bem-Vindo">Bem vindo a área de administração!</h2>
+                    </div>
+
+                    <div className="adm">
+                    <img src='../../../images/Vector.png'/>
+                    <p>Olá {admin}!!</p>
                 </div>
 
+                </div>
+                
                 <div>
 
                     <table className="tabela">

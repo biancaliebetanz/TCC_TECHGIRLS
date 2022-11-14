@@ -120,8 +120,12 @@ export default function Index(){
                 </div>
 
             </article>
+                   
             </section>
-
+            <div className='avaliacao'>
+                        <h2>Avaliação desse produto</h2>
+                    </div>
+                    
             <div>
                 <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
 
