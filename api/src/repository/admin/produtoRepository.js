@@ -275,7 +275,7 @@ export async function deletarImagensDiferentes(idProduto, imagens) {
         delete from tb_imagem 
         where id_produto = ?
         and img_destaque = false
-        and img_produto NOT IN ('?')
+        and img_produto NOT IN (?)
     `;
 
     const resp = await con.query(comando, [idProduto, imagens]);

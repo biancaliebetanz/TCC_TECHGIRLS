@@ -17,6 +17,11 @@
         flex-direction: row;
         width: 80%;
         justify-content: space-between;
+
+        .princ-infos1 input {
+            padding: 5px;
+            width: 100%;
+        }
     
         .coluna11{
             display: flex;

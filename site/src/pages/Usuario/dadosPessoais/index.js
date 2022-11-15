@@ -6,10 +6,11 @@ import Rodape from '../../../components/rodape';
 import { Link, useNavigate } from 'react-router-dom';
 import Storage from 'local-storage';
 import { useEffect, useState } from 'react';
-import { buscarLoginId, buscarUsuarioId } from '../../../API/Usuario';
+import { buscarLoginId, buscarUsuarioId, EditarUsuario } from '../../../API/Usuario';
 import { ListarEnderecos } from '../../../API/usuario/enderecoApi';
 import CardEndereco from '../../../components/cardEndereco';
 import CadastroEndereco from '../../../components/CadEndereco';
+import { toast } from 'react-toastify';
 
 export default function Index() {
 
@@ -22,9 +23,10 @@ export default function Index() {
 
     const [nome, setNome] = useState('');
     const [telefone, setTelefone] = useState('');
-    const [datadenasc, setDatadenasc] = useState('');
+    const [datadenasc, setDatadenasc] = useState(Date());
     const [rg, setRg] = useState('');
     const [cpf, setCpf] = useState('');
+    const [email, setEmail] = useState('');
 
     const [exibir, setExibir] = useState(1);
 
@@ -58,10 +60,27 @@ export default function Index() {
         navigate('/')
     }
 
+    async function alterarInfo(){
+        try{
+            setExibir(1);
+            const y = Storage('cliente-logado').data.id;
+            const x = await EditarUsuario(nome, telefone, cpf, rg, datadenasc, y)
+            toast('Informações alteradas com sucesso!')
+        }
+        catch(err){
+            toast.error('Erro: ' + err.message);
+        }
+    }
+
     function carregarUsuario() {
         const x = buscarUsuarioId(id)
         console.log(x);
         setNome(x.nome);
+        setTelefone(x.telefone);
+        setCpf(x.cpf);
+        setRg(x.rg);
+        setDatadenasc(x.nascimento);
+        setId(x.id);
     }
 
 
@@ -81,6 +100,7 @@ export default function Index() {
         CarregarInfos();
         CarregarInfosLogin();
         carregarEnderecos();
+        carregarUsuario();
     }, [])
 
 
@@ -191,23 +211,57 @@ export default function Index() {
                 {exibir == 3 &&
 
                     <div className='flex-column-info'>
-                       <h2> Meus Pedidos</h2>
-                       <div> </div>
+                        <h2> Meus Pedidos</h2>
+                        <div> </div>
                     </div>
                 }
 
                 {exibir == 4 &&
                     <div className='flex-column-info'>
-                         <h2> Editar informações</h2>
+                        <h2> Editar informações</h2>
+
+                        <div className="princ-infos1">
+                            <div className="coluna11">
+                                <div>
+                                    <p id='nome'>Nome</p>
+                                    <input type='text' value={nome} onChange={e => setNome(e.target.value)} placeholder={"" + usuario.nome} />
+                                </div>
+                                <div>
+                                    <p>E-mail</p>
+                                    <input type='text' value={email} onChange={e => setEmail(e.target.value)} placeholder={"" + usuarioLogin.email} />
+                                </div>
+                                <div>
+                                    <p>Telefone</p>
+                                    <input type='text' value={telefone} onChange={e => setTelefone(e.target.value)} placeholder={"" + usuario.telefone} />
+                                </div>
+                            </div>
+                            <div className="coluna21">
+                                <div>
+                                    <p>CPF</p>
+                                    <input type='text' value={cpf} onChange={e => setCpf(e.target.value)} placeholder={"" + usuario.cpf} />
+                                </div>
+                                <div>
+                                    <p>RG</p>
+                                    <input type='text' value={rg} onChange={e => setRg(e.target.value)} placeholder={"" + usuario.rg} />
+                                </div>
+                                <div>
+                                    <p>Data de Nascimento</p>
+                                    <input type='date' value={datadenasc} onChange={e => setDatadenasc(e.target.value)} />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button className='Link2' onClick={alterarInfo}> Salvar </button>
+                        </div>
                     </div>
                 }
 
                 {exibir == 5 &&
 
-                <div className='flex-column-info'> 
-                    <h2> Novo Endereço </h2>
-                    <CadastroEndereco />
-                </div>
+                    <div className='flex-column-info'>
+                        <h2> Novo Endereço </h2>
+                        <CadastroEndereco />
+                    </div>
 
                 }
 
