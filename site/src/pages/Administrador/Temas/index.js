@@ -30,11 +30,11 @@ export default function Index() {
         navigate(`/admin/tema/${id}`)
     }
     
-    async function deletar(novoId, id){
+    async function deletar(id){
         try {
-            const x = await alterarTemaProduto(novoId, id);
             const y = deletarTema(id);
-            toast('Tema deletado com sucesso!')
+            toast('Deletado com sucesso')
+            listarTemas();
 
         }
         catch(err) {
