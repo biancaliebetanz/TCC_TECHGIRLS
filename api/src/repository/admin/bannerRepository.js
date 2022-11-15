@@ -1,23 +1,23 @@
 import { con } from "../connection.js";
 
 
-export async function InserirBanner(banner){
+export async function InserirBanner(banner, id){
     const comando = `
-    INSERT INTO TB_BANNER(IMG_BANNER)
-    VALUES(?)`;
+    UPDATE TB_BANNER
+    SET IMG_BANNER = ?
+    WHERE ID_BANNER = ?`;
 
-    const resposta = await con.query(comando, [banner]);
+    const resposta = await con.query(comando, [banner, id]);
     return resposta.status;
 }
 
-export async function AlterarBanner(id, banner){
+export async function AlterarBanner(banner){
     const comando = `
-    UPDATE TB_BANNER
-    SET DS_LINK     = ?
-    WHERE ID_BANNER =?`;
-    const [resp] = await con.query(comando, [banner.link, id
+    INSERT INTO TB_BANNER ( BT_DESTAQUE)
+    VALUES ( ?)`;
+    const [resp] = await con.query(comando, [ banner.destaque
 ])
-    banner.id = id;
+    banner.id = resp.insertId;
     return banner;
 }
 

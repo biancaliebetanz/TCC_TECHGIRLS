@@ -8,4 +8,69 @@
     background-position: center;
     align-items: center;
     justify-content: center;
+
+    .edit {
+        background-color: #521FAF;
+        font-family: "Lexend-Regular";
+        color: #ffffff;
+        font-size: 12px;
+        text-decoration: none;
+        text-align: left;
+        padding: 0.5em 1em;
+        border-radius: 0.2em;
+        border: none;
+        align-self: flex-start;
+    }
+
+    
+    .fundobanner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.582);
+        width: 100%;
+        height: 100vh;
+        z-index: 2;
+        position: absolute;
+    }
+
+    .bannerinserir {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        height: 50vh;
+        border: 3px solid transparent;
+        border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
+        border-image-slice: 1;
+        background-color: #fff;
+        justify-content: center;
+        padding: 1em;
+    }
+
+    .esp {
+        padding: 1em 0em;
+    }
+
+    .button {
+        background-color: #FF2C83;
+        border: none;
+        padding: 0.2em 2em;
+        width: fit-content;
+        margin: 2em 0em;
+        border-radius: 5px;
+        color: #fff;
+        margin: 0px;
+        cursor: pointer;
+     }
+
+    .banner-img {
+        width: 31em;
+        height: 12em;
+        margin: 1em 0em;
+    }
+
+    #banner{
+        visibility: hidden;
+        position: absolute;
+    }
 }

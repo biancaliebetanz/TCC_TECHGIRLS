@@ -178,15 +178,17 @@ export default function Index() {
 
                 <div className="oi">
                     <div>
-                        <h2 className="Bem-Vindo">Bem vindo a área de administração!</h2>
+                        <h1 className="Bem-Vindo">Bem vindo a área de administração!</h1>
                     </div>
 
                     <div className="adm">
                     <img src='../../../images/Vector.png'/>
-                    <p>Olá {admin}!!</p>
+                    <p>Olá, <span> {admin} </span>!</p>
                 </div>
 
                 </div>
+
+                <h2> Pedidos Recentes </h2>
                 
                 <div className="fundo-pedido">
 

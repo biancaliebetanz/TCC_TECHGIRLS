@@ -5,10 +5,26 @@ import multer from 'multer';
 const server = Router();
 const up = multer({dest:'./storage/banner'});
 
-server.post('/banner', up.single('banner'), async (req, resp) => {
+server.post('/banner', async (req, resp) => {
     try {
+        const banner = req.body;
+
+        const resposta = await AlterarBanner(banner);
+
+        resp.send(resposta);
+
+    } catch (err) {
+        resp.status(404).send({
+            err: err.message
+        })
+    }
+})
+
+server.put('/banner/:id', up.single('banner'), async (req, resp) => {
+    try {
+        const { id } = req.params
         const novoBanner= req.file.path;
-        const banner= await InserirBanner(novoBanner);
+        const banner= await InserirBanner(novoBanner, id);
 
         resp.status(204).send(banner);
     } catch (err) {
@@ -51,21 +67,6 @@ server.get('/banner', async (req, resp) => {
         }
 })
 
-server.put('/banner/:id', async (req, resp) => {
-    try {
-        const {id} = req.params;
-        const banner = req.body;
-
-        const resposta = await AlterarBanner(id, banner);
-
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(404).send({
-            err: err.message
-        })
-    }
-})
 
 server.delete('/banner/:id', async (req,resp) => {
 
