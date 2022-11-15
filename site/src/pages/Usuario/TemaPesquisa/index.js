@@ -1,6 +1,5 @@
 import './index.scss'
 
-import Cabecalho from '../../../components/cabecalho/cabecalho.js'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BoxProdutoTema from '../../../components/boxProduto/boxProdutoTema.js'
@@ -9,6 +8,7 @@ import { buscarTemaId } from '../../../API/CadProduto.js';
 import { API_URL } from '../../../API/config';
 import { Link } from 'react-router-dom';
 import Rodape from '../../../components/rodape';
+import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalhoPrinc';
 
 export default function Index() {
 
@@ -62,9 +62,11 @@ export default function Index() {
     return (
         <main className='maintemaproduto'>
 
-            <Cabecalho logo='../../../images/logoAdmin.png' menu='../../../images/menu.png' fav='../../../images/favoritos.png'
-                user='../../../images/user.png' sacola='../../../images/sacola.png' banner={exibir(tema.imagem)} />
+<div>
+            <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png' fav='../../../images/favoritos.png'
+                user='../../../images/user.png' sacola='../../../images/sacola.png' pesquisa='../../../images/lupa.png' />
 
+            </div>
             <section>
                 <hr className='linha' />
 

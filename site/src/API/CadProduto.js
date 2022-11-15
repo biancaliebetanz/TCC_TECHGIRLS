@@ -65,7 +65,7 @@ export async function listarTemas() {
 }
 
 export async function buscarProdutosPorNome(nome) {
-    const resp = await api.get(`/produto?nome=${nome}`)
+    const resp = await api.get(`/busca?nome=${nome}`)
     return resp.data;
 }
 

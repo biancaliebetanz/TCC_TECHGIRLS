@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import { buscarProdutosPorNome } from '../../API/CadProduto.js';
+import { buscarProdutosPorNome, ListarProdutosInicio } from '../../API/CadProduto.js';
 import BoxProdutos2 from './../boxProdutos/boxProdutos2.js';
 import './cabecalhoPrinc.scss';
 import { buscarPorId } from "../../API/Usuario.js";
@@ -8,6 +8,9 @@ import Storage from 'local-storage'
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API_URL } from "../../API/config.js";
+import BoxProduto2 from "./../boxProdutos/boxProdutos2.js";
+import ProdutoTema from "../boxProduto/boxProdutoTema.js";
+import ProdutoBusca from "../busca/index.js";
 
 export default function CabecalhoPrincipal(props) {
     const navigate = useNavigate();
@@ -39,10 +42,10 @@ export default function CabecalhoPrincipal(props) {
         
     }
 
-    async function buscarNomeClick() {
+    async function buscarNomeClick(event) {
         const resp = await buscarProdutosPorNome(busca);
         console.log(resp)
-        setProdutos([resp]);
+        setProdutos(resp);
     }
 
 
@@ -99,10 +102,11 @@ export default function CabecalhoPrincipal(props) {
 
                 <div>
                     <input className='busca1' placeholder='encontre seu produto aqui' type='text' value={busca} onChange={e => setBusca(e.target.value)} />
-                    <button onClick={buscarNomeClick}>pesquisar</button>
+                    <img src={props.pesquisa} className="bt-busca1" onClick={buscarNomeClick}/>                   
 
 
                 </div>
+               
 
                 <div className="espbotoes">
                     <Link to={favoritos()}><img className='icons1' src={props.fav} /></Link>
@@ -143,11 +147,8 @@ export default function CabecalhoPrincipal(props) {
 
             <div>
                 {produtos.map(item =>
-                    <BoxProdutos2
-                        img=""
-                        preco={item.preco}
-                        nome={item.nome}
-                    />
+                    <ProdutoBusca
+                       nome={item.nome}/>
                 )}
             </div>
 
