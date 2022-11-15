@@ -33,8 +33,8 @@ export default function Index() {
         document.getElementById('banner').click();
     }
 
-    async function salvar(){
-        try{
+    async function salvar() {
+        try {
             const x = await inserirBanner(destaque);
             console.log(x.id);
             const y = await inserirImagemBanner(x.id, banner);
@@ -43,26 +43,26 @@ export default function Index() {
             setExibir(false)
             carregarBanners();
         }
-        catch(err){
+        catch (err) {
             toast.error('Erro: ' + err.message)
         }
     }
 
-    
-    async function Deletar(id){
-        try{
+
+    async function Deletar(id) {
+        try {
             const x = await deletarBanner(id);
             console.log('kkkk');
             carregarBanners();
             toast('Banner deletado com sucesso!')
         }
-        catch(err){
+        catch (err) {
             toast.error('Não foi possível deletar')
         }
     }
-    
 
-    async function carregarBanners(){
+
+    async function carregarBanners() {
         const x = await listarBanner();
         console.log(x)
         setBanners(x);
@@ -87,7 +87,7 @@ export default function Index() {
                         <img
                             className="banner-img"
                             src={exibirImagem(banner)} alt=''
-                            onClick={escolherBanner} 
+                            onClick={escolherBanner}
                         />
 
                         <input
@@ -98,10 +98,10 @@ export default function Index() {
 
                         <div className="esp">
                             <label> Destaque </label>
-                            <input type='checkbox' value={destaque} onChange={e => setDestaque(e.target.checked)}/>
+                            <input type='checkbox' value={destaque} onChange={e => setDestaque(e.target.checked)} />
                         </div>
 
-                        <button className="button" onClick={salvar}> Salvar </button> 
+                        <button className="button" onClick={salvar}> Salvar </button>
 
                     </div>
 
@@ -117,12 +117,16 @@ export default function Index() {
 
                 <div className="espacamento-banners">
 
-                    {banners.map( item => 
-                        <div className="bannerzinho"> 
+                    {banners.map(item =>
+                        <div className="bannerzinho">
                             <img className="bannerzinho-img" src={exibirImagem(item.banner)} alt='' />
-                            <div> 
-                            <button onClick={() => Deletar(item.id)}> Deletar </button>
-                            <button> Editar </button>
+                            <div className="botoes">
+                                <button onClick={() => Deletar(item.id)}>
+                                    <img className="img" src="../images/lixeira.png" alt="" />
+                                </button>
+                                <button>
+                                    <img className="img" src="../images/editar.png" alt="" />
+                                </button>
                             </div>
                         </div>)}
 
