@@ -134,7 +134,7 @@ export default function Index() {
                         <div className="links">
                             <button onClick={() => setExibir(1)} className="Link">Dados Pessoais</button>
                             <button onClick={() => setExibir(2)} className="Link">Endereços</button>
-                            <button className="Link">Meus Pedidos</button>
+                            <button onClick={()=> setExibir(3)} className="Link">Meus Pedidos</button>
                             <div>
                                 <p onClick={SairCliente} className="Link">Sair</p>
                             </div>
@@ -265,12 +265,6 @@ export default function Index() {
 
                 }
 
-                {exibir == 6 &&
-                    <div className='flex-column-info'>
-                        <h2> Visualizar Pedido</h2>
-
-                    </div>
-                }
             </div>
 
 

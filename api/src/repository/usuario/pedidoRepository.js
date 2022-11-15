@@ -35,3 +35,9 @@ import { con } from "../connection.js";
         pedido.id = info.insertId;
         return pedido;
     }
+
+    export async function listarPedidosUsuario() {
+        const comando = `
+        SELECT
+        `;
+    }

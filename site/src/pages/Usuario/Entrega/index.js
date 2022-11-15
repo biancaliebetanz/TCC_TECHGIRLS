@@ -26,8 +26,10 @@ export default function Pedido() {
 
     const [idEndereco, setIdEndereco] = useState();
 
+    const [cartao, setCartao] = useState({});
+
     const [produto, setProduto] = useState([]);
-    const [nome, setNome] = useState('');
+    const [nomecar, setNomeCar] = useState('');
     const [numero, setNumero] = useState('');
     const [validade, setValidade] = useState('');
     const [cvv, setCvv] = useState('');
@@ -104,30 +106,17 @@ export default function Pedido() {
 
     async function SalvarPedido() {
         try {
-            const y = Storage('cliente-logado').data.id;
-            setId(y);
-            console.log(id)
-            setProduto(Storage('carrinho'));
             setValorTotal(calcularValorTotal());
-            console.log(valorTotal)
-            console.log(idEndereco)
-            setPedido(
-                {
-                    endereco: idEndereco,
-                    tipoFrete: frete,
-                    subtotal: valorTotal,
-                    cartao: {
-                        usuario: id,
-                        nomeCartao: nome,
-                        numero: numero,
-                        validade: validade,
-                        codigo: cvv,
-                        cpf: cpf,
-                        parcelas: parcelas
-                    },
-                    produto: produto
-                })
-            const r = await salvarNovoPedido(id, pedido)
+            setCartao({
+                usuario: id,
+                nomeCartao: nomecar,
+                numero: numero,
+                validade: validade,
+                codigo: cvv,
+                cpf: cpf,
+                parcelas: parcelas
+            });
+            const r = await salvarNovoPedido(Storage('cliente-logado').data.id, idEndereco, frete, valorTotal, cartao, produto)
             console.log(r)
             toast.dark('pedido inserido com sucesso')
             Storage('carrinho', []);
@@ -142,6 +131,10 @@ export default function Pedido() {
     useEffect(() => {
         CarregarProdutos();
         carregarEnderecos();
+        setId(Storage('cliente-logado').data.id)
+        setProduto(Storage('carrinho'));
+        console.log(produto)
+        console.log('id é ' + id)
     }, [])
 
     return (
@@ -249,7 +242,7 @@ export default function Pedido() {
                                 <div className='fileira1'>
                                     <div className='div1'>
                                         <p>Nome impresso no cartão</p>
-                                        <input type='text' value={nome} onChange={e => setNome(e.target.value)}></input>
+                                        <input type='text' value={nomecar} onChange={e => setNomeCar(e.target.value)}></input>
                                     </div>
 
                                     <div className='div2'>
