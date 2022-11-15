@@ -131,6 +131,7 @@ export default function Pedido() {
             console.log(r)
             toast.dark('pedido inserido com sucesso')
             Storage('carrinho', []);
+            navigate('/usuario/finalizacao')
 
         } catch (err) {
             toast.error(err.response.data.erro);
@@ -153,7 +154,6 @@ export default function Pedido() {
                     <div className='titulo'>
                         <p>Selecione  o endereço em que deseja  receber seu pacote </p>
                         <hr />
-                        <Link to='/novoEndereco'>novo</Link>
                         <div>
                             <div className='box-endereco'>
                                 {enderecos.map(item =>
