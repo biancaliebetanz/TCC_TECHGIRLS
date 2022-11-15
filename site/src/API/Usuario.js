@@ -56,3 +56,8 @@ export async function listarFavoritos(id){
     return r.data;
 }
 
+export async function RemoverFavoritos(id){
+    const r = await api.delete(`/usuario/favorito/${id}`);
+    return r.status;
+}
+

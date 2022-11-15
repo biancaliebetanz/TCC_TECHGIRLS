@@ -58,7 +58,7 @@ export default function Index() {
 
     async function inserir() {
         try {
-            if (id) {
+            if (id === 0) {
                 const x = await alterarTema(id, nome, cor)
                 if ( typeof (imagem) !== 'string'){
                     const y = await CadastrarImgTema(id, imagem)
