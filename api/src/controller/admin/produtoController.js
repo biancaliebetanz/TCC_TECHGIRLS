@@ -230,14 +230,17 @@ server.get('/produto/:id', async (req, resp) => {
     }
 })
 
-server.get('/produto/nome', async (req, resp) => {
+server.get('/busca', async (req, resp) => {
         try {
             const { nome } = req.query;
                 
             const resposta = await buscarPorNome(nome);
         
            
-                resp.send(resposta);
+            if (resposta.length == 0)
+            resp.status(404).send([])
+        else
+            resp.send(resposta);
         } catch (err) {
             resp.status(400).send({
                 erro: err.message

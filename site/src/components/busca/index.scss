@@ -1,0 +1,15 @@
+.boxbusca{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 0.3em;
+    width: 33.5em;
+    position: relative;
+    left: 12.4em;
+    bottom: 2.35em;
+    .nome-busca{
+        font-size: 0.95em;
+        color: #ff2b5e ;
+    }
+    
+}

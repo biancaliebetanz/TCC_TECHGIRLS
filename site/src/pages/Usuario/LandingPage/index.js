@@ -83,7 +83,7 @@ export default function Index() {
 
             <div>
             <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png' fav='../../../images/favoritos.png'
-                user='../../../images/user.png' sacola='../../../images/sacola.png' />
+                user='../../../images/user.png' sacola='../../../images/sacola.png' pesquisa='../../../images/lupa.png' />
 
             </div>
             <section className="landing-conteudo">
