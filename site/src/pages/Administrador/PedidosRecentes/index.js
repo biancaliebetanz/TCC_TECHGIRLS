@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Storage, { set } from 'local-storage';
 import { toast } from "react-toastify";
-import { alterarSituacaoPedido, listarPedidoId, listarPedidos } from "../../../API/admin/pedido/pedidoApi.js";
+import { alterarSituacaoPedido, DeletarPedido, listarPedidoId, listarPedidos } from "../../../API/admin/pedido/pedidoApi.js";
 
 export default function Index() {
 
@@ -60,6 +60,12 @@ export default function Index() {
         catch(err){
             toast.error('Erro: ' + err.message)
         }
+    }
+
+    async function Remover(id_pedido){
+        await DeletarPedido(id_pedido)
+        toast('Deletado com sucesso')
+        carregarPedidos();
     }
 
     function cor() {
@@ -193,6 +199,7 @@ export default function Index() {
                                 <td> Preço </td>
                                 <td> Situação </td>
                                 <td> Editar </td>
+                                <td> Excluir </td>
                             </tr>
                         </thead>
                         <tbody>
@@ -204,6 +211,7 @@ export default function Index() {
                                     <td> {item.preco} </td>
                                     <td> {item.situacao} </td>
                                     <td> <button onClick={() => exibirAlterar(item.id_pedido)}> editar </button>  </td>
+                                    <td> <button onClick={() => Remover(item.id_pedido)}> lixo </button>  </td>
                                 </tr>
                             )}
                         </tbody>

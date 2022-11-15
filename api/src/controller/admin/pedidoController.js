@@ -43,9 +43,11 @@ server.put('/pedido/:id', async (req, resp) => {
 
 server.delete('/api/pedido/:id', async (req, resp) => {
     try {
-        const {id} = req.params;
+        const id = req.params.id;
 
-        const resposta= await DeletarPedido(id);
+        await DeletarPedido(id);
+        await DeletarPedidoItem(id);
+
         
             resp.status(204).send();
     } catch (err) {
