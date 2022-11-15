@@ -29,7 +29,21 @@ export async function listarBanner(){
     return resposta.data
 }
 
+export async function buscarBanner(id){
+    const resposta = await api.get(`/busca/banner/${id}`);
+    return resposta.data
+}
+
 export async function deletarBanner(id){
     const resposta = await api.delete(`/banner/${id}`);
     return resposta.data
+}
+
+
+export async function editarBanner(id, destaque) {
+    const resposta= await api.put(`/alterar/banner/${id}`, {
+        destaque: destaque
+    });
+    
+    return resposta.data;
 }

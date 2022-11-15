@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { AlterarBanner, alterarImagemBanner, deletarBanner, InserirBanner, listarTodosBanner } from '../../repository/admin/bannerRepository.js';
+import { alterarBanner, AlterarBanner, alterarImagemBanner, buscarBanner, deletarBanner, InserirBanner, listarTodosBanner } from '../../repository/admin/bannerRepository.js';
 import multer from 'multer';
 
 const server = Router();
@@ -34,6 +34,20 @@ server.put('/banner/:id', up.single('banner'), async (req, resp) => {
     }
 })
 
+server.put('/alterar/banner/:id', async (req, resp) => {
+    try {
+        const { id } = req.params
+        const {destaque} = req.body;
+        const altBanner= await alterarBanner(id, destaque);
+
+        resp.status(204).send(altBanner);
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
 server.put('/banner/:id/capa', up.single('banner'), async (req, resp) => {
     try {
         if (!req.file)
@@ -58,6 +72,19 @@ server.put('/banner/:id/capa', up.single('banner'), async (req, resp) => {
 server.get('/banner', async (req, resp) => {
     try {
         const banner= await listarTodosBanner();
+        resp.send(banner);
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+        }
+})
+
+server.get('/busca/banner/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const banner= await buscarBanner(id);
         resp.send(banner);
 
     } catch (err) {

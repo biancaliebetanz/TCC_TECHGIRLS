@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify";
-import { deletarBanner, inserirBanner, inserirImagemBanner, listarBanner } from "../../../API/admin/banner/bannerApi.js";
+import { buscarBanner, deletarBanner, editarBanner, inserirBanner, inserirImagemBanner, listarBanner } from "../../../API/admin/banner/bannerApi.js";
 import { API_URL } from "../../../API/config.js";
 import MenuAdmin from "../../../components/pagAdm/pagAdm.js"
 import './index.scss'
@@ -12,7 +12,12 @@ export default function Index() {
     const [exibir, setExibir] = useState(false);
     const [banner, setBanner] = useState();
     const [destaque, setDestaque] = useState(false);
+    const [editar, setEditar] = useState(false);
+    const [bannerEdit, setBannerEdit] = useState({});
     const [banners, setBanners] = useState([]);
+    const [id, setId] = useState();
+
+    //editar
 
 
     // FUNÇÕES
@@ -48,6 +53,37 @@ export default function Index() {
         }
     }
 
+    async function editarTela(id) {
+        try {
+            const x = await buscarBanner(id);
+            console.log(x);
+            setBanner(x.banner);
+            console.log(x.destaque);
+            setId(x.id);
+            setDestaque(x.destaque);
+            setEditar(true);
+        }
+        catch (err) {
+            toast.error('Erro: ' + err.message)
+        }
+    }
+
+    async function Editar() {
+        try {
+            console.log(destaque)
+            const x = await editarBanner(id, destaque);
+            console.log(x);
+            if (typeof (banner) != 'string') {
+                const y = await inserirImagemBanner(id, banner);
+            }
+            toast('Banner alterado com sucesso!');
+            carregarBanners();
+            setEditar(false);
+        }
+        catch (err) {
+            toast.error('Erro: ' + err.message)
+        }
+    }
 
     async function Deletar(id) {
         try {
@@ -69,6 +105,7 @@ export default function Index() {
     }
 
     // USEEFFECTS
+
 
     useEffect(() => {
         carregarBanners();
@@ -100,11 +137,42 @@ export default function Index() {
                             <label> Destaque </label>
                             <input type='checkbox' value={destaque} onChange={e => setDestaque(e.target.checked)} />
                         </div>
-
-                        <button className="button" onClick={salvar}> Salvar </button>
+                        <div>
+                            <button className="button" onClick={() => setExibir(false)}> Voltar </button>
+                            <button className="button" onClick={salvar}> Salvar </button>
+                        </div>
 
                     </div>
 
+                </div>
+            }
+
+            {editar == true &&
+                <div className="fundobanner">
+                    <div className="bannerinserir">
+                        <h2> Editar banner</h2>
+
+                        <img
+                            className="banner-img"
+                            src={exibirImagem(banner)} alt=''
+                            onClick={escolherBanner}
+                        />
+
+                        <input
+                            type='file'
+                            id='banner'
+                            onChange={e => setBanner(e.target.files[0])}
+                        />
+
+                        <div className="esp">
+                            <label> Destaque </label>
+                            <input type='checkbox' value={destaque} onChange={e => setDestaque(e.target.checked)} />
+                        </div>
+                        <div>
+                            <button className="button" onClick={() => setEditar(false)}> Voltar </button>
+                            <button className="button" onClick={Editar}> Editar </button>
+                        </div>
+                    </div>
                 </div>
             }
 
@@ -119,12 +187,15 @@ export default function Index() {
 
                     {banners.map(item =>
                         <div className="bannerzinho">
-                            <img className="bannerzinho-img" src={exibirImagem(item.banner)} alt='' />
+                            <div className="imggg"> 
+                                <img className="bannerzinho-img" src={exibirImagem(item.banner)} alt='' />
+                                <h3> Destaque: {item.destaque ? 'Sim' : 'Não'}</h3>
+                            </div>
                             <div className="botoes">
                                 <button onClick={() => Deletar(item.id)}>
                                     <img className="img" src="../images/lixeira.png" alt="" />
                                 </button>
-                                <button>
+                                <button onClick={() => editarTela(item.id)}>
                                     <img className="img" src="../images/editar.png" alt="" />
                                 </button>
                             </div>
