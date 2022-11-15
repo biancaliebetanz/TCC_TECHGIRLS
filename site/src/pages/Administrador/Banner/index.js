@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { toast } from "react-toastify";
-import { inserirBanner, inserirImagemBanner } from "../../../API/admin/banner/bannerApi.js";
+import { inserirBanner, inserirImagemBanner, listarBanner } from "../../../API/admin/banner/bannerApi.js";
 import { API_URL } from "../../../API/config.js";
 import MenuAdmin from "../../../components/pagAdm/pagAdm.js"
 import './index.scss'
@@ -12,6 +12,7 @@ export default function Index() {
     const [exibir, setExibir] = useState(false);
     const [banner, setBanner] = useState();
     const [destaque, setDestaque] = useState(false);
+    const [banners, setBanners] = useState([]);
 
 
     // FUNÇÕES
@@ -46,7 +47,17 @@ export default function Index() {
         }
     }
 
+    async function carregarBanners(){
+        const x = await listarBanner();
+        console.log(x)
+        setBanners(x);
+    }
+
     // USEEFFECTS
+
+    useEffect(() => {
+        carregarBanners();
+    }, [])
 
     return (
         <main className="fundo-banner">
@@ -89,7 +100,16 @@ export default function Index() {
 
                 <button className="edit" onClick={() => setExibir(true)}> Novo banner </button>
 
-                <div>
+                <div className="espacamento-banners">
+
+                    {banners.map( item => 
+                        <div className="bannerzinho"> 
+                            <img className="bannerzinho-img" src={exibirImagem(item.banner)} alt='' />
+                            <div> 
+                            <button> Deletar </button>
+                            <button> Editar </button>
+                            </div>
+                        </div>)}
 
                 </div>
 

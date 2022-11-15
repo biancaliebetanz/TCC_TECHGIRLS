@@ -23,3 +23,8 @@ export async function inserirImagemBanner(id, imagem){
     });
     return resposta.status;
 }
+
+export async function listarBanner(){
+    const resposta = await api.get('/banner');
+    return resposta.data
+}
