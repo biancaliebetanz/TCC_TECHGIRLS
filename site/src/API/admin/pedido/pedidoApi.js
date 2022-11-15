@@ -20,3 +20,13 @@ export async function alterarSituacaoPedido(id, situacao) {
     return resp.data;
 }
 
+export async function DeletarPedido(id) {
+    const resposta = await api.delete(`/api/pedido/${id}`)
+    return resposta.status;
+}
+
+
+export async function DeletarPedidoItem(id) {
+    const resposta = await api.delete(`/pedido/produto/${id}`)
+    return resposta.status;
+}

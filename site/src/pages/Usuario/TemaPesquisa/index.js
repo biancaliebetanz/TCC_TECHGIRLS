@@ -24,7 +24,7 @@ export default function Index() {
     const [pelucia, setPelucia] = useState('Pelúcia');
     const [decoracao, setDecoracao] = useState('Decoração');
 
-    const[listaporPag, setListarporPag] = useState(15);
+    const[listaporPag, setListarporPag] = useState(12);
     const[current, setCurrent] = useState(0);
 
     const pages =   Math.ceil(produtos.length / listaporPag);

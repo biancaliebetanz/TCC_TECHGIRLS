@@ -16,6 +16,14 @@ export default function Index(){
     const [usuario, setUsuario] = useState(Storage('cliente-logado').data.id);
     const [produtos, setProdutos] = useState([]);
 
+    const[listaporPag, setListarporPag] = useState(12);
+    const[current, setCurrent] = useState(0);
+
+    
+    const pages = Math.ceil(produtos.length / listaporPag)
+    const startIndex = current * listaporPag;
+    const endIndex = startIndex + listaporPag;
+    const currentItens = produtos.slice(startIndex, endIndex)
 
         async function ListarFavoritos(){
             const resp= await listarFavoritos(usuario);
@@ -32,15 +40,22 @@ export default function Index(){
             <CabecalhoPrincipal  logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
             user='../../../images/user.png' sacola='../../../images/sacola.png'/>
             <Legendas nome="Favoritos" cor={'#e25475'} />
-
+           
                     
            <section className="favoritos">
 
-            {produtos.map(item =>
+         
+
+            {currentItens.map(item =>
                 <BoxProduto nome={item.nome} imagem={item.imagem} preco={item.preco} id={item.id}/>)}
 
            
            </section>
+           <div className="paginacao">
+                {Array.from(Array(pages), (item, index) => {
+                    return <button className="bt-paginacao" value={index} onClick={(e) => setCurrent(Number(e.target.value))}>{index + 1}</button>
+                })}
+            </div>
            <div>
                 <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' ></Rodape>
             </div>

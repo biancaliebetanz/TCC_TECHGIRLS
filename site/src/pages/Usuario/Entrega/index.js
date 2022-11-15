@@ -1,6 +1,6 @@
 import Storage from 'local-storage';
 import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API_URL } from '../../../API/config';
 import { salvarNovoPedido } from '../../../API/usuario/pedido.js';
@@ -131,6 +131,7 @@ export default function Pedido() {
             console.log(r)
             toast.dark('pedido inserido com sucesso')
             Storage('carrinho', []);
+            navigate('/usuario/finalizacao')
 
         } catch (err) {
             toast.error(err.response.data.erro);
@@ -153,7 +154,6 @@ export default function Pedido() {
                     <div className='titulo'>
                         <p>Selecione  o endereço em que deseja  receber seu pacote </p>
                         <hr />
-
                         <div>
                             <div className='box-endereco'>
                                 {enderecos.map(item =>

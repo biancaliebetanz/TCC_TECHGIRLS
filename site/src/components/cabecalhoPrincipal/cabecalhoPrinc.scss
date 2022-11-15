@@ -47,18 +47,31 @@
 
 
 .sacolaw {
-    width: 16vw;
+    width: 25vw;
     height: 80vh;
-    background-color: #fff;
-    opacity: 80%;
-    z-index: 3;
+    background-color: rgb(243, 242, 242);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
     position: fixed;
     right: percentage($number: 0);
     top: 10vh;
+    box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
+        overflow: auto;
+}
+
+.escala{
+    position: relative;
+    top: 1.3em;
+
+}
+.imagem-resumo{
+    width: 70px;
+    height: 70px;
+    margin: 0.5em;
 }
 
 .sacola {
-    background-color: #521faf;
+    background-color: #FF2B5E;
+    height: 4em;
     color: #fff;
     text-align: center;
     font-family: 'Lexend-Regular';
@@ -73,5 +86,29 @@
     display: flex;
     flex-direction: row;
 }
+.carrinhoitens{
+    display: flex;
+    flex-direction: row;
+   
+}
 
+.preco-item{
+    position: relative;
+    left: 5em;
+    top: 2em;
+}
+.realize{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 20em;
+    .rea{
+        width: 100%;
+        text-decoration: none;
+        padding: 1em;
+        background-color: #521FAF;
+        color: #fff;
+        text-align: center;
+    }
+}
 }

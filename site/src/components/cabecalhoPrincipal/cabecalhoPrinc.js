@@ -7,6 +7,7 @@ import { buscarPorId } from "../../API/Usuario.js";
 import Storage from 'local-storage'
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { API_URL } from "../../API/config.js";
 
 export default function CabecalhoPrincipal(props) {
     const navigate = useNavigate();
@@ -62,6 +63,10 @@ export default function CabecalhoPrincipal(props) {
         }
     }
 
+    function exibirImagem(item) {
+        return API_URL + '/' + item.produto.destaque.url;
+    }
+
 
     async function CarregarCarrinho() {
         let carrinho = Storage('carrinho')
@@ -107,16 +112,29 @@ export default function CabecalhoPrincipal(props) {
 
                     {exibirCarrinho == true &&
                         <div className="sacolaw">
-                            <div className="sacola">
+                             <div className="sacola">
                                 <h4 className="escala"> Minha Sacola</h4>
                             </div>
 
                             {itens.map(item =>
                                 <div className="carrinhoitens">
+                                                                            <img className='imagem-resumo' src={exibirImagem(item)} />
+                                <div>
+                                <p> {item.produto.info.NomeTema}</p>
                                     <p> {item.produto.info.nome}</p>
                                 </div>
+                                   <div className="preco-item">
+                                        
+                                    <p className='preco'>R${item.produto.info.preco}</p>
+                                   </div>
+
+                                </div>
                             )}
-                            <Link to='/usuario/pedido'> Realizar Pedido </Link>
+                          <div className="realize">
+                          <Link className="rea" to='/usuario/pedido'> Realizar Pedido </Link>
+
+                          </div>
+                            
                         </div>
                     }
                 </div>
