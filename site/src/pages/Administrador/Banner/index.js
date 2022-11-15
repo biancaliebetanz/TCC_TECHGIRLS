@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify";
-import { inserirBanner, inserirImagemBanner, listarBanner } from "../../../API/admin/banner/bannerApi.js";
+import { deletarBanner, inserirBanner, inserirImagemBanner, listarBanner } from "../../../API/admin/banner/bannerApi.js";
 import { API_URL } from "../../../API/config.js";
 import MenuAdmin from "../../../components/pagAdm/pagAdm.js"
 import './index.scss'
@@ -41,11 +41,26 @@ export default function Index() {
             setBanner();
             toast('Banner inserido com sucesso!')
             setExibir(false)
+            carregarBanners();
         }
         catch(err){
             toast.error('Erro: ' + err.message)
         }
     }
+
+    
+    async function Deletar(id){
+        try{
+            const x = await deletarBanner(id);
+            console.log('kkkk');
+            carregarBanners();
+            toast('Banner deletado com sucesso!')
+        }
+        catch(err){
+            toast.error('Não foi possível deletar')
+        }
+    }
+    
 
     async function carregarBanners(){
         const x = await listarBanner();
@@ -106,7 +121,7 @@ export default function Index() {
                         <div className="bannerzinho"> 
                             <img className="bannerzinho-img" src={exibirImagem(item.banner)} alt='' />
                             <div> 
-                            <button> Deletar </button>
+                            <button onClick={() => Deletar(item.id)}> Deletar </button>
                             <button> Editar </button>
                             </div>
                         </div>)}

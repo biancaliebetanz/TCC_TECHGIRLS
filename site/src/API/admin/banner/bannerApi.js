@@ -28,3 +28,8 @@ export async function listarBanner(){
     const resposta = await api.get('/banner');
     return resposta.data
 }
+
+export async function deletarBanner(id){
+    const resposta = await api.delete(`/banner/${id}`);
+    return resposta.data
+}
