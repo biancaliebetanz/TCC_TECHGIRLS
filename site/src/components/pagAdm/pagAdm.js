@@ -15,13 +15,13 @@ export default function MenuAdmin(props){
             <div className="menu">
                 <img src={props.logo}></img>
                 <div>
-                    <Link className="opcao">Administrador</Link>
-                </div>
-                <div>
-                  <Link to='/admin/banner' className="opcao">Catálogos</Link>
+                    <h1 className="administracao"> Administração </h1>
                 </div>
                 <div>
                     <Link to='/admin/pedidos' className="opcao">Pedidos</Link>
+                </div>
+                <div>
+                  <Link to='/admin/banner' className="opcao">Catálogos</Link>
                 </div>
                 <div>
                 <Link to='/Produtos' className="opcao">Produtos</Link>

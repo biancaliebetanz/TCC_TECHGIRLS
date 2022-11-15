@@ -9,10 +9,26 @@
         text-align: center;
 
     .opcao{
+        font-family: 'Lexend-Light';
         text-decoration: none;
         font-size: 1.2em;
         color: #ffffff;
-        margin-left: 12px;
+        align-self: center;
+        font-weight: 100;
+    }
+
+    .opcao:hover{
+        color: #3F93AF;
+    }
+
+    .administracao
+    {
+        font-family: 'Lexend-Regular';
+        font-size: 1em;
+        font-weight: 100;
+        color: #fff;
+        align-self: center;
+        text-transform: uppercase;
     }
 
     

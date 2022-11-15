@@ -188,7 +188,7 @@ export default function Index() {
 
                 </div>
                 
-                <div>
+                <div className="fundo-pedido">
 
                     <table className="tabela">
                         <thead>
