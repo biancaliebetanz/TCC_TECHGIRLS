@@ -44,7 +44,7 @@ export default function Index(){
                 <Route path='/favoritos' element={<Favoritos/>} />
                 <Route path='/produto/:id/detalhe' element={<ProdutoDetalhe/>} />
                 <Route path='/seusPedidos' element={<SeusPedidos/>} />
-                <Route path='/detalhePedidos' element={<DetalhePedidos/>} />
+                <Route path='/pedido/:id/detalhe' element={<DetalhePedidos/>} />
                 <Route path='/usuario/pedido' element={<Pedido/>} />
                 <Route path='/novoEndereco' element={<NovoEndereco/>} />
                 <Route path='/entrega' element={<Entrega/>} />

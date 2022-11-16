@@ -122,7 +122,7 @@ export default function CabecalhoPrincipal(props) {
 
                             {itens.map(item =>
                                 <div className="carrinhoitens">
-                                                                            <img className='imagem-resumo' src={exibirImagem(item)} />
+                                <img className='imagem-resumo' src={exibirImagem(item)} />
                                 <div>
                                 <p> {item.produto.info.NomeTema}</p>
                                     <p> {item.produto.info.nome}</p>
