@@ -10,6 +10,7 @@ export function lerValorFrete(frete) {
 
 export function criarNovoPedido(usuario, info, idcartao) {
     
+    console.log(info.subtotal)
     let agora = new Date();
     let valorFrete = lerValorFrete(info.frete);
 
