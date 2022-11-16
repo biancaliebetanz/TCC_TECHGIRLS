@@ -9,6 +9,18 @@
         justify-content: center;
     }
 
+    .button {
+        background-color: #521FAF;
+        font-family: "Lexend-Regular";
+        color: #ffffff;
+        font-size: 12px;
+        text-decoration: none;
+        border: none;
+        width: fit-content;
+        text-align: left;
+        padding: 0.5em 1em;
+    }
+
     .alinhando-column {
         display: flex;
         flex-direction: column;

@@ -158,7 +158,7 @@ export default function Pedido() {
                             </div>
                             </div>
 
-                            <p onClick={adicionarEnd}> Novo </p>
+                            <button className="button" onClick={adicionarEnd}> Novo </button>
 
                             {novoEnd == true &&
 
