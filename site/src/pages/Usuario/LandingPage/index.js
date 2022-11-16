@@ -107,12 +107,6 @@ export default function Index() {
 
                 <div>
 
-                    <div className="div-astro">
-                        <img className="astronauta" src="./../../../images/astronauta.png"></img>
-
-
-                    </div>
-
                     <div className="app">
 
                         <div className="bts">
