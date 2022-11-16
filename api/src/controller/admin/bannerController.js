@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { alterarBanner, AlterarBanner, alterarImagemBanner, buscarBanner, deletarBanner, InserirBanner, listarTodosBanner } from '../../repository/admin/bannerRepository.js';
+import { alterarBanner, AlterarBanner, alterarImagemBanner, buscarBanner, deletarBanner, InserirBanner, listarBannerDestaque, listarTodosBanner } from '../../repository/admin/bannerRepository.js';
 import multer from 'multer';
 
 const server = Router();
@@ -72,6 +72,18 @@ server.put('/banner/:id/capa', up.single('banner'), async (req, resp) => {
 server.get('/banner', async (req, resp) => {
     try {
         const banner= await listarTodosBanner();
+        resp.send(banner);
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+        }
+})
+
+server.get('/banner/destaque', async (req, resp) => {
+    try {
+        const banner= await listarBannerDestaque();
         resp.send(banner);
 
     } catch (err) {

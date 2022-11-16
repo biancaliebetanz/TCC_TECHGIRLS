@@ -9,6 +9,7 @@ import { useEffect, useState, useRef } from "react";
 import Rodape from "../../../components/rodape"
 import { API_URL } from "../../../API/config";
 import { Temas } from "../../../API/tema/temaAPI.js";
+import { listarBanner, listarBannerDestaque } from "../../../API/admin/banner/bannerApi";
 
 export default function Index() {
     const [produtos, setProdutos] = useState([]);
@@ -16,6 +17,10 @@ export default function Index() {
     const carousel = useRef(null);
     const carrossel = useRef();
     const [widht, setWidht] = useState(0);
+
+    const [banners, setBanners] = useState([])
+
+    const [pos, setPos] = useState(0)
 
     const [temas, setTemas] = useState([]);
 
@@ -41,6 +46,12 @@ export default function Index() {
     async function listar() {
         const r = await ListarProdutosInicio();
         setProdutos(r);
+    }
+    
+    async function carregarBanners(){
+        const x = await listarBannerDestaque();
+        setBanners(x);
+        console.log(x)
     }
 
     async function listarTemas() {
@@ -171,9 +182,6 @@ export default function Index() {
 
 
             </section>
-        
-
-
 
         </main>
     )

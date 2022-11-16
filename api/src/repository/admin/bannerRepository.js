@@ -34,6 +34,19 @@ export async function listarTodosBanner() {
     const [linhas] = await con.query(comando);
     return linhas;
 }
+export async function listarBannerDestaque() {
+    const comando =
+        `SELECT 
+            ID_BANNER	    as	id,
+            DS_LINK	        as	link,
+            IMG_BANNER      as banner,
+            BT_DESTAQUE     as destaque
+           FROM TB_BANNER
+           WHERE BT_DESTAQUE = TRUE`;
+
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
 
 export async function buscarBanner(id) {
     const comando =

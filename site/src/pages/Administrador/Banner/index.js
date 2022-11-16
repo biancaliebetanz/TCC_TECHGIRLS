@@ -108,6 +108,10 @@ export default function Index() {
 
 
     useEffect(() => {
+        setBanner();
+    }, [exibir])
+
+    useEffect(() => {
         carregarBanners();
     }, [])
 

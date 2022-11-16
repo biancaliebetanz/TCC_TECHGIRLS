@@ -28,6 +28,10 @@ export async function listarBanner(){
     const resposta = await api.get('/banner');
     return resposta.data
 }
+export async function listarBannerDestaque(){
+    const resposta = await api.get('/banner/destaque');
+    return resposta.data
+}
 
 export async function buscarBanner(id){
     const resposta = await api.get(`/busca/banner/${id}`);
