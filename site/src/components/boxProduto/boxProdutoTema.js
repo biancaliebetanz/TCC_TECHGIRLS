@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { API_URL } from "../../API/config";
-import { Favoritar } from "../../API/Usuario.js";
+import { buscarFavorito, Favoritar } from "../../API/Usuario.js";
 import './boxProdutoTema.scss';
 import Storage from 'local-storage'
 import { toast } from 'react-toastify'
@@ -23,11 +23,17 @@ export default function ProdutoTema(props){
                 throw new Error('Faça login para favoritar!')
             }
             console.log(produto)
+            const x = await buscarFavorito(usuario, produto);
+            if(!x){
             const r = await Favoritar(usuario, produto);
             toast('Favoritado');
+            }
+            else if (x){
+                throw new Error('Já favoritado!');
+            }
         }
         catch (err) {
-            toast.error(err.response.data.erro);
+            toast.error('Erro: ' + err.message);
         }
     }   
 

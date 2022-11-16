@@ -1,6 +1,6 @@
 import { Router } from "express"; 
 import { buscarProduto } from "../../repository/admin/produtoRepository.js";
-import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  BuscarInfoLogin,  buscarUsuario,  Favoritos, inserirEndereco,  inserirUsuario, 
+import { alterarEndereco, AlterarInfosUsuarios, AlterarSenha, Avaliacao,  buscarFavorito,  BuscarInfoLogin,  buscarUsuario,  Favoritos, inserirEndereco,  inserirUsuario, 
     listarAvaliacoes, listarEnderecos, listarFavoritos, removerProdutoFavoritos } from "../../repository/usuario/usuarioRepository.js";
 import { criarNovoPedido } from "../../service/novoProdutoService.js";
 
@@ -208,10 +208,24 @@ server.delete('/usuario/favorito/:id', async (req,resp) => {
 }
 })
 
+
 server.get('/usuario/favorito/:id', async (req, resp) => {
     try {
         const {id} = req.params;
         const resposta= await listarFavoritos(id);
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(404).send ({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/usuario/favorito/busca/:id', async (req, resp) => {
+    try {
+        const {id} = req.params;
+        const {produto} = req.query
+        const resposta= await buscarFavorito(id, produto);
         resp.send(resposta);
     } catch (err) {
         resp.status(404).send ({

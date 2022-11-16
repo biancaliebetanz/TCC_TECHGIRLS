@@ -216,6 +216,30 @@ inner join tb_imagem on tb_imagem.id_produto = tb_produto.id_produto
     return linhas;
 }
 
+export async function buscarFavorito(id, produto){
+    const comando= `
+    select 
+	tb_produto.id_produto 	as id,
+	nm_produto 				as nome, 
+	ds_descricao 			as descricao, 
+	vl_preco 				as preco, 
+	ds_disponivel 			as disponivel, 
+	nm_categoria		 	as categoria,
+	nm_tema 				as tema,
+	img_produto 			as imagem
+    from TB_USUARIO_FAVORITO
+inner join tb_produto on tb_produto.id_produto = TB_USUARIO_FAVORITO.id_produto
+inner join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria
+inner join tb_tema on tb_produto.id_tema = tb_tema.id_tema
+inner join tb_imagem on tb_imagem.id_produto = tb_produto.id_produto
+    where id_usuario = ?
+    and tb_usuario_favorito.id_produto = ?
+    and img_destaque = true
+`
+    const [linhas] = await con.query(comando, [id, produto]);
+    return linhas[0];
+}
+
 
 
 

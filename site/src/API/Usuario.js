@@ -46,6 +46,11 @@ export async function buscarLoginId(id){
     return resp.data;
 }
 
+export async function buscarFavorito(id, produto){
+    const resp = await api.get(`/usuario/favorito/busca/${id}?produto=${produto}`);
+    return resp.data;
+}
+
 export async function Favoritar(usuario, produto) {
 const r = await api.post(`/favorito/` + usuario + `?produto=` + produto)
     return r.data;

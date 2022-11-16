@@ -204,7 +204,7 @@ export default function Index() {
                         <h2> Endereços</h2>
                         <div className='end-card'>
                             {enderecos.map(item =>
-                                <CardEndereco item={item} />
+                                <CardEndereco item={item} id={item.id} />
                             )}
 
                         </div>
