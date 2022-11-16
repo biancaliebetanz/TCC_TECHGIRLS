@@ -1,11 +1,22 @@
 import { Router } from "express";
 import { buscarProduto } from "../../repository/admin/produtoRepository.js";
 import { inserirNovoCartao } from "../../repository/usuario/cartaoRepository.js";
-import { inserirPedidoItem, Pedidos } from "../../repository/usuario/pedidoRepository.js";
+import { inserirPedidoItem, listarPedidosUsuario, Pedidos } from "../../repository/usuario/pedidoRepository.js";
 import { criarNovoPedido } from "../../service/novoProdutoService.js";
 
 const server = Router();
 
+server.get('/pedido/usuario/:id', async (req,resp) => {
+    try {
+        const { id } = req.params;
+        const resposta = await listarPedidosUsuario(id);
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
 
 server.post('/api/pedido/:usuario' , async (req , resp) =>{
     try {

@@ -25,3 +25,7 @@ export async function salvarNovoPedido(idUsuario, idEndereco, frete, valorTotal,
     return r.data;
 }
 
+export async function listarPedidosUser(id){
+    const resposta = await api.get(`/pedido/usuario/${id}`);
+    return resposta.data;
+}

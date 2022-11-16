@@ -11,6 +11,7 @@ import { ListarEnderecos } from '../../../API/usuario/enderecoApi';
 import CardEndereco from '../../../components/cardEndereco';
 import CadastroEndereco from '../../../components/CadEndereco';
 import { toast } from 'react-toastify';
+import { listarPedidosUser } from '../../../API/usuario/pedido';
 
 export default function Index() {
 
@@ -31,6 +32,8 @@ export default function Index() {
     const [exibir, setExibir] = useState(1);
 
     const [enderecos, setEnderecos] = useState([]);
+
+    const [pedidos, setPedidos] = useState([]);
 
     // dados
 
@@ -53,6 +56,12 @@ export default function Index() {
     async function carregarEnderecos() {
         const r = await ListarEnderecos(Storage('cliente-logado').data.id);
         setEnderecos(r);
+    }
+
+    async function carregarPedidos(){
+        const x = await listarPedidosUser(id);
+        console.log(x);
+        setPedidos(x);
     }
 
     function SairCliente() {
@@ -101,6 +110,7 @@ export default function Index() {
         CarregarInfosLogin();
         carregarEnderecos();
         carregarUsuario();
+        carregarPedidos();
     }, [])
 
 
@@ -212,7 +222,27 @@ export default function Index() {
 
                     <div className='flex-column-info'>
                         <h2> Meus Pedidos</h2>
-                        <div> </div>
+                        <div className='flex-row-info'> 
+                        
+                        {pedidos.map( item => 
+                            <div className='borda'>
+                                <h3 className='nome-pedido'> {item.nome} </h3>
+
+                                <p> {item.endereco} </p>
+                                <p> {item.cep} </p>
+
+                                <div> 
+                                    <h2 className='pedido-txt'> Data do pedido: <span> {item.data} </span> </h2>
+                                    <h2 className='pedido-txt'> Valor pago: <span> {item.preco} </span> </h2>
+                                    <h2 className='pedido-txt'> Situação: <span> {item.situacao} </span></h2>
+                                </div>
+                                
+
+
+                            </div>
+                                )}
+
+                        </div>
                     </div>
                 }
 

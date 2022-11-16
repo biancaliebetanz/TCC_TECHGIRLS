@@ -120,7 +120,7 @@ export default function CabecalhoPrincipal(props) {
                                 <h4 className="escala"> Minha Sacola</h4>
                             </div>
 
-                            {itens.map(item =>
+                            {itens.map(item => 
                                 <div className="carrinhoitens">
                                                                             <img className='imagem-resumo' src={exibirImagem(item)} />
                                 <div>
@@ -148,7 +148,9 @@ export default function CabecalhoPrincipal(props) {
             <div>
                 {produtos.map(item =>
                     <ProdutoBusca
-                       nome={item.nome}/>
+                       nome={item.nome}
+                       id= {item.id}
+                       />
                 )}
             </div>
 

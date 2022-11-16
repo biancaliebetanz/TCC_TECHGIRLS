@@ -12,7 +12,55 @@
         padding: 2em;
     }
 
-    .princ-infos1{
+    .flex-row-info {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100%;
+        width: 80%;
+        padding: 2em;
+        overflow-y: scroll;
+    }
+
+    .borda {
+        border: 3px solid transparent;
+        border-image: linear-gradient(#FF2C83, #521FAF, #521FAF);
+        border-image-slice: 1;
+        width: 45%;
+        height: 55%;
+        margin: 1em;
+    }
+
+    .borda p {
+        font-family: 'Lexend-Light';
+        font-size: 14px;
+    }
+
+    .borda div {
+        margin-top: 1em;
+    }
+
+    .pedido-txt {
+        font-family: 'Lexend-Bold';
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: none;
+    }
+
+    .pedido-txt span {
+        font-family: 'Lexend-Regular';
+        font-size: 14px;
+        color: #FF2C83;
+        text-transform: none;
+    }
+
+    .nome-pedido {
+        font-family: 'Lexend-Regular';
+        font-size: 16px;
+        margin: 0em 0em 1em 0em;
+    }
+
+    .princ-infos1 {
         display: flex;
         flex-direction: row;
         width: 80%;
@@ -22,8 +70,8 @@
             padding: 5px;
             width: 100%;
         }
-    
-        .coluna11{
+
+        .coluna11 {
             display: flex;
             flex-direction: column;
         }
@@ -36,15 +84,17 @@
             margin: 2em 0em;
         }
 
-        .coluna21{
+        .coluna21 {
             display: flex;
             flex-direction: column;
         }
-        p{
+
+        p {
             font-family: 'Lexend-Regular';
             font-size: 16px;
             color: rgb(85, 85, 85);
         }
+
         span {
             font-family: 'Lexend-Light';
             font-size: 14px;
@@ -85,7 +135,7 @@
             text-align: left;
         }
 
-        .Link:hover{
+        .Link:hover {
             cursor: pointer;
             color: #FF2C83;
         }
@@ -142,31 +192,31 @@
 
 
 
-.Link2 {
-    text-align: center;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: 'Lexend-Regular';
-    border: none;
-    border-radius: 30px;
-    padding: 5px 15px;
-    background-color: #521FAF;
-    color: #FFFFFF;
-}
+    .Link2 {
+        text-align: center;
+        text-decoration: none;
+        font-size: 15px;
+        font-family: 'Lexend-Regular';
+        border: none;
+        border-radius: 30px;
+        padding: 5px 15px;
+        background-color: #521FAF;
+        color: #FFFFFF;
+    }
 
-.Link2:hover {
-    cursor: pointer;
-    background-color: #6235b4;
-}
+    .Link2:hover {
+        cursor: pointer;
+        background-color: #6235b4;
+    }
 
-.end-card {
-    display: flex;
-    flex-direction: row;
-    overflow-y: scroll;
-    padding: 2em;
-    width: 100%;
-    height: 100%;
-    flex-wrap: wrap;
-}
+    .end-card {
+        display: flex;
+        flex-direction: row;
+        overflow-y: scroll;
+        padding: 2em;
+        width: 100%;
+        height: 100%;
+        flex-wrap: wrap;
+    }
 
 }
