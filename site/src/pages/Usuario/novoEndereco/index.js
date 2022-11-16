@@ -1,6 +1,5 @@
 import { toast } from "react-toastify";
 import { deletarEnderecos } from "../../../API/usuario/enderecoApi.js";
-import Caixa from "../../../components/boxInfos/boxInfos.js";
 import CabecalhoPrincipal from "../../../components/cabecalhoPrincipal/cabecalhoPrinc.js";
 import Legendas from "../../../components/cabLegenda/index.js";
 import CadastroEndereco from "../../../components/CadEndereco/index.js";
