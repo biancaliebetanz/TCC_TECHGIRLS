@@ -1,11 +1,5 @@
 import './index.scss'
 
-import Tema from '../../../components/tema/tema.js';
-import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalhoPrinc.js';
-import Caixa from '../../../components/boxInfos/boxInfos.js';
-import MenuUsuario from '../../../components/menuUsuario/menuUsuario.js';
-import Infos from '../../../components/infosUser';
-import Legendas from '../../../components/cabLegenda';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { buscarPorId } from '../../../API/Usuario';

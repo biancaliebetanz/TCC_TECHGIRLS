@@ -11,16 +11,12 @@ import { ListarEnderecos } from '../../../API/usuario/enderecoApi';
 import CardEndereco from '../../../components/cardEndereco';
 import CadastroEndereco from '../../../components/CadEndereco';
 import { toast } from 'react-toastify';
-import { listarPedidos } from '../../../API/admin/pedido/pedidoApi';
-import Caixa from '../../../components/boxInfos/boxInfos';
 
 export default function Index() {
 
     // VARIÁVEIS DE ESTADO
 
     const navigate = useNavigate();
-    const [pedidos, setPedidos] = useState([]);
-
 
     const [id, setId] = useState(Storage('cliente-logado').data.id);
 
@@ -106,22 +102,6 @@ export default function Index() {
         carregarEnderecos();
         carregarUsuario();
     }, [])
-
-
-
-    async function carregarPedidos() {
-        const r = await listarPedidos();
-        setPedidos(r);
-        console.log(r)
-    }
-
-    useEffect(() => {
-        carregarPedidos();
-    }, [])
-
-    useEffect(() => {
-        console.log(pedidos)
-    }, [pedidos])
 
 
 
@@ -232,13 +212,7 @@ export default function Index() {
 
                     <div className='flex-column-info'>
                         <h2> Meus Pedidos</h2>
-                        <div>
-                        <div>
-                    {pedidos.map(item =>
-                    <Caixa nome={item.nome} endereco={item.cep} situacao={item.situacao} preco={item.preco}/>
-                        )}
-                </div>
-                        </div>
+                        <div> </div>
                     </div>
                 }
 

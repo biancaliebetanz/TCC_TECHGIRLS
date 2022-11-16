@@ -10,7 +10,6 @@ import AlterarProduto from './pages/Administrador/AlterarProduto'
 import Favoritos from './pages/Usuario/Favoritos/index.js'
 import LadingPage from './pages/Usuario/LandingPage/index.js'
 import ProdutoDetalhe from './pages/Usuario/produtoDetalhe/index.js'
-import SeusPedidos from './pages/Usuario/SeusPedidos/index.js'
 import DetalhePedidos from './pages/Usuario/detalhePedidos/index.js'
 import Pedido from './pages/Usuario/Pedido/index.js'
 import NovoEndereco from './pages/Usuario/novoEndereco/index.js'
@@ -43,7 +42,6 @@ export default function Index(){
                 <Route path='/usuario/dados' element={<DadosPessoais/>} />
                 <Route path='/favoritos' element={<Favoritos/>} />
                 <Route path='/produto/:id/detalhe' element={<ProdutoDetalhe/>} />
-                <Route path='/seusPedidos' element={<SeusPedidos/>} />
                 <Route path='/pedido/:id/detalhe' element={<DetalhePedidos/>} />
                 <Route path='/usuario/pedido' element={<Pedido/>} />
                 <Route path='/novoEndereco' element={<NovoEndereco/>} />

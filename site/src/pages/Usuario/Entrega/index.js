@@ -84,7 +84,7 @@ export default function Pedido() {
         let t = 0.0;
         for (let item of itens) {
             t = t + item.produto.info.preco * item.qtd;
-        };
+        }
         return t;
     }
 
@@ -106,10 +106,7 @@ export default function Pedido() {
 
     async function SalvarPedido() {
         try {
-            let z = calcularValorTotal();
-            setValorTotal(z)
-            console.log(z);
-            calcularValorTotal();
+            setValorTotal(calcularValorTotal());
             setCartao({
                 usuario: id,
                 nomeCartao: nomecar,
@@ -119,8 +116,7 @@ export default function Pedido() {
                 cpf: cpf,
                 parcelas: parcelas
             });
-            console.log(valorTotal)
-            const r = await salvarNovoPedido(Storage('cliente-logado').data.id, idEndereco, frete, z, cartao, produto)
+            const r = await salvarNovoPedido(Storage('cliente-logado').data.id, idEndereco, frete, valorTotal, cartao, produto)
             console.log(r)
             toast.dark('pedido inserido com sucesso')
             Storage('carrinho', []);
@@ -137,7 +133,6 @@ export default function Pedido() {
         carregarEnderecos();
         setId(Storage('cliente-logado').data.id)
         setProduto(Storage('carrinho'));
-        calcularValorTotal();
         console.log(produto)
         console.log('id é ' + id)
     }, [])
