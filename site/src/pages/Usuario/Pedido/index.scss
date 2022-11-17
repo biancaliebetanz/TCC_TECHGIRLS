@@ -73,23 +73,28 @@
     flex-direction: row;
     margin-top: 2.5em;
 
-    .voltar{
-        margin-left: 5em;
-        color: purple;
-        border: 1px solid purple;
-        background-color: #fff;
-        padding: 1em 1em;
-        font-size: 1em;
-    }
-    .final{
-        margin-left: 5em;
-        color: #ffffff;
-        background-color: rgb(120, 21, 133);
-        padding: 1em 1em;
-        font-size: 1em;
-    }
+   
    
 }
 
 
+}
+
+.volt{
+    text-decoration: none;
+    margin-left: 5em;
+    color: #521faf;
+    border: 1px solid #521faf;
+    background-color: #fff;
+    padding: 1em 1em;
+    font-size: 1em;
+}
+.entrega{
+    text-decoration: none;
+
+    margin-left: 5em;
+    color: #ffffff;
+    background-color: #521faf;
+    padding: 1em 4em;
+    font-size: 1em;
 }

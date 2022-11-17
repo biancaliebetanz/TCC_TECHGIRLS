@@ -93,14 +93,14 @@ export default function Index() {
         <main className="main">
 
             <div>
-            <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png' fav='../../../images/favoritos.png'
+            <CabecalhoPrincipal logo='../../../images/logoAdmin.png'  fav='../../../images/favoritos.png'
                 user='../../../images/user.png' sacola='../../../images/sacola.png' pesquisa='../../../images/lupa.png' />
 
             </div>
             <section className="landing-conteudo">
                 <div className="container-banner">
                     <Link to='/strangerThings'>
-                        <img className="banner" src='../../../images/Stranger things 1.png' />
+                        <img className="banner" src='../../../images/Strangerthings.png' />
                     </Link>
                 </div>
 

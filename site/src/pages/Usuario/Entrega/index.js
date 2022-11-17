@@ -280,16 +280,19 @@ export default function Pedido() {
                                         <p>Parcelas</p>
                                         <select value={parcelas} onChange={e => setParcelas(e.target.value)}>
                                             <option>selecione</option>
-                                            <option>2</option>
-                                            <option>3</option>
+                                            <option>Á vista</option>
+                                            <option>1 x</option>
+                                            <option>2 x</option>
+                                            <option>3 x</option>
+                                            <option>4 x</option>
+
                                         </select>
                                     </div>
                                     <div className='div5'>
                                         <p>Frete</p>
                                         <select value={frete} onChange={e => setFrete(e.target.value)}>
                                             <option>selecione</option>
-                                            <option>2</option>
-                                            <option>3</option>
+                                            <option>Grátis</option>
                                         </select>
                                     </div>
                                 </div>

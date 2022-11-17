@@ -98,7 +98,6 @@ export default function CabecalhoPrincipal(props) {
         <div className="espaco">
             <header className="cab1">
                 <Link to='/'> <img className="logo1" alt="" src={props.logo} /></Link>
-                <img className='menuCab1' alt="" src={props.menu} />
 
                 <div>
                     <input className='busca1' placeholder='encontre seu produto aqui' type='text' value={busca} onChange={e => setBusca(e.target.value)} />

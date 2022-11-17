@@ -14,9 +14,7 @@ export default function MenuAdmin(props){
     return(
             <div className="menu">
                 <img src={props.logo}></img>
-                <div>
-                    <h1 className="administracao"> Administração </h1>
-                </div>
+                
                 <div>
                     <Link to='/admin/pedidos' className="opcao">Pedidos</Link>
                 </div>
@@ -26,9 +24,7 @@ export default function MenuAdmin(props){
                 <div>
                 <Link to='/Produtos' className="opcao">Produtos</Link>
                 </div>
-                <div>
-                <Link className="opcao">Avaliações</Link>
-                </div>
+                
                 <div>
                 <Link to='/admin/temas' className="opcao">Temas</Link>
                 </div>

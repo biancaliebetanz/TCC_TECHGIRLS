@@ -84,10 +84,10 @@ export default function Index(){
             </section>
             <div className="botoes">
             <div className="voltar">
-            <Link to='/'> Escolher mais produtos </Link>
+            <Link className="volt" to='/'> Escolher mais produtos </Link>
             </div>
             <div className="final">
-            <Link to='/entrega'> Finalizar </Link>
+            <Link className="entrega" to='/entrega'> Finalizar </Link>
 
             </div>
             </div>
