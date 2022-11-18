@@ -99,9 +99,7 @@ export default function Index() {
             </div>
             <section className="landing-conteudo">
                 <div className="container-banner">
-                    <Link to='/strangerThings'>
                         <img className="banner" src='../../../images/Strangerthings.png' />
-                    </Link>
                 </div>
 
                 <div className="faixa">
