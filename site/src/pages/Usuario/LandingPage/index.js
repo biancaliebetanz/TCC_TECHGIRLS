@@ -10,8 +10,21 @@ import Rodape from "../../../components/rodape"
 import { API_URL } from "../../../API/config";
 import { Temas } from "../../../API/tema/temaAPI.js";
 import { listarBanner, listarBannerDestaque } from "../../../API/admin/banner/bannerApi";
+import Banners from "../../../components/banners/banners";
+
+import Carousel from 'react-elastic-carousel'
+
 
 export default function Index() {
+
+
+    const breakPoints = [
+        { width: 1, itemsToShow: 1 },
+        { width: 1200, itemsToShow: 2 },
+        { width: 1200, itemsToShow: 3 },
+        { width: 1200, itemsToShow: 4 },
+    ];
+
     const [produtos, setProdutos] = useState([]);
     const [itens, setItens] = useState([]);
     const carousel = useRef(null);
@@ -47,8 +60,8 @@ export default function Index() {
         const r = await ListarProdutosInicio();
         setProdutos(r);
     }
-    
-    async function carregarBanners(){
+
+    async function carregarBanners() {
         const x = await listarBannerDestaque();
         setBanners(x);
         console.log(x)
@@ -83,23 +96,30 @@ export default function Index() {
 
     useEffect(() => {
         listar();
-        if(Storage('cliente-logado')){
-        CarregarCarrinho();
+        if (Storage('cliente-logado')) {
+            CarregarCarrinho();
         }
         listarTemas();
+        carregarBanners();
     }, [])
 
     return (
         <main className="main">
 
             <div>
-            <CabecalhoPrincipal logo='../../../images/logoAdmin.png'  fav='../../../images/favoritos.png'
-                user='../../../images/user.png' sacola='../../../images/sacola.png' pesquisa='../../../images/lupa.png' />
+                <CabecalhoPrincipal logo='../../../images/logoAdmin.png' fav='../../../images/favoritos.png'
+                    user='../../../images/user.png' sacola='../../../images/sacola.png' pesquisa='../../../images/lupa.png' />
 
             </div>
             <section className="landing-conteudo">
                 <div className="container-banner">
-                        <img className="banner" src='../../../images/Strangerthings.png' />
+                        <div className="App">
+                            <Carousel breakPoints={breakPoints}>
+                                {banners.map(item =>
+                                    <Banners banner={item} />
+                                )}
+                            </Carousel>
+                    </div>
                 </div>
 
                 <div className="faixa">
@@ -165,18 +185,20 @@ export default function Index() {
                         )}
 
                     </div>
-                    </div>
+                </div>
 
                 <div className="Bem-vindo">
-                      <h3 className="h3-bemVindo">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>
-                <p className="texto">A ideia de criar uma loja virtual voltada para a cultura pop veio de um grupo de amigas nerds. Nosso objetivo é trazer produtos com qualidade, buscando valorizar as obras que os estampam.</p>
+                    <h3 className="h3-bemVindo">Bem-vindo a GeekPlanet, a Maior Loja Geek do Brasil!</h3>
+                    <p className="texto">A ideia de criar uma loja virtual voltada para a cultura pop veio de um grupo de amigas nerds. Nosso objetivo é trazer produtos com qualidade, buscando valorizar as obras que os estampam.</p>
 
 
                 </div>
                 <div>
-                <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png'  logo='./../../../images/logo.png'></Rodape>
+                    <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' logo='./../../../images/logo.png'></Rodape>
 
-            </div>
+                </div>
+
+
 
 
             </section>

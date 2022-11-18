@@ -55,8 +55,11 @@
 
 
 .sacolaw {
+    display: flex;
+    flex-direction: column;
     width: 25vw;
-    height: 70vh;
+    justify-content: space-between;
+    height: 65vh;
     background-color: rgb(243, 242, 242);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
     position: fixed;
@@ -86,6 +89,12 @@
     text-transform: uppercase;
 }
 
+.carr-prod {
+    min-height: 70%;
+    overflow-y: scroll;
+    direction: rtl;
+}
+
 .espbotoes {    
     width: 40%;
     align-items: center;
@@ -94,8 +103,16 @@
     flex-direction: row;
 }
 .carrinhoitens{
+    font-family: 'Lexend-Light';
+    text-transform: uppercase;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0.5em;
+    text-align: left;
+    margin: 0.5em 0em;
+    background-color: rgb(240, 221, 252);
    
 }
 .bt-busca1{
@@ -113,7 +130,7 @@
 .realize{
     display: flex;
     justify-content: center;
-    justify-self: flex-end;
+    justify-self:end;
     .rea{
         width: 100%;
         text-decoration: none;
