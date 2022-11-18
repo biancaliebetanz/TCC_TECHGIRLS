@@ -4,15 +4,16 @@ import { con } from '../connection.js'
 
 export async function inserirProduto(produto) {
     const comando = `
-    INSERT INTO TB_PRODUTO (NM_PRODUTO, ID_TEMA, ID_CATEGORIA, VL_PRECO, DS_DESCRICAO, DS_DISPONIVEL)
-    VALUES ( ?, ?, ?, ?, ?, ?) `;
+    INSERT INTO TB_PRODUTO (NM_PRODUTO, ID_TEMA, ID_CATEGORIA, VL_PRECO, DS_DESCRICAO, DS_DISPONIVEL, BT_DESTAQUE)
+    VALUES ( ?, ?, ?, ?, ?, ?, ?) `;
     const [resp] = await con.query(comando, [
                             produto.nome,
                             produto.tema,
                             produto.categoria,
                             produto.preco,
                             produto.descricao,
-                            produto.disponivel
+                            produto.disponivel,
+                            produto.destaque
                         ])
                         
     produto.id = resp.insertId;
@@ -101,6 +102,7 @@ export async function listarProduto () {
 	ds_disponivel 			as disponivel, 
 	nm_categoria		 	as categoria,
 	nm_tema 				as tema,
+    bt_destaque             as destaqueProd,
 	img_produto 			as imagem
 from tb_produto
 	inner join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria
@@ -141,12 +143,12 @@ export async function alterarProduto (id, produto) {
 			    VL_PRECO       = ?,
 			    DS_DESCRICAO   = ?,
 			    DS_DISPONIVEL  = ?,
-                BT_DESTAQUE    = TRUE
+                BT_DESTAQUE    = ?
 			WHERE 
                 ID_PRODUTO     = ?
             `;
 
-const [resposta] = await con.query(comando, [produto.nome, produto.tema, produto.categoria, produto.preco, produto.descricao, produto.disponivel, id])
+const [resposta] = await con.query(comando, [produto.nome, produto.tema, produto.categoria, produto.preco, produto.descricao, produto.disponivel, produto.destaqueProd, id])
 resposta.id = id;
 return resposta;
 }
@@ -275,7 +277,7 @@ export async function deletarImagensDiferentes(idProduto, imagens) {
         delete from tb_imagem 
         where id_produto = ?
         and img_destaque = false
-        and img_produto NOT IN (?)
+        and img_produto NOT IN ('?')
     `;
 
     const resp = await con.query(comando, [idProduto, imagens]);
@@ -295,7 +297,8 @@ export async function buscarProduto(id) {
         ds_descricao    as descricao,
         ds_disponivel   as disponivel,
         nm_categoria     as NomeCategoria,
-        nm_tema             as NomeTema
+        nm_tema             as NomeTema,
+        bt_destaque         as destaqueProd
         from tb_produto
         inner join tb_categoria on tb_categoria.id_categoria = tb_produto.id_categoria
         inner join tb_tema on tb_tema.id_tema = tb_produto.id_tema

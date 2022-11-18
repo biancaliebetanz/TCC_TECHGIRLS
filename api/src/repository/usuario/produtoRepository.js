@@ -8,7 +8,8 @@ export async function ListarProdutosInicio(){
 		img_produto				as imagem
     from tb_produto
     inner join tb_imagem on tb_imagem.id_produto = tb_produto.id_produto
-    where img_destaque = true`;
+    where img_destaque = true
+    and bt_destaque = true`;
 
     const [r] = await con.query(comando);
     return r;

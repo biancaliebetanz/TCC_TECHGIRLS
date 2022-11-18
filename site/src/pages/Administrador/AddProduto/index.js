@@ -29,6 +29,8 @@ export default function Index() {
 
     const [catSelecionadas, setCatSelecionadas] = useState([]);
 
+    const [destaqueProd, setDestaqueProd] = useState(true);
+
     //imagens
 
     const [imagem1, setImagem1] = useState();
@@ -187,7 +189,7 @@ export default function Index() {
                     throw new Error('Disponibilidade não inserida!')
                 }
                 
-                const novoProduto = await CadastrarPoduto(nome, idTemas, idCategoria, descricao, preco, disponivel);
+                const novoProduto = await CadastrarPoduto(nome, idTemas, idCategoria, descricao, preco, disponivel, destaqueProd);
                 console.log(novoProduto)
                 
                 const dest = await CadastrarImgDestaque(novoProduto.id, destaque);
@@ -333,7 +335,16 @@ export default function Index() {
                                      <label > Disponível ?</label> 
                                      <input type="checkbox" checked={disponivel} onChange={e=> setDisponivel(e.target.checked)}/>
                                 </div>
+                                
                             </div> 
+                             <div>
+                                <div>
+                                    <label> Destaque ?</label>
+                                    <input type="checkbox" checked={destaqueProd} onChange={e => setDestaqueProd(e.target.checked)} />
+                                </div>
+                             </div>
+                            
+                            
 
                         </div>
 

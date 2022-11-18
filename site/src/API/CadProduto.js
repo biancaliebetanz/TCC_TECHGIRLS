@@ -5,14 +5,15 @@ const api = axios.create({
     baseURL: API_URL
 })
 
-export async function CadastrarPoduto(nome, tema, categoria, descricao, preco, disponivel) {
+export async function CadastrarPoduto(nome, tema, categoria, descricao, preco, disponivel, destaque) {
     const resposta= await api.post('/produto', {
         nome: nome,
         tema: tema, 
         categoria: categoria,
         descricao: descricao,
         preco: preco,
-        disponivel: disponivel
+        disponivel: disponivel,
+        destaque: destaque
     });
     
     return resposta.data;
@@ -101,6 +102,8 @@ export async function alterarImagens(id, imagem1, imagem2, imagem3, imagem4){
     form.append('imagens', imagem3);
     form.append('imagens', imagem4);
 
+    console.log("endpoint id: " + id)
+
     const r= await api.put(`/produto/alterar/imagem/${id}`, form, {
         headers : {
             'Content-Type' : 'multipart/form-data'
@@ -141,7 +144,7 @@ export async function ListarProdutosInicio() {
 
 // alterar
 
-export async function alterarProduto(id, nome, preco, tema, categoria,  descricao, disponivel, cores, tamanho){
+export async function alterarProduto(id, nome, preco, tema, categoria,  descricao, disponivel, destaque, cores, tamanho){
     
     const r = await api.put(`/admin/produto/${id}`, {
             info : {
@@ -150,7 +153,8 @@ export async function alterarProduto(id, nome, preco, tema, categoria,  descrica
             categoria: categoria,
             tema: tema,
             descricao: descricao,
-            disponivel: disponivel
+            disponivel: disponivel,
+            destaqueProd: destaque
             },
             
             cores: cores,
