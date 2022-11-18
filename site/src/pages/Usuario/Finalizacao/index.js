@@ -17,7 +17,7 @@ export default function Index(){
 
                 <p className="info-pedido">A estimativa de tempo de entrega começará a contar à partir da aprovação do pagamento</p>
                 <h1>Obrigado pela compra!!</h1>
-                <Link className="link-final">Continuar Comprando</Link>
+                <Link to='/' className="link-final">Continuar Comprando</Link>
             </div>
             <div className="et">
                 <img src="../../../images/alienigena.png"></img>
