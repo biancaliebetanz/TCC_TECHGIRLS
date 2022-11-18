@@ -336,7 +336,8 @@ export default function Pedido() {
                     </section>
 
 
-                    <Rodape />
+                    <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' ></Rodape>
+
                 </main>
                 )
 }

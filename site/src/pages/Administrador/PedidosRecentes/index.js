@@ -62,11 +62,6 @@ export default function Index() {
         }
     }
 
-    async function Remover(id_pedido){
-        await DeletarPedido(id_pedido)
-        toast('Deletado com sucesso')
-        carregarPedidos();
-    }
 
     function cor() {
         if (situacao == ss1) {
@@ -201,7 +196,6 @@ export default function Index() {
                                 <td> Preço </td>
                                 <td> Situação </td>
                                 <td> Editar </td>
-                                <td> Excluir </td>
                             </tr>
                         </thead>
                         <tbody>
@@ -213,7 +207,7 @@ export default function Index() {
                                     <td> {item.preco} </td>
                                     <td> {item.situacao} </td>
                                     <td> <button onClick={() => exibirAlterar(item.id_pedido)}> editar </button>  </td>
-                                    <td> <button onClick={() => Remover(item.id_pedido)}> lixo </button>  </td>
+
                                 </tr>
                             )}
                         </tbody>

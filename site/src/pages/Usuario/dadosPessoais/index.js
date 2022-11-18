@@ -128,7 +128,7 @@ export default function Index() {
         <main className='DadosPessoais'>
             <div>
                 <CabecalhoPrincipal logo='../../../images/logoAdmin.png' menu='../../../images/menu.png' fav='../../../images/favoritos.png'
-                    user='../../../images/user.png' sacola='../../../images/sacola.png' />
+                    user='../../../images/user.png' sacola='../../../images/sacola.png' pesquisa='../../../images/lupa.png' />
             </div>
             <div>
                 <Legendas nome='Dados Pessoais' cor={'#6235b4'} />
@@ -137,7 +137,7 @@ export default function Index() {
             <div className='dados'>
                 <div className="menu-user">
                     <div className="direction">
-                        <div>
+                        <div className='user-nome'>
                             <img className="usuario-logado" src="./../../../images/usuariologado.png"></img>
                             <p> Olá {usuario.nome}!!</p>
                         </div>
@@ -299,7 +299,8 @@ export default function Index() {
 
 
             <div className='rod'>
-                <Rodape />
+            <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' ></Rodape>
+
 
             </div>
         </main>

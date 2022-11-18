@@ -38,7 +38,7 @@ export default function Index(){
     return(
         <main className="telaFav">
             <CabecalhoPrincipal  logo='../../../images/logoAdmin.png' menu='../../../images/menu.png'  fav='../../../images/favoritos.png' 
-            user='../../../images/user.png' sacola='../../../images/sacola.png'/>
+            user='../../../images/user.png' sacola='../../../images/sacola.png'  pesquisa='../../../images/lupa.png'/>
             <Legendas nome="Favoritos" cor={'#e25475'} />
            
                     
