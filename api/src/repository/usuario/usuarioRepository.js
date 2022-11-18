@@ -8,7 +8,7 @@ export async function buscarUsuario(id){
     ds_telefone as telefone,
     ds_cpf as cpf,
     ds_rg as rg,
-    dt_nascimento as nascimento
+    date_format(dt_nascimento, "%d/%m/%Y") as nascimento
     from tb_usuario
     where id_usuario = ?`;
 
