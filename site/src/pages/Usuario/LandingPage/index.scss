@@ -21,7 +21,7 @@
         padding: 6em 4em;
     }
 
-    
+
     .sessao {
         display: flex;
         flex-direction: row;
@@ -39,8 +39,8 @@
         width: 30vh;
         border-radius: 0.5em;
         margin-top: 2em;
-    
-        
+
+
 
     }
 
@@ -71,26 +71,27 @@
         width: 100%;
         border-radius: 0.5em 0.5em 0em 0em;
     }
-    .container-banner{
+
+    .container-banner {
         margin-top: 15.5vh;
     }
 
     .banner {
         width: 100%;
         height: 85%;
-        
+
     }
 
-        .encontre {
-            text-align: center;
-            color: #FBF8F8;
-        }
+    .encontre {
+        text-align: center;
+        color: #FBF8F8;
+    }
 
-        .main h2 {
-            padding-top: 5em;
-            text-align: center;
-            color: #fff;
-        }
+    .main h2 {
+        padding-top: 5em;
+        text-align: center;
+        color: #fff;
+    }
 
     .faixa {
         display: flex;
@@ -137,7 +138,9 @@
 
         .container {
             max-width: 75vw;
-            height: 80vh;
+            height: 60vh;
+            align-content: center;
+            justify-content: center;
 
             .titulo-h3 {
                 text-align: center;
@@ -171,39 +174,41 @@
             }
 
         }
+
         .bts {
             width: 100%;
             text-align: center;
             align-items: center;
-    
+
             button {
                 background-color: transparent;
                 border: none;
                 cursor: pointer;
                 margin: 5px;
             }
-    }  
-}
-        .icons-1 {
-            width: 85px;
-            height: 55px;
         }
+    }
 
-        .icons-3 {
-            height: 3em;
-        }
+    .icons-1 {
+        width: 85px;
+        height: 55px;
+    }
 
-        .main p {
-            width: 220px;
-            font-size: 14px;
-            text-align: center;
-        }
+    .icons-3 {
+        height: 3em;
+    }
 
-      
+    .main p {
+        width: 220px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+
 
     .Bem-vindo {
-        display: flex ;
-        justify-content: center ;
+        display: flex;
+        justify-content: center;
         display: flex;
         height: 80vh;
         width: 100%;
@@ -238,9 +243,8 @@
 
     .galaxia {
         margin: 0px;
-        
+
     }
 
-   
+
 }
-    
