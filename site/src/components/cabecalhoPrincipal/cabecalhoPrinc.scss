@@ -56,14 +56,13 @@
 
 .sacolaw {
     width: 25vw;
-    height: 80vh;
+    height: 70vh;
     background-color: rgb(243, 242, 242);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
     position: fixed;
     right: percentage($number: 0);
     top: 10vh;
     box-shadow: -3px 3px 5px 0px rgb(180, 180, 180);
-        overflow: auto;
 }
 
 .escala{
@@ -114,8 +113,7 @@
 .realize{
     display: flex;
     justify-content: center;
-    position: relative;
-    top: 20em;
+    justify-self: flex-end;
     .rea{
         width: 100%;
         text-decoration: none;

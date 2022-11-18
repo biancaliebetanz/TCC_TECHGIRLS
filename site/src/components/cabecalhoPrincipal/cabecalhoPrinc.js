@@ -30,16 +30,16 @@ export default function CabecalhoPrincipal(props) {
     }
 
     function exibiritems() {
-        if(Storage('cliente-logado') && exibirCarrinho == false){
+        if (Storage('cliente-logado') && exibirCarrinho == false) {
             setexibirCarrinho(true)
         }
-        else if (!Storage('cliente-logado')){
+        else if (!Storage('cliente-logado')) {
             navigate('/login/usuario')
         }
-        else if(exibirCarrinho == true){
+        else if (exibirCarrinho == true) {
             setexibirCarrinho(false)
         }
-        
+
     }
 
     async function buscarNomeClick(event) {
@@ -101,11 +101,11 @@ export default function CabecalhoPrincipal(props) {
 
                 <div>
                     <input className='busca1' placeholder='encontre seu produto aqui' type='text' value={busca} onChange={e => setBusca(e.target.value)} />
-                    <img src={props.pesquisa} className="bt-busca1" onClick={buscarNomeClick}/>                   
+                    <img src={props.pesquisa} className="bt-busca1" onClick={buscarNomeClick} />
 
 
                 </div>
-               
+
 
                 <div className="espbotoes">
                     <Link to={favoritos()}><img className='icons1' src={props.fav} /></Link>
@@ -115,29 +115,33 @@ export default function CabecalhoPrincipal(props) {
 
                     {exibirCarrinho == true &&
                         <div className="sacolaw">
-                             <div className="sacola">
+                            <div className="sacola">
                                 <h4 className="escala"> Minha Sacola</h4>
                             </div>
 
-                            {itens.map(item => 
-                                <div className="carrinhoitens">
-                                <img className='imagem-resumo' src={exibirImagem(item)} />
-                                <div>
-                                <p> {item.produto.info.NomeTema}</p>
-                                    <p> {item.produto.info.nome}</p>
-                                </div>
-                                   <div className="preco-item">
-                                        
-                                    <p className='preco'>R${item.produto.info.preco}</p>
-                                   </div>
+                            <div>
+                                {itens.map(item =>
+                                    <div className="carrinhoitens">
+                                        <img className='imagem-resumo' src={exibirImagem(item)} />
+                                        <div>
+                                            <p> {item.produto.info.NomeTema}</p>
+                                            <p> {item.produto.info.nome}</p>
+                                        </div>
+                                        <div className="preco-item">
 
-                                </div>
-                            )}
-                          <div className="realize">
-                          <Link className="rea" to='/usuario/pedido'> Realizar Pedido </Link>
+                                            <p className='preco'>R${item.produto.info.preco}</p>
+                                        </div>
 
-                          </div>
-                            
+                                    </div>
+                                )}
+                            </div>
+
+
+                            <div className="realize">
+                                <Link className="rea" to='/usuario/pedido'> Realizar Pedido </Link>
+
+                            </div>
+
                         </div>
                     }
                 </div>
@@ -147,9 +151,9 @@ export default function CabecalhoPrincipal(props) {
             <div>
                 {produtos.map(item =>
                     <ProdutoBusca
-                       nome={item.nome}
-                       id= {item.id}
-                       />
+                        nome={item.nome}
+                        id={item.id}
+                    />
                 )}
             </div>
 
