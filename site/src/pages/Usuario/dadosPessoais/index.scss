@@ -26,7 +26,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         height: 100%;
-        width: 80%;
         padding: 2em;
         overflow-y: scroll;
     }
@@ -38,6 +37,9 @@
         width: 45%;
         height: 55%;
         margin: 1em;
+        padding: 1em;
+        align-items: center;
+        justify-content: center;
     }
 
     .borda p {
@@ -115,7 +117,6 @@
         display: flex;
         flex-direction: row;
 
-
         .direction {
             display: flex;
             flex-direction: column;
@@ -154,6 +155,7 @@
             width: 4px;
             background-image: linear-gradient(to bottom, #4EB9DB, #521FAF, #FF2C83);
             border: none;
+            margin: 0em 3em;
             align-self: center;
 
         }

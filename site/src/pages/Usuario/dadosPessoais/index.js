@@ -66,6 +66,8 @@ export default function Index() {
 
     function SairCliente() {
         Storage.remove('cliente-logado');
+        Storage.remove('carrinho')
+        Storage.remove('preco')
         navigate('/')
     }
 
