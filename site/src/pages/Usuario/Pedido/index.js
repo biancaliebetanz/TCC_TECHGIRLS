@@ -20,6 +20,7 @@ export default function Index(){
         for(let item of itens){
           t = t +  item.produto.info.preco * item.qtd;
         }
+        Storage('preco', t)
         return t;
     }
 

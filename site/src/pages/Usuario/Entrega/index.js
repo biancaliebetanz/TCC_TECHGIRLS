@@ -85,7 +85,9 @@ export default function Pedido() {
         for (let item of itens) {
             t = t + item.produto.info.preco * item.qtd;
         }
-        return t;
+        console.log(t)
+        console.log(valorTotal)
+        setValorTotal(Storage('preco'));
     }
 
     async function CarregarProdutos() {
@@ -120,6 +122,7 @@ export default function Pedido() {
             console.log(r)
             toast.dark('pedido inserido com sucesso')
             Storage('carrinho', []);
+            Storage('preco', 0)
             navigate('/usuario/finalizacao')
 
         } catch (err) {
@@ -130,6 +133,7 @@ export default function Pedido() {
 
     useEffect(() => {
         CarregarProdutos();
+        calcularValorTotal();
         carregarEnderecos();
         setId(Storage('cliente-logado').data.id)
         setProduto(Storage('carrinho'));
@@ -327,7 +331,7 @@ export default function Pedido() {
 
                             </div>
                             <div className='total'>
-                                TOTAL<p className='p-total'>R$ {calcularValorTotal()} </p>
+                                TOTAL<p className='p-total'>R$ {valorTotal} </p>
                             </div>
 
                             <button className='salvar' onClick={SalvarPedido}>Finalizar</button>
