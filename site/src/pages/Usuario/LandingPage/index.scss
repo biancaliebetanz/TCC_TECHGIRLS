@@ -74,6 +74,8 @@
 
     .container-banner {
         margin-top: 15.5vh;
+        background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
+
     }
 
     .banner {
@@ -176,9 +178,13 @@
         }
 
         .bts {
+            display: flex;
+            justify-content: center;
             width: 100%;
             text-align: center;
             align-items: center;
+            position: relative;
+            top: 4em;
 
             button {
                 background-color: transparent;
