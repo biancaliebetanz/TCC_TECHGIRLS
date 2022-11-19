@@ -94,6 +94,10 @@ export default function Index() {
         setId(x.id);
     }
 
+    function detalhePedido(id){
+        navigate(`/pedido/detalhe/${id}`);
+    }
+
 
     // USE EFFECTS
 
@@ -227,7 +231,7 @@ export default function Index() {
                         <div className='flex-row-info'> 
                         
                         {pedidos.map( item => 
-                            <div className='borda'>
+                            <div className='borda' onClick={() => detalhePedido(item.id_pedido)} >
                                 <h3 className='nome-pedido'> {item.nome} </h3>
 
                                 <p> {item.endereco} </p>
@@ -238,9 +242,9 @@ export default function Index() {
                                     <h2 className='pedido-txt'> Valor pago: <span> {item.preco} </span> </h2>
                                     <h2 className='pedido-txt'> Situação: <span> {item.situacao} </span></h2>
                                 </div>
+
                                 
-
-
+                                
                             </div>
                                 )}
 

@@ -6,6 +6,7 @@ import { listarPedidoItens } from '../../../API/usuario/pedido';
 import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalhoPrinc'
 import Legendas from '../../../components/cabLegenda'
 import Item from '../../../components/detalhePedidoItem/Item';
+import Rodape from '../../../components/rodape';
 import './index.scss'
 
 export default function Index() {
@@ -37,25 +38,32 @@ export default function Index() {
                 <Legendas nome='Detalhe do Pedido' />
 
             </div>
+                <p> Código: <span> {pedido.id_pedido} </span>  </p>
+                <p> Cliente: <span> {pedido.nome} </span> </p>
 
             <section className='section'>
-                <table className="tabela">
+
+
+                <div className='overflow-y'>
+                    <table className="tabela">
                     <thead>
                         <tr>
                             <td className="td"> Produto </td>
                             <td> Preço </td>
                             <td> Quantidade </td>
                             <td> Subtotal </td>
-                            <td> </td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {itens.map(item =>
                             <Item item={item}/>
 
                         )}
                     </tbody>
                 </table>
+                </div>
+
+                
 
                 <div className="valoresFinais">
                     <textarea placeholder='Deixe sua Avaliação...'></textarea>
@@ -70,13 +78,13 @@ export default function Index() {
 
                     <h3>Produtos</h3>
                     <hr className="linha-sacola"></hr>
-                    <h3 className="h3-total">Total : R$</h3>
-                    <h3 className='situation'>Situação do pedido</h3>
+                    <h3 className="h3-total">Total : R$ {pedido.preco}</h3>
+                    <h3 className='situation'>{pedido.situacao}</h3>
                 </div>
             </section>
 
 
-
+            <Rodape insta='./../../../images/insta.png' face='./../../../images/face.png' whats='./../../../images/whats.png' logo='./../../../images/logo.png' />
 
 
         </main>

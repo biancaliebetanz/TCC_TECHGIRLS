@@ -1,16 +1,33 @@
 .registro {
 
     width: 100%;
+    background-color: rgb(240, 221, 252);
 
     td{
         width: 25%;
         height: 5vh;
-        background-color: #ff2;
+        font-family: 'Lexend-Light';
+        text-align: center;
+        margin: 0em 0em 2em 0em;
+        padding: 1em;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        padding: 0.5em 0.5em;
+        text-align: left !important;
+    }
+
+    h4 {
+        color: #FF2C83;
+        text-transform: capitalize;
+        padding: 0em 0.5em;
     }
 
     .divrow {
         display: flex;
         flex-direction: row;
+        text-align: left !important;
     }
 
     .img {
