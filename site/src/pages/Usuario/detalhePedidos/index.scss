@@ -1,100 +1,101 @@
- .detalhePed{
+ .detalhePed-info{
     height: 100vh;
     width: 100%;
-}
 
-.leg{
+    .leg{
     
-    background-color: #6c39c9;
-    padding: 0.5em;
-
-    position: relative;
-    bottom:1.5em;
-}
-
-.section{
-    margin-top: 20vh;
-
-
-}
-
-.tabela {
-    text-align: center;
-    align-self: center;
-    width: 90%;
-    border-collapse: collapse;
-    position: relative;
-    right: 6em;
-}
-
-.tabela tr {
-    border-bottom: 2px solid #fff;
-}
-
-.tabela td {
-    padding: 1em;
-    font-family: 'Lexend-Bold';
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-.td {
-    width: 30%;
-}
-
-.valoresFinais{
-    margin: 2em;
-    width: 275px;
-    height: 100px;
-    position: relative;
-    left: 75%;
-}
-    h3{
-        text-align: center;
-
-        margin-bottom: 1em;
-        margin-top: 1em;
-    }
-   .h3-total{
-    font-size: 1.8em;
-    color: #8d8c8c;
-
-   }
-   .situation{
-    padding: 1em 2em;
-    background-color: #6c39c9;
-
-   }
-
-   textarea{
-    width:250px;
-    height: 125px;
-    border-radius: 10px;
-    background-color: #b6b1b1;
-    border: none;
-    padding: 1em;
-   }
-
-   .estrelas{
-    display: flex;
-    align-items: center;
-    background-color: #d4d4d4;
-    width: 250px;
-
-    img{
-        width: 30px;
-        height: 30px;
-    }
-
-    button{
-        margin: 15px;
-        padding: 0.5em 1em;
-        border: none;
-        border-radius: 5px;
         background-color: #6c39c9;
-        color: #ffff;
-        
+        padding: 0.5em;
+    
+        position: relative;
+        bottom:1.5em;
+    }
+    
+    .section{
+        margin-top: 20vh;
+    
     
     }
+    
+    .tabela {
+        text-align: center;
+        align-self: center;
+        width: 90%;
+        border-collapse: collapse;
+        position: relative;
+        right: 6em;
+    }
+    
+    .tabela tr {
+        border-bottom: 2px solid #fff;
+    }
+    
+    .tabela td {
+        padding: 1em;
+        font-family: 'Lexend-Bold';
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    
+    .td {
+        width: 30%;
+    }
+    
+    .valoresFinais{
+        margin: 2em;
+        width: 275px;
+        height: 100px;
+        position: relative;
+        left: 75%;
+    }
+        h3{
+            text-align: center;
+    
+            margin-bottom: 1em;
+            margin-top: 1em;
+        }
+       .h3-total{
+        font-size: 1.8em;
+        color: #8d8c8c;
+    
+       }
+       .situation{
+        padding: 1em 2em;
+        background-color: #6c39c9;
+    
+       }
+    
+       textarea{
+        width:250px;
+        height: 125px;
+        border-radius: 10px;
+        background-color: #b6b1b1;
+        border: none;
+        padding: 1em;
+       }
+    
+       .estrelas{
+        display: flex;
+        align-items: center;
+        background-color: #d4d4d4;
+        width: 250px;
+    
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    
+        button{
+            margin: 15px;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #6c39c9;
+            color: #ffff;
+            
+        
+        }
+    
+       }
+}
 
-   }
