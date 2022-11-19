@@ -258,7 +258,6 @@ export default function Index() {
                                 <div className="select-tamanho">
                                     <label> Categoria:</label>
                                     <select className="select" value={idCategoria} onChange={e => setIdCategoria(Number(e.target.value))}>
-                                        <option> Vestimenta </option>
 
                                         {categorias.map(item =>
                                             <option value={item.id}> {item.nome} </option>
@@ -273,7 +272,6 @@ export default function Index() {
 
                                     <label> Tema: </label>
                                     <select className="select" value={idTemas} onChange={e => setIdTemas(Number(e.target.value))}>
-                                        <option> Harry Potter </option>
 
                                         {Temas.map(item =>
                                             <option value={item.id}> {item.nome} </option>

@@ -100,7 +100,9 @@ export default function CabecalhoPrincipal(props) {
                 <Link to='/'> <img className="logo1" alt="" src={props.logo} /></Link>
 
                 <div>
-                    <input className='busca1' placeholder='encontre seu produto aqui' type='text' value={busca} onChange={e => setBusca(e.target.value)} />
+                    <input 
+                    onKeyPress={e => e.key === 'Enter' ? buscarNomeClick() : ''}
+                    className='busca1' placeholder='Encontre seu produto aqui' type='text' value={busca} onChange={e => setBusca(e.target.value)} />
                     <img src={props.pesquisa} className="bt-busca1" onClick={buscarNomeClick} />
 
 

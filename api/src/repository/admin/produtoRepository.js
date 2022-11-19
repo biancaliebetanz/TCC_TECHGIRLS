@@ -187,6 +187,7 @@ export async function buscarPorCategoria(nome) {
     const [linhas] = await con.query(comando, [ `%${nome}%` ]);
     return linhas;
 }
+
 export async function buscarPorTema(nome) {
     const comando =`
     select ID_TEMA  id,
@@ -198,15 +199,26 @@ export async function buscarPorTema(nome) {
     const [linhas] = await con.query(comando, [ `%${nome}%` ]);
     return linhas;
 }
-export async function filtrarPorTema(nome){
-    const comando = 
-    `SELECT ID_TEMA  id,
-            NM_TEMA  nome,
-            DS_COR   cor
-        FROM TB_TEMA
-        WHERE NM_TEMA like ?`;
+export async function filtrarPorTema(id){
+    const comando = `
+    select 
+	tb_produto.id_produto 	as id,
+	nm_produto 				as nome, 
+	ds_descricao 			as descricao, 
+	vl_preco 				as preco, 
+	ds_disponivel 			as disponivel, 
+	nm_categoria		 	as categoria,
+	nm_tema 				as tema,
+    bt_destaque             as destaqueProd,
+	img_produto 			as imagem
+from tb_produto
+	inner join tb_categoria on tb_produto.id_categoria = tb_categoria.id_categoria
+	inner join tb_tema on tb_produto.id_tema = tb_tema.id_tema
+	inner join tb_imagem on tb_imagem.id_produto = tb_produto.id_produto
+	where img_destaque = true
+    AND TB_TEMA.ID_TEMA = ?`;
 
-        const [linhas] = await con.query(comando, [ `%${nome}%` ]);
+        const [linhas] = await con.query(comando, [id]);
         return linhas;
     }
 

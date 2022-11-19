@@ -74,8 +74,9 @@ export async function buscarCategoria(nome) {
     const resposta = await api.get(`/filtro/categoria?nome=${nome}`)
     return resposta.data;
 }
-export async function buscarPorTema(nome) {
-    const resposta = await api.get(`/filtro/tema?nome=${nome}`)
+
+export async function buscarPorTema(id) {
+    const resposta = await api.get(`/produto/tema/${id}`)
     return resposta.data;
 }
 

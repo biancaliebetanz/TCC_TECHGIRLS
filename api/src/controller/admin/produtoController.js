@@ -5,7 +5,7 @@ import {
         deletarCor, deletarTamanho, deletarProduto, deletarImagem,
         buscarDestaque, buscarProduto, buscarCorProduto, 
         buscarTamanhoProduto, buscarImagemProduto, Resposta, 
-        alterarCor, alterarTamanho, deletarImagensDiferentes, alterarTemaProduto, deletarProdutoFavorito 
+        alterarCor, alterarTamanho, deletarImagensDiferentes, alterarTemaProduto, deletarProdutoFavorito, filtrarPorTema 
 }       from '../../repository/admin/produtoRepository.js';
 
 import multer from 'multer';
@@ -277,11 +277,11 @@ server.get('/filtro/categoria', async (req,resp) => {
     }
 })
 
-server.get('/produto/tema', async (req,resp) => {
+server.get('/produto/tema/:id', async (req,resp) => {
 
     try{
-        const { nome } = req.query;
-        const x = await filtrarPorTema(nome);
+        const { id } = req.params;
+        const x = await filtrarPorTema(id);
         resp.send(x)
         
     } catch(err) {

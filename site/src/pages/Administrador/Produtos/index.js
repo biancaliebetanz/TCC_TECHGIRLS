@@ -4,7 +4,7 @@ import BoxProduto from "../../../components/boxProdutos/boxProduto.js";
 import "./index.scss"
 import "../../../common/common.scss"
 import { useEffect, useState } from "react";
-import { buscarCategoria, buscarPorTema, deletarProduto, ProdutosListados } from "../../../API/CadProduto";
+import { buscarCategoria, buscarPorTema, deletarProduto, listarCategorias, listarTemas, ProdutosListados } from "../../../API/CadProduto";
 import { toast } from "react-toastify";
 import { API_URL } from "../../../API/config";
 import Storage from 'local-storage';
@@ -14,14 +14,34 @@ export default function Index() {
 
     const navigate = useNavigate();
     const [admin, setAdmin] = useState('');
+    
+    const [idCategoria, setIdCategoria] = useState(0);
+    const [categorias, setCategorias] = useState([]);
+
+    const [idTemas, setIdTemas] = useState(0);
+    const [Temas, setTemas] = useState([]);
 
     const [produto, setProduto] = useState([]);
 
-    const [filtroTema, setFiltroTema] = useState('');
+    const [filtroTema, setFiltroTema] = useState();
     const [filtroCategoria, setFiltroCategoria] = useState('');
 
+    // funções
+
+    async function carregarTemas() {
+        const r = await listarTemas();
+        setTemas(r);
+    }
+
+
+    async function carregarCategorias() {
+
+        const r = await listarCategorias();
+        setCategorias(r);
+    }
+
     async function buscarTemaClick() {
-        const resp = await buscarPorTema(filtroTema);
+        const resp = await buscarPorTema(idTemas);
         console.log(resp)
         setProduto(resp);
     }
@@ -60,6 +80,8 @@ export default function Index() {
 
     useEffect(() => {
         ListarProdutos();
+        carregarTemas();
+        carregarCategorias();
     }, [])
 
     useEffect(() => {
@@ -84,8 +106,15 @@ export default function Index() {
                     <Link className="edit" to='/admin/produto'>Novo Produto</Link>
                 </div>
                 <div>
-                    <input type='text' placeholder="digite o tema" value={filtroTema} onChange={e => setFiltroTema(e.target.value)}></input>
-                    <button onClick={buscarTemaClick}>Buscar</button>
+                    <div>
+                        <select className="select" value={idTemas} onChange={e => setIdTemas(Number(e.target.value))}>
+
+                            {Temas.map(item =>
+                                <option value={item.id}> {item.nome} </option>
+                            )}
+                        </select>
+                        <button onClick={() => buscarTemaClick()}> Buscar </button>
+                    </div>
                     <input type='text' placeholder="digite a" value={filtroCategoria} onChange={e => setFiltroCategoria(e.target.value)}></input>
                     <button onClick={buscarCategoriaClick}>Buscar</button>
                 </div>
