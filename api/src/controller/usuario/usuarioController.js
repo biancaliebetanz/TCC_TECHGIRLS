@@ -194,7 +194,8 @@ server.delete('/usuario/favorito/:id', async (req,resp) => {
 
     try {
         const { id } = req.params;
-        const resposta = await removerProdutoFavoritos(id);
+        const { produto } = req.query;
+        const resposta = await removerProdutoFavoritos(id, produto);
         
         if (resposta !=1)
             throw new Error('Favorito não pode ser removido');

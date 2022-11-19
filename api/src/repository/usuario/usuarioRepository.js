@@ -185,11 +185,12 @@ values (?, ?)`;
 }
 
 
-export async function removerProdutoFavoritos (id) {
+export async function removerProdutoFavoritos (id, produto) {
 	const comando = `DELETE FROM TB_USUARIO_FAVORITO 
-			 WHERE ID_USUARIO_FAVORITO = ?`;
+			 WHERE ID_USUARIO = ?
+             AND ID_PRODUTO = ?`;
 
-const [resp] = await con.query(comando, [id]);
+const [resp] = await con.query(comando, [id, produto]);
 return resp.affectedRows;
 }
 

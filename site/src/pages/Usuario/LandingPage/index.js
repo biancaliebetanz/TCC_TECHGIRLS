@@ -64,13 +64,11 @@ export default function Index() {
     async function carregarBanners() {
         const x = await listarBannerDestaque();
         setBanners(x);
-        console.log(x)
     }
 
     async function listarTemas() {
         const r = await Temas();
         setTemas(r);
-        console.log(r)
     }
 
     async function CarregarCarrinho() {
@@ -85,7 +83,6 @@ export default function Index() {
 
                 })
             }
-            console.log(temp)
             setItens(temp)
         }
     }
