@@ -12,6 +12,7 @@ export async function inserirPedidoItem(idPedido, idProduto, qtd, preco) {
             VALUES (?, ?, ?, ?)
         `;
 
+    console.log(qtd)
     const [info] = await con.query(comando, [idPedido, idProduto, qtd, preco]);
     return info.affectedRows;
 
@@ -53,6 +54,31 @@ export async function listarPedidosUsuario(id) {
     and tb_pedido.id_usuario = ?
         `;
 
-        const [resp] = await con.query(comando, id);
-        return resp;
+    const [resp] = await con.query(comando, id);
+    return resp;
+}
+
+export async function ListarPedidoItens(id) {
+    const comando = `
+    select 
+    id_pedido as pedido,
+    id_pedido_item as id_item,
+    nm_produto	as nome,
+    vl_preco as preco,
+    nm_tema as tema,
+    qtd_itens as qtd,
+    img_produto as imagem,
+    img_destaque as destaque,
+    (qtd_itens * vl_preco) as subtotal
+    from tb_pedido_item 
+    inner join tb_produto on tb_produto.id_produto = tb_pedido_item.id_produto
+    inner join tb_tema on tb_produto.id_tema = tb_tema.id_tema
+    inner join tb_imagem on tb_produto.id_produto = tb_imagem.id_produto
+    where id_pedido = ? 
+    and img_destaque = true
+    order by (tb_pedido_item.id_produto)
+        `;
+
+    const [resp] = await con.query(comando, [id]);
+    return resp;
 }

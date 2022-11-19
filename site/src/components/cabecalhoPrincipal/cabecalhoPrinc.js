@@ -52,6 +52,7 @@ export default function CabecalhoPrincipal(props) {
     function removerItem(id) {
         let carrinho = Storage('carrinho');
         carrinho = carrinho.filter(item => item.id != id);
+
         Storage('carrinho', carrinho);
         CarregarCarrinho();
     }
@@ -76,12 +77,14 @@ export default function CabecalhoPrincipal(props) {
             let temp = [];
             for (let item of carrinho) {
                 let produto = await buscarPorId(item.id);
+                console.log(item.qtd)
                 temp.push({
                     produto,
-                    qtd: produto.qtd,
+                    qtd: item.qtd,
 
                 })
             }
+            console.log(temp)
             setItens(temp)
         }
     }
@@ -89,10 +92,6 @@ export default function CabecalhoPrincipal(props) {
     useEffect(() => {
         CarregarCarrinho();
     }, [])
-
-    useEffect(() => {
-        CarregarCarrinho();
-    }, [itens])
 
     return (
         <div className="espaco">

@@ -1,0 +1,19 @@
+.registro {
+
+    width: 100%;
+
+    td{
+        width: 25%;
+        height: 5vh;
+        background-color: #ff2;
+    }
+
+    .divrow {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .img {
+        width: 8em;
+    }
+}

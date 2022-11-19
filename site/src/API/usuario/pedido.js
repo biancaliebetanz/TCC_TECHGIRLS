@@ -29,3 +29,7 @@ export async function listarPedidosUser(id){
     const resposta = await api.get(`/pedido/usuario/${id}`);
     return resposta.data;
 }
+export async function listarPedidoItens(id){
+    const resposta = await api.get(`/pedido/itens/${id}`);
+    return resposta.data;
+}

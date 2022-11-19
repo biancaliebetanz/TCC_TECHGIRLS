@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import { listarPedidoId } from '../../../API/admin/pedido/pedidoApi';
+import { buscarPorId } from '../../../API/Usuario';
+import { listarPedidoItens } from '../../../API/usuario/pedido';
 import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalhoPrinc'
 import Legendas from '../../../components/cabLegenda'
 import Item from '../../../components/detalhePedidoItem/Item';
@@ -10,11 +12,15 @@ export default function Index() {
 
     const { id } = useParams();
     const [pedido, setPedido] = useState({});
-    const [itens, setItens] = useState([1, 2, 3])
+    const [itens, setItens] = useState([]);
 
     async function carregarPedido() {
         const x = await listarPedidoId(id);
+        const y = await listarPedidoItens(id);
+        setPedido(x);
+        setItens(y);
         console.log(x);
+        console.log(y);
     }
 
     useEffect(() => {
@@ -43,7 +49,7 @@ export default function Index() {
                     </thead>
                     <tbody>
                         {itens.map(item =>
-                            <Item />
+                            <Item item={item}/>
 
                         )}
                     </tbody>
