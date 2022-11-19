@@ -30,10 +30,15 @@ export default function Index(){
             setProdutos(resp)
             console.log(resp)
         }
+
         useEffect(() => {
             ListarFavoritos();
         }, [])
 
+        
+        useEffect(() => {
+            ListarFavoritos();
+        }, [produtos])
         
     return(
         <main className="telaFav">
