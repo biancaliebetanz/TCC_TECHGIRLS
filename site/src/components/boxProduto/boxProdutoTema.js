@@ -65,7 +65,6 @@ export default function ProdutoTema(props){
             if(!usuario){
                 return ""
             }
-            console.log(produto)
             const x = await buscarFavorito(usuario, produto);
             if(x){
             setFavoritado("../../images/heart.png")

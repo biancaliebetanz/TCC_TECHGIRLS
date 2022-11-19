@@ -31,10 +31,11 @@ server.post('/api/pedido/:usuario' , async (req , resp) =>{
        
         const IdPedidoCriado = await Pedidos(NovoPedido);
 
-        for(let i = 0; i < info.produto.length; i++){
-            const prod= await buscarProduto(info.produto[i].id);
-            console.log(prod)
-            const idPedidoItemCriado = await inserirPedidoItem(IdPedidoCriado.id, prod.id, info.produto[i].qtd, prod.preco);
+        const produto = info.produto;
+
+        for(let item of produto){
+            const prod= await buscarProduto(item.id);
+            const idPedidoItemCriado = await inserirPedidoItem(IdPedidoCriado.id, prod.id, produto.qtd, prod.preco);
         }
         resp.status(204).send();
     } catch (err) {

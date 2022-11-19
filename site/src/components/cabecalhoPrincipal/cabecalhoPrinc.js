@@ -52,7 +52,6 @@ export default function CabecalhoPrincipal(props) {
     function removerItem(id) {
         let carrinho = Storage('carrinho');
         carrinho = carrinho.filter(item => item.id != id);
-
         Storage('carrinho', carrinho);
         CarregarCarrinho();
     }
@@ -83,7 +82,6 @@ export default function CabecalhoPrincipal(props) {
 
                 })
             }
-            console.log(temp)
             setItens(temp)
         }
     }
