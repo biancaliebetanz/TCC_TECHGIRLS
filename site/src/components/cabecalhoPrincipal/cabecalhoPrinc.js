@@ -92,7 +92,9 @@ export default function CabecalhoPrincipal(props) {
         CarregarCarrinho();
     }, [])
 
-
+    useEffect(() => {
+        CarregarCarrinho();
+    }, [itens])
 
     return (
         <div className="espaco">
