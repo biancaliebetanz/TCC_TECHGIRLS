@@ -17,7 +17,7 @@ export default function ProdutoTema(props){
 
     const[produto, setProduto] = useState(props.id);
 
-    const [favoritado, setFavoritado] = useState('./images/heartempty.png');
+    const [favoritado, setFavoritado] = useState('../../images/heartempty.png');
 
     async function AdicionarFav() {
         try {
@@ -68,10 +68,10 @@ export default function ProdutoTema(props){
             console.log(produto)
             const x = await buscarFavorito(usuario, produto);
             if(x){
-            setFavoritado("./images/heart.png")
+            setFavoritado("../../images/heart.png")
             }
             else if(!x) {
-                return ""
+                setFavoritado("../../images/heartempty.png")
             }
     }
 

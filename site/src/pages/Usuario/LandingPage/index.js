@@ -136,7 +136,7 @@ export default function Index() {
                     <div className="app">
 
                         <div className="bts">
-                            <button onClick={handleLeftClick}> <img src="./../../../images/Vector1.png" /></button>
+                            <button onClick={handleLeftClick}> <img src="./../../../images/Vector1.png" /> </button>
 
                         </div>
                         <div className="container">
