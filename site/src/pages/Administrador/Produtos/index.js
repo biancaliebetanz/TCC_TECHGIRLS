@@ -108,8 +108,7 @@ export default function Index() {
                 <div>
                     <div>
                         <select className="select" value={idTemas} onChange={e => setIdTemas(Number(e.target.value))}>
-                            <option>Selecione o tema...</option>
-
+                            <option selected='selected'> Selecione </option>
                             {Temas.map(item =>
                                 <option value={item.id}> {item.nome} </option>
                             )}

@@ -21,6 +21,11 @@
         padding: 0.5em 1em;
     }
 
+    .hoverzinho:hover {
+        background-color: #521FAF;
+        cursor: pointer;
+    }
+
     .alinhando-column {
         display: flex;
         flex-direction: column;

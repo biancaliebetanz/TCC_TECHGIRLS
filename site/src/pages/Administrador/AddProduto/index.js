@@ -259,7 +259,7 @@ export default function Index() {
                                     
                                     <label> Categoria:</label>
                                     <select className="select" value={idCategoria} onChange={e => setIdCategoria(Number(e.target.value))}>
-
+                                        <option selected='selected' >Selecione</option> 
                                         {categorias.map(item =>
                                             <option value={item.id}> {item.nome} </option>
                                         )}
@@ -273,7 +273,7 @@ export default function Index() {
 
                                     <label> Tema: </label>
                                     <select className="select" value={idTemas} onChange={e => setIdTemas(Number(e.target.value))}>
-
+                                        <option selected='selected' > Selecione</option> 
                                         {Temas.map(item =>
                                             <option value={item.id}> {item.nome} </option>
                                         )}
