@@ -1,44 +1,95 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
-import { listarPedidoId } from '../../../API/admin/pedido/pedidoApi';
+import { useNavigate, useParams } from 'react-router-dom'
+import { alterarSituacaoPedido, listarPedidoId } from '../../../API/admin/pedido/pedidoApi';
 import { buscarPorId } from '../../../API/Usuario';
-import { listarPedidoItens } from '../../../API/usuario/pedido';
+import { avaliarPedido, listarAvaliacaoPedido, listarPedidoItens } from '../../../API/usuario/pedido.js';
 import CabecalhoPrincipal from '../../../components/cabecalhoPrincipal/cabecalhoPrinc'
 import Legendas from '../../../components/cabLegenda'
 import Item from '../../../components/detalhePedidoItem/Item';
 import Rodape from '../../../components/rodape';
+import Storage from 'local-storage'
 import './index.scss'
+import { toast } from 'react-toastify';
 
 export default function Index() {
 
+    const navigate = useNavigate();
+
     const { id } = useParams();
+    const [usuario, setUsuario] = useState(Storage('cliente-logado').data.id)
     const [pedido, setPedido] = useState({});
 
     const [itens, setItens] = useState([]);
+    const [comentario, setComentario] = useState('');
 
     const [nota, setNota] = useState(0);
-
+    const [avaliado, setAvaliado] = useState(false)
 
     async function carregarPedido() {
         const x = await listarPedidoId(id);
         const y = await listarPedidoItens(id);
         setPedido(x);
         setItens(y);
-        console.log(x);
-        console.log(y);
+    }
+
+    function alterarNota(nota) {
+        if (avaliado == false) {
+            setNota(nota)
+        }
     }
 
     function zerarNota() {
-        if(nota==1){
-            setNota(0)
+        if (avaliado == false) {
+            if (nota == 1) {
+                setNota(0)
+            }
+            else {
+                setNota(1)
+            }
+        }
+    }
+
+    async function carregarAvaliacao() {
+        const x = await listarAvaliacaoPedido(id);
+        console.log(x);
+        if (!x) {
+            return ''
         }
         else {
-            setNota(1)
+            console.log(x.comentario)
+            setComentario(x.comentario);
+            setNota(x.nota);
+            setAvaliado(true)
+        }
+    }
+
+    async function avaliarPedidoClick() {
+        try {
+            if (pedido.situacao == 'Pacote Chegou' && avaliado == false ) {
+                const x = await avaliarPedido(id, usuario, nota, comentario);
+                console.log(id)
+                const y = await alterarSituacaoPedido(id, 'Pedido Finalizado');
+                setAvaliado(true);
+                carregarPedido();
+                carregarAvaliacao();
+                toast('Pedido Avaliado com sucesso');
+            }
+            else {
+                throw new Error('Não é possível avaliar um pedido que já foi finalizado!')
+            }
+        }
+
+        catch (err) {
+            toast.error('Erro: ' + err.message)
         }
     }
 
     useEffect(() => {
+        if (!Storage('cliente-logado')) {
+            navigate('/')
+        }
         carregarPedido();
+        carregarAvaliacao();
     }, [])
 
 
@@ -78,15 +129,15 @@ export default function Index() {
 
 
                 <div className="valoresFinais">
-                    <textarea placeholder='Deixe sua Avaliação...'></textarea>
-                    
+                    <textarea type='text' value={comentario} onChange={e => setComentario(e.target.value)} placeholder='Deixe sua Avaliação...'>   </textarea>
+
                     <div className='estrelas'>
                         <img onClick={zerarNota} src={nota >= 1 ? '../../../images/star.png' : '../../../images/starempty.png'} />
-                        <img onClick={() => setNota(2)} src={nota >= 2 ? '../../../images/star.png' : '../../../images/starempty.png'} />
-                        <img onClick={() => setNota(3)} src={nota >= 3 ? '../../../images/star.png' : '../../../images/starempty.png'} />
-                        <img onClick={() => setNota(4)} src={nota >= 4 ? '../../../images/star.png' : '../../../images/starempty.png'} />
-                        <img onClick={() => setNota(5)} src={nota == 5 ? '../../../images/star.png' : '../../../images/starempty.png'} />
-                        <button>Salvar</button>
+                        <img onClick={() => alterarNota(3)} src={nota >= 2 ? '../../../images/star.png' : '../../../images/starempty.png'} />
+                        <img onClick={() => alterarNota(3)} src={nota >= 3 ? '../../../images/star.png' : '../../../images/starempty.png'} />
+                        <img onClick={() => alterarNota(4)} src={nota >= 4 ? '../../../images/star.png' : '../../../images/starempty.png'} />
+                        <img onClick={() => alterarNota(5)} src={nota === 5 ? '../../../images/star.png' : '../../../images/starempty.png'} />
+                        <button onClick={avaliarPedidoClick}> {avaliado ? 'Salvo' : 'Salvar'}</button>
                     </div>
 
                     <h3>Produtos</h3>

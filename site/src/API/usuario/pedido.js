@@ -25,8 +25,33 @@ export async function salvarNovoPedido(idUsuario, idEndereco, frete, valorTotal,
     return r.data;
 }
 
+export async function avaliarPedido(idPedido, idUsuario, nota, comentario) {
+    const r = await api.post(`/pedido/avaliacao/${idPedido}`, {
+                    usuario: idUsuario,
+                    nota: nota,
+                    comentario: comentario
+    });
+    return r.data;
+}
+
+export async function alterarAvaliacaoPedido(idPedido, idUsuario, nota, comentario) {
+    const r = await api.put(`/pedido/avaliacao/${idPedido}`, {
+                    usuario: idUsuario,
+                    nota: nota,
+                    comentario: comentario
+    });
+    return r.data;
+}
+
+
 export async function listarPedidosUser(id){
     const resposta = await api.get(`/pedido/usuario/${id}`);
+    return resposta.data;
+}
+
+
+export async function listarAvaliacaoPedido(id){
+    const resposta = await api.get(`/pedido/avaliacao/${id}`);
     return resposta.data;
 }
 export async function listarPedidoItens(id){

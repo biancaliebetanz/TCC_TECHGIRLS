@@ -15,7 +15,48 @@ export async function inserirPedidoItem(idPedido, idProduto, qtd, preco) {
     console.log(qtd)
     const [info] = await con.query(comando, [idPedido, idProduto, qtd, preco]);
     return info.affectedRows;
+}
 
+
+export async function inserirAvaliacao(idPedido, idUsuario, nota, comentario) {
+    let hoje = new Date();
+    const comando = `
+    insert into tb_pedido_avaliacao(id_pedido, id_usuario, vl_nota, ds_comentario, dt_avaliacao)
+    values(?, ?, ?, ?, ?);
+        `;
+    const [info] = await con.query(comando, [idPedido, idUsuario, nota, comentario, hoje]);
+    return info.affectedRows;
+}
+
+export async function alterarAvaliacao(idPedido, idUsuario, nota, comentario) {
+    let hoje = new Date();
+    const comando = `
+    update tb_pedido_avaliacao
+    set vl_nota = ?,
+    ds_comentario = ?,
+    dt_avaliacao =?
+    where id_pedido = ? 
+    and id_usuario = ?
+        `;
+    const [info] = await con.query(comando, [nota, comentario, hoje, idPedido, idUsuario]);
+    return info.affectedRows;
+}
+
+export async function buscarAvaliacao(id) {
+    const comando = `
+    select 
+    id_pedido_avaliacao as id_avaliacao,
+    id_pedido as pedido,
+    id_usuario as usuario,
+    vl_nota as nota,
+    ds_comentario as comentario, 
+    dt_avaliacao as data
+    from tb_pedido_avaliacao
+    where id_pedido = ?;
+        `;
+
+    const [resp] = await con.query(comando, id);
+    return resp[0];
 }
 
 export async function Pedidos(pedido) {
@@ -57,6 +98,7 @@ export async function listarPedidosUsuario(id) {
     const [resp] = await con.query(comando, id);
     return resp;
 }
+
 
 export async function ListarPedidoItens(id) {
     const comando = `

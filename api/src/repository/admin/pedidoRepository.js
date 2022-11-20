@@ -23,6 +23,7 @@ export async function listarPedidoId(id) {
     const comando = `
     select
 		id_pedido 			as id_pedido,
+        tb_pedido.id_usuario          as id_usuario,
 		nm_usuario 			as nome,
         vl_subtotal			as preco,
         ds_situacao			as situacao,

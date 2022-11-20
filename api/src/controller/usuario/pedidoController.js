@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { buscarProduto } from "../../repository/admin/produtoRepository.js";
 import { inserirNovoCartao } from "../../repository/usuario/cartaoRepository.js";
-import { inserirPedidoItem, ListarPedidoItens, listarPedidosUsuario, Pedidos } from "../../repository/usuario/pedidoRepository.js";
+import { buscarAvaliacao, inserirAvaliacao, inserirPedidoItem, ListarPedidoItens, listarPedidosUsuario, Pedidos } from "../../repository/usuario/pedidoRepository.js";
 import { criarNovoPedido } from "../../service/novoProdutoService.js";
 
 const server = Router();
@@ -22,6 +22,18 @@ server.get('/pedido/itens/:id', async (req,resp) => {
     try {
         const { id } = req.params;
         const resposta = await ListarPedidoItens(id);
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/pedido/avaliacao/:id', async (req,resp) => {
+    try {
+        const { id } = req.params;
+        const resposta = await buscarAvaliacao(id);
         resp.send(resposta);
     } catch (err) {
         resp.status(400).send({
@@ -59,6 +71,38 @@ server.post('/api/pedido/:usuario' , async (req , resp) =>{
         })
     }
 
+})
+
+server.post('/pedido/avaliacao/:pedido' , async (req , resp) =>{
+    try {
+        const info = req.body;
+        const { pedido } = req.params;
+
+        const avaliar = await inserirAvaliacao(pedido, info.usuario, info.nota, info.comentario) 
+
+        resp.status(204).send();
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+
+})
+
+server.put('/pedido/avaliacao/:pedido', async (req, resp) => {
+    try{
+
+        const {pedido} = req.params;
+
+        const avaliar = await inserirAvaliacao(pedido, info.usuario, info.nota, info.comentario); 
+
+        resp.status(204).send();
+    }
+    catch(err){
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
 })
 
 
