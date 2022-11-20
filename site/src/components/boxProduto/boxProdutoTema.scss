@@ -10,6 +10,8 @@
     margin: 2em;
     height: fit-content;
 
+   
+
     .fav {
         width: 2em;
         height: 2em;
@@ -53,4 +55,10 @@
         cursor: pointer;
         background-color: #5d28c0;
     }
+}
+.boxtema:hover{
+    cursor: pointer;
+    color: rgb(194, 192, 192);
+
+
 }
