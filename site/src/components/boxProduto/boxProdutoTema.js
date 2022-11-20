@@ -80,11 +80,11 @@ export default function ProdutoTema(props){
     
 
     return(
-        <div onClick={visualizarProduto} className="boxtema">
+        <div  className="boxtema">
             <img onClick={AdicionarFav} className="fav" src={favoritado}/>
-            <img className="img" alt="" src={exibirImagem(props.imagem)}/>
-            <p className="nome"> {props.nome} </p>
-            <button className="botao"> {props.preco} </button>
+            <img onClick={visualizarProduto} className="img" alt="" src={exibirImagem(props.imagem)}/>
+            <p onClick={visualizarProduto} className="nome"> {props.nome} </p>
+            <button onClick={visualizarProduto} className="botao"> {props.preco} </button>
         </div>
     )
 }

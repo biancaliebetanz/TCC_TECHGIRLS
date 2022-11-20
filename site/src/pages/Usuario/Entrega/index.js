@@ -108,6 +108,9 @@ export default function Pedido() {
 
     async function SalvarPedido() {
         try {
+            if(!idEndereco){
+                throw new Error('Endereço não selecionado!');
+            }
             setValorTotal(calcularValorTotal());
             setCartao({
                 usuario: id,
@@ -126,7 +129,7 @@ export default function Pedido() {
             navigate('/usuario/finalizacao')
 
         } catch (err) {
-            toast.error(err.response.data.erro);
+            toast.error('Erro: ' + err.message);
         }
 
     }

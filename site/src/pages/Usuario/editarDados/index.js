@@ -21,6 +21,10 @@ export default function Index(){
         try{
         const id = Storage('cliente-logado').data.id;
         console.log(id)
+        if(!nome || !telefone || !cpf || !rg || !nascimento || !id){
+            throw new Error('Insira suas informações para alterar!')
+            return ''
+        }
         const alterar = EditarUsuario(nome, telefone, cpf, rg, nascimento, id);
         console.log(alterar)
         toast('Informações alteradas com sucesso!')

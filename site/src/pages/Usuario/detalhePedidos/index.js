@@ -32,6 +32,12 @@ export default function Index() {
         setItens(y);
     }
 
+    function alterarComentario(comentario) {
+        if(avaliado == false){
+            setComentario(comentario)
+        }
+    }
+
     function alterarNota(nota) {
         if (avaliado == false) {
             setNota(nota)
@@ -65,7 +71,7 @@ export default function Index() {
 
     async function avaliarPedidoClick() {
         try {
-            if (pedido.situacao == 'Pacote Chegou' && avaliado == false ) {
+            if ((pedido.situacao == 'Pacote Chegou' && avaliado == false )) {
                 const x = await avaliarPedido(id, usuario, nota, comentario);
                 console.log(id)
                 const y = await alterarSituacaoPedido(id, 'Pedido Finalizado');
@@ -129,7 +135,7 @@ export default function Index() {
 
 
                 <div className="valoresFinais">
-                    <textarea type='text' value={comentario} onChange={e => setComentario(e.target.value)} placeholder='Deixe sua Avaliação...'>   </textarea>
+                    <textarea type='text' value={comentario} onChange={e => alterarComentario(e.target.value)} placeholder='Deixe sua Avaliação...'>   </textarea>
 
                     <div className='estrelas'>
                         <img onClick={zerarNota} src={nota >= 1 ? '../../../images/star.png' : '../../../images/starempty.png'} />
