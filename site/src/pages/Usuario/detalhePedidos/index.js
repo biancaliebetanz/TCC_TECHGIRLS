@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { listarPedidoId } from '../../../API/admin/pedido/pedidoApi';
 import { buscarPorId } from '../../../API/Usuario';
 import { listarPedidoItens } from '../../../API/usuario/pedido';
@@ -16,6 +16,9 @@ export default function Index() {
 
     const [itens, setItens] = useState([]);
 
+    const [nota, setNota] = useState(0);
+
+
     async function carregarPedido() {
         const x = await listarPedidoId(id);
         const y = await listarPedidoItens(id);
@@ -25,11 +28,20 @@ export default function Index() {
         console.log(y);
     }
 
+    function zerarNota() {
+        if(nota==1){
+            setNota(0)
+        }
+        else {
+            setNota(1)
+        }
+    }
+
     useEffect(() => {
         carregarPedido();
     }, [])
 
-    
+
     return (
         <main className='detalhePed-info'>
             <div>
@@ -38,41 +50,42 @@ export default function Index() {
                 <Legendas nome='Detalhe do Pedido' />
 
             </div>
-                <p> Código: <span> {pedido.id_pedido} </span>  </p>
-                <p> Cliente: <span> {pedido.nome} </span> </p>
+            <p> Código: <span> {pedido.id_pedido} </span>  </p>
+            <p> Cliente: <span> {pedido.nome} </span> </p>
 
             <section className='section'>
 
 
                 <div className='overflow-y'>
                     <table className="tabela">
-                    <thead>
-                        <tr>
-                            <td className="td"> Produto </td>
-                            <td> Preço </td>
-                            <td> Quantidade </td>
-                            <td> Subtotal </td>
-                        </tr>
-                    </thead>
-                    <tbody >
-                        {itens.map(item =>
-                            <Item item={item}/>
+                        <thead>
+                            <tr>
+                                <td className="td"> Produto </td>
+                                <td> Preço </td>
+                                <td> Quantidade </td>
+                                <td> Subtotal </td>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            {itens.map(item =>
+                                <Item item={item} />
 
-                        )}
-                    </tbody>
-                </table>
+                            )}
+                        </tbody>
+                    </table>
                 </div>
 
-                
+
 
                 <div className="valoresFinais">
                     <textarea placeholder='Deixe sua Avaliação...'></textarea>
+                    
                     <div className='estrelas'>
-                        <img src='../../../images/Star.png' />
-                        <img src='../../../images/Star.png' />
-                        <img src='../../../images/Star.png' />
-                        <img src='../../../images/Star.png' />
-                        <img src='../../../images/Star.png' />
+                        <img onClick={zerarNota} src={nota >= 1 ? '../../../images/star.png' : '../../../images/starempty.png'} />
+                        <img onClick={() => setNota(2)} src={nota >= 2 ? '../../../images/star.png' : '../../../images/starempty.png'} />
+                        <img onClick={() => setNota(3)} src={nota >= 3 ? '../../../images/star.png' : '../../../images/starempty.png'} />
+                        <img onClick={() => setNota(4)} src={nota >= 4 ? '../../../images/star.png' : '../../../images/starempty.png'} />
+                        <img onClick={() => setNota(5)} src={nota == 5 ? '../../../images/star.png' : '../../../images/starempty.png'} />
                         <button>Salvar</button>
                     </div>
 
