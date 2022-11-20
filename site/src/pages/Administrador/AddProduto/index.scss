@@ -40,13 +40,17 @@
         flex-direction: column;
         width: 25em;
         padding: 0.7em 0em;
+
+      input{
+         width: 400px;
+      }
     }
 
     .textarea {
       border: none;
       background-color: #D9D9D9;
-      width: 18.7em;
-      height: 4.5em;
+      width: 300px;
+      height: 100px;
       resize: none;
       line-height: 1.5em;
     }
@@ -194,3 +198,4 @@
      }
 
 }
+

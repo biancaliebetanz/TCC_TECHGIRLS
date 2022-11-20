@@ -10,15 +10,16 @@
     background-position: center;
 
     .Bem-Vindo {
+        position: relative;
+        right: 5em;
+        margin-bottom: 1em;
         font-size: 22px;
         font-family: 'Lexend-Light';
         font-weight: 100;
         color:#521FAF;
     }
 
-    .PedRecentes {
-        overflow-y: scroll;
-    }
+   
 
     .fundo-pedido {
         width: 100%;
@@ -26,6 +27,8 @@
         display: flex;
         justify-content: center;
         padding: 1em 0em;
+        overflow-y: scroll;
+
     }
 
     .tabela {
@@ -35,6 +38,7 @@
         height: max-content;
         font-family: 'Lexend-Light';
         font-size: 14px;
+
     }
 
     .tabela td {

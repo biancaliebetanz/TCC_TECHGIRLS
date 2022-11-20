@@ -10,6 +10,8 @@
     margin: 2em;
     height: fit-content;
 
+   
+
     .fav {
         width: 2em;
         height: 2em;
@@ -31,10 +33,12 @@
     }
 
     .nome {
+        text-align: center;
         font-family: 'Lexend-Regular';
         font-size: 16px;
         text-transform: capitalize;
         margin: 0.5em 0em;
+        width: 10em;
     }
 
     .botao {
@@ -53,4 +57,10 @@
         cursor: pointer;
         background-color: #5d28c0;
     }
+}
+.boxtema:hover{
+    cursor: pointer;
+    color: rgb(194, 192, 192);
+
+
 }

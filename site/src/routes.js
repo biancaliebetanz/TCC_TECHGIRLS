@@ -20,6 +20,7 @@ import UsuarioTema from './pages/Usuario/TemaPesquisa/index.js'
 import EditarDados from './pages/Usuario/editarDados/index.js'
 import BannerAdmin from './pages/Administrador/Banner/index.js'
 import Finalizacao from './pages/Usuario/Finalizacao/index.js'
+import Avaliacao from './pages/Administrador/Avaliacaoes/index.js'
 
 export default function Index(){
     return(
@@ -37,6 +38,8 @@ export default function Index(){
                 <Route path='/admin/tema/:id' element={<NovoTema/>} />
                 <Route path='/admin/tema' element={<NovoTema/>} />
                 <Route path='/admin/banner' element={<BannerAdmin/>} />
+                <Route path='/admin/avaliacoes' element={<Avaliacao/>} />
+
 
 
                 <Route path='/usuario/dados' element={<DadosPessoais/>} />

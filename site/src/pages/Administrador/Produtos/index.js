@@ -113,10 +113,10 @@ export default function Index() {
                                 <option value={item.id}> {item.nome} </option>
                             )}
                         </select>
-                        <button onClick={() => buscarTemaClick()}> Buscar </button>
+                        <button className="bt-select" onClick={() => buscarTemaClick()}> Buscar </button>
                     </div>
-                    <input type='text' placeholder="digite a" value={filtroCategoria} onChange={e => setFiltroCategoria(e.target.value)}></input>
-                    <button onClick={buscarCategoriaClick}>Buscar</button>
+                    <input className="select" type='text' placeholder="Digite a categoria..." value={filtroCategoria} onChange={e => setFiltroCategoria(e.target.value)}></input>
+                    <button className="bt-select" onClick={buscarCategoriaClick}>Buscar</button>
                 </div>
                 <div>
 

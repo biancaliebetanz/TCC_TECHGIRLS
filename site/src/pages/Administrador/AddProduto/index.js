@@ -243,7 +243,7 @@ export default function Index() {
 
                             <div className="flex-column">
                                 <label> Nome do Produto </label>
-                                <input type="text" value={nome} onChange={e=> setNome(e.target.value)} className="input"/>
+                                <input  type="text" value={nome} onChange={e=> setNome(e.target.value)} className="input"/>
                             </div>
 
                             <div className="flex-column">
@@ -256,6 +256,7 @@ export default function Index() {
                             <div className="flex-row space-between">
 
                                 <div className="select-tamanho">
+                                    
                                     <label> Categoria:</label>
                                     <select className="select" value={idCategoria} onChange={e => setIdCategoria(Number(e.target.value))}>
                                         <option selected='selected' >Selecione</option> 

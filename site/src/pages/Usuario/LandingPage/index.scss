@@ -74,8 +74,7 @@
 
     .container-banner {
         margin-top: 15.5vh;
-        background: linear-gradient(90deg, #ff2c83 0%, #521faf 44.16%, #00b8ae 85.63%);
-
+        background:linear-gradient( 90deg,rgb(143, 142, 142), #3f3f3f,  #d6d5d5)
     }
 
     .banner {
@@ -256,5 +255,9 @@
         padding: 2em 0em;
     }
 
-
+    .boxtema{
+        border:none;
+        background: none;
+    }
 }
+
