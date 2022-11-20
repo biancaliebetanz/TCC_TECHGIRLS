@@ -83,7 +83,7 @@ export default function ProdutoTema(props){
         <div onClick={visualizarProduto} className="boxtema">
             <img onClick={AdicionarFav} className="fav" src={favoritado}/>
             <img className="img" alt="" src={exibirImagem(props.imagem)}/>
-            <h3 className="nome"> {props.nome} </h3>
+            <p className="nome"> {props.nome} </p>
             <button className="botao"> {props.preco} </button>
         </div>
     )

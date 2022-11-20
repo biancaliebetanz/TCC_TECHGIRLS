@@ -89,7 +89,7 @@ export default function Index(){
                 <div className='imgs esp'>
                     <img className="img" src={exibirDestaque()} />
                 
-                    <div>
+                    <div className='ladin'>
                         <img className='img-mini' src={buscarDestaque()} onClick={() => setImagemPrincipal()}/>
                         {produto.imagens.map((item, pos) =>
                             <img className="img-mini" src={exibirImagensProduto(item)} onClick={() => setImagemPrincipal(exibirImagensProduto(item))}/>

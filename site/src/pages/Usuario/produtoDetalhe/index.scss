@@ -36,6 +36,10 @@
         border-radius: 5px;
     }
 
+    .ladin{
+        display: flex;
+        flex-direction: row;
+    }
     .img-mini:hover{
         cursor: pointer;
         width: 5.2em;
@@ -102,13 +106,13 @@
 
 .itemzinho{
     padding: 0.2em 0.5em;
-    background-color: rgb(131, 131, 131);
     font-family: 'Lexend-Light';
     font-size: 12px;
     margin: 0em 0.5em;
     border-radius: 5px;
-    border: 1px solid #000;
+    border: 1px solid #FF2C83;
     text-transform: capitalize;
+    color: #521FAF;
 }
 
 
@@ -121,5 +125,13 @@
 .avaliacao{
     display: flex;
     justify-content: center;
+}
+h4{
+    color: #521FAF;
+    margin-bottom: 5px;
+}
+h3{
+    color: #521FAF;
+
 }
 }
