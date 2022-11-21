@@ -43,9 +43,14 @@ export default function CabecalhoPrincipal(props) {
     }
 
     async function buscarNomeClick(event) {
-        const resp = await buscarProdutosPorNome(busca);
+        try{
+            const resp = await buscarProdutosPorNome(busca);
         console.log(resp)
         setProdutos(resp);
+        }
+        catch{
+            toast.error('Produto não encontrado')
+        }
     }
 
 
