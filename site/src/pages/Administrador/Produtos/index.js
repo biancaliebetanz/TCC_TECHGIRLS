@@ -45,11 +45,7 @@ export default function Index() {
         console.log(resp)
         setProduto(resp);
     }
-    async function buscarCategoriaClick() {
-        const resp = await buscarCategoria(filtroCategoria);
-        console.log(resp)
-        setProduto(resp);
-    }
+    
 
     async function ListarProdutos() {
         const resposta = await ProdutosListados();
@@ -115,8 +111,6 @@ export default function Index() {
                         </select>
                         <button className="bt-select" onClick={() => buscarTemaClick()}> Buscar </button>
                     </div>
-                    <input className="select" type='text' placeholder="Digite a categoria..." value={filtroCategoria} onChange={e => setFiltroCategoria(e.target.value)}></input>
-                    <button className="bt-select" onClick={buscarCategoriaClick}>Buscar</button>
                 </div>
                 <div>
 
