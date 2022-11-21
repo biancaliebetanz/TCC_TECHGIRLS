@@ -16,9 +16,25 @@ export async function listarPedidos() {
 
     const [linhas] = await con.query(comando);
     return linhas;
-
-
 }
+
+export async function listarAvaliacoes() {
+    const comando = `
+        select
+        id_pedido as pedido,
+        tb_pedido_avaliacao.id_usuario as usuario,
+        nm_usuario as nome,
+        vl_nota as nota,
+        ds_comentario as comentario,
+        dt_avaliacao as data
+        from tb_pedido_avaliacao
+        inner join tb_usuario on tb_usuario.id_usuario = tb_pedido_avaliacao.id_usuario;`;
+
+    const [linhas] = await con.query(comando);
+    return linhas;
+}
+
+
 export async function listarPedidoId(id) {
     const comando = `
     select
@@ -42,16 +58,17 @@ export async function listarPedidoId(id) {
 }
 
 
-export async function AlterarSituacãoPedido(id, situacao){
+export async function AlterarSituacãoPedido(id, situacao) {
     const comando = `
     UPDATE TB_PEDIDO
     SET DS_SITUACAO     = ?
     WHERE ID_PEDIDO = ? `;
     const [resp] = await con.query(comando, [situacao, id
     ]);
-    return { id : id,
-            situacao : situacao
-        };
+    return {
+        id: id,
+        situacao: situacao
+    };
 }
 export async function DeletarPedido(id) {
     const comando = `DELETE FROM TB_PEDIDO
@@ -61,11 +78,11 @@ export async function DeletarPedido(id) {
     return resposta.affectedRows;
 }
 
-export async function DeletarPedidoItem(id){
+export async function DeletarPedidoItem(id) {
     const comando = `
     DELETE FROM TB_PEDIDO_ITEM
     WHERE ID_PRODUTO = ?
-    ` 
+    `
     const [resp] = await con.query(comando, [id]);
     return resp.affectedRows;
 }

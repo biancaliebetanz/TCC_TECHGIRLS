@@ -1,10 +1,21 @@
 import { Router } from "express";
-import { AlterarSituacãoPedido, DeletarPedido, DeletarPedidoItem, listarPedidoId, listarPedidos } from "../../repository/admin/pedidoRepository.js";
+import { AlterarSituacãoPedido, DeletarPedido, DeletarPedidoItem, listarAvaliacoes, listarPedidoId, listarPedidos } from "../../repository/admin/pedidoRepository.js";
 const server = Router();
 
 server.get('/pedido', async (req,resp) => {
     try {
         const resposta = await listarPedidos();
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/avaliacoes', async (req,resp) => {
+    try {
+        const resposta = await listarAvaliacoes();
         resp.send(resposta);
     } catch (err) {
         resp.status(400).send({

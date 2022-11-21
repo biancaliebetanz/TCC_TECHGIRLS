@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
-import { listarAvaliacaoPedido } from '../../../API/usuario/pedido';
+import { listarAvaliacoes } from '../../../API/usuario/pedido.js';
 import Comentario from '../../../components/comment';
-import MenuAdmin from '../../../components/pagAdm/pagAdm'
+import MenuAdmin from '../../../components/pagAdm/pagAdm.js'
 import './index.scss'    
 
 export default function Index() {
-    const [avaliacao, setAvaliacao] = useState([]);
+    const [avaliacao, setAvaliacao] = useState([1,1,1]);
 
 
 
     async function ListarAvaliacoes() {
-        const resposta = await listarAvaliacaoPedido();
+        const resposta = await listarAvaliacoes();
         console.log(resposta)
         setAvaliacao(resposta)
     }
@@ -25,12 +25,13 @@ export default function Index() {
 
 
             <section className="fundo">
-                <p> Últimas Avaliações</p>
+                <h2> Últimas Avaliações</h2>
 
                 
-              <div>
+              <div className='avaliacoeszinhas'>
                   
-               
+               {avaliacao.map( item =>
+                <Comentario item={item} />)}
            
               </div>
               

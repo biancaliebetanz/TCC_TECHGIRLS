@@ -49,11 +49,16 @@ export async function listarPedidosUser(id){
     return resposta.data;
 }
 
+export async function listarAvaliacoes(){
+    const resposta = await api.get(`/avaliacoes`);
+    return resposta.data;
+}
 
 export async function listarAvaliacaoPedido(id){
     const resposta = await api.get(`/pedido/avaliacao/${id}`);
     return resposta.data;
 }
+
 export async function listarPedidoItens(id){
     const resposta = await api.get(`/pedido/itens/${id}`);
     return resposta.data;

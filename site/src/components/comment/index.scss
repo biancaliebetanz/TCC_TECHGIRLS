@@ -1,4 +1,48 @@
 .comment{
-    background-color: #E2F3F2;
-    width: 200px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    background-color: #b99bff;
+    padding: 1em;
+    border-radius: 20px;
+    width: 25%;
+    height: 45%;
+    font-family: 'Lexend-Light';
+    font-size: 14px;
+    margin: 0em 2em 0em 0em;
+
+    .flex-row{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .flex-nome{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .flex-nome img {
+        height: 2em;
+        width: 2em;
+    }
+
+    .flex-nome h3 {
+        width: 85%;
+        margin: 0em 1em;
+    }
+    
+    .usernome {
+        font-family: 'Lexend-Bold';
+        text-transform: uppercase;
+        color: #000;
+    }
+
+    .flex-row img {
+    width: 2em;
+    height: 2em;
+    }
+
 }

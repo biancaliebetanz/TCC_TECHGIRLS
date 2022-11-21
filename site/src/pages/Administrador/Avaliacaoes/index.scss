@@ -5,14 +5,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     background-image: url("../../../../public/images/planodefundo.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     
     p{
-        margin-top: 2em;
+        word-break:normal;
+        max-width: fit-content;
+        font-size: 12px;
+        font-family: 'Lexend-Light';
+        color: #000;
+    }
+    
+    .avaliacoeszinhas {
+        display: flex;
+        padding: 2em;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        overflow-y: scroll;
+        min-height: 70%;
     }
 
 }
